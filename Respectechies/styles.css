@@ -193,3 +193,14 @@ main {
     max-height: 300px;
     margin-right: 50px;
 }
+.tech5 {
+    height: 250px;
+    width: 400px;
+    border-radius: 1000px 95px;
+    display: inline-block;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 150px;
+    max-height: 300px;
+    margin-right: 50px;
+}
