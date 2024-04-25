@@ -1,0 +1,15 @@
+body {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+header > .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+img {
+    max-width: 70px;
+    width: 45px;
+    height: 47px;
+    padding: 5px auto;
+}
