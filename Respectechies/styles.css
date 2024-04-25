@@ -25,6 +25,10 @@ main {
     padding: 10px;
 }
 
+.header {
+    text-align: center;
+}
+
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -67,3 +71,25 @@ main {
 .nav-link:hover {
     color: #ddd;
 }
+
+  footer {
+      display: flex;
+      justify-content: flex-end;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 15px 20px;
+      background-image: linear-gradient(135deg, #F05F57 10%, #360940 100%);
+      font-style: italic;
+  }
+
+  footer>p {
+      margin: 2rem;
+  }
+
+  .rhr-academy {
+      font-size: small;
+      display: inline-block;
+      justify-items: left;
+      font-weight: 300;
+  }
