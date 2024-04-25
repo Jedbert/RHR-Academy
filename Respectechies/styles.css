@@ -112,3 +112,84 @@ main {
       justify-items: left;
       font-weight: 300;
   }
+
+  .profile {
+      display: inline-block;
+      justify-content: center;
+      flex-direction: column;
+      max-width: 150px;
+      max-height: 300px;
+      margin-bottom: 20px;
+  }
+  .profile1 {
+      display: inline-block;
+      justify-content: center;
+      flex-direction: column;
+      max-width: 150px;
+      max-height: 300px;
+      margin-bottom: 20px;
+  }
+  .profile2 {
+      display: inline-block;
+      justify-content: center;
+      flex-direction: column;
+      max-width: 150px;
+      max-height: 300px;
+      margin-bottom: 20px;
+  }
+
+.profile:firstchild {
+    margin-right: 50px;
+}
+
+main {
+    text-align: center;
+}
+
+.tech1 {
+    height: 250px;
+    width: 400px;
+    border-radius: 1000px 95px;
+    display: inline-block;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 150px;
+    max-height: 300px;
+    margin-right: 50px;
+  }
+.tech2 {
+    height: 250px;
+    width: 400px;
+    border-radius: 00 95px;
+    border-color: solid #080f11;
+    display: inline-block;
+    justify-content: space-between;
+    flex-direction: column;
+    max-width: 150px;
+    max-height: 300px;
+    margin-right: 50px;
+  }
+.tech3 {
+    height: 250px;
+    width: 400px;
+    border-radius: 1000px 95px;
+    display: inline-block;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 150px;
+    max-height: 300px;
+    margin-right: 50px;
+}
+
+.tech4 {
+    height: 250px;
+    width: 400px;
+    border-radius: 00 95px;
+    border-color: solid #080f11;
+    display: inline-block;
+    justify-content: space-between;
+    flex-direction: column;
+    max-width: 150px;
+    max-height: 300px;
+    margin-right: 50px;
+}
