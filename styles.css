@@ -87,7 +87,8 @@ main {
 #nav-bar ul li {
     margin-top: 20px;
     margin: 20px;
-    margin-left: 50px;
+    margin-left: 45px;
+    margin-right: auto;
 }
 
 .nav-link {
