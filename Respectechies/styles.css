@@ -26,6 +26,7 @@ header {
     align-items: center;
     height: 17vh;
     width: 100%;
+    overflow-x: hidden;
 }
 
 .main-content1 {
