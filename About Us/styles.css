@@ -112,3 +112,23 @@ main {
       justify-items: left;
       font-weight: 300;
   }
+
+.tech-images-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tech1 {
+    display: inline-block;
+    margin: 0 10px 20px;
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+}
+
+.tech1 {
+    padding: 20px;
+    border-radius: 360px;
+    background-color: #c2c0c0;
+}
