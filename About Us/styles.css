@@ -16,13 +16,10 @@ body {
 }
 
 header {
-    display: flex;
-    min-height: 65px;
-    padding: 20px;
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    position: relative;
+    background-color: #fff;
+    text-align: center;
+    padding-top: 2.5rem;
 }
 
 .container {
@@ -43,17 +40,24 @@ header {
     padding: 0;
 }
 
-#nav-bar ul {
+#nav-bar {
     display: flex;
+    justify-content: center;
+}
+
+#nav-bar ul {
     list-style: none;
+    display: flex;
 }
 
 #nav-bar ul li {
+    margin-top: 20px;
+    margin-bottom: 0;
     margin-right: 20px;
 }
 
 .nav-link {
-    color: #fff;
+    color: #994949;
     text-decoration: none;
     padding: 10px;
 }
