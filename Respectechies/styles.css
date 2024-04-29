@@ -12,6 +12,7 @@ html {
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1.5rem;
+    overflow-x: hidden;
 }
 
 header {
@@ -25,6 +26,7 @@ header {
     align-items: center;
     height: 17vh;
     width: 100%;
+    overflow-x: hidden;
 }
 
 .main-content1 {
