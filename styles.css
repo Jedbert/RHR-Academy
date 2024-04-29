@@ -5,19 +5,21 @@
 
 html {
       box-sizing: border-box;
-      font-size: 62.5%;
+      font-size: 16px;
       scroll-behavior: smooth;
   }
 
+@media screen and (max-width: 750px) {
 body {
+    width: 100vw;
+    height: 100vh;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1.5rem;
-    overflow-x: hidden;
 }
-
+}
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -25,18 +27,14 @@ body {
 header {
     display: flex;
     position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
     padding: 0 20px;
     background-image: url("https://i.ibb.co/GFnBdPt/Job-Interview.jpg");
-    background-size: 100% auto;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     justify-content: space-between;
     align-items: center;
-    height: 800px;
-    width: 100%;
+    height: 45rem;
     z-index: 1000;
     overflow: hidden;
 }
@@ -49,7 +47,7 @@ main {
     text-align: center;
 }
 .main-content > h2 {
-    font-size: medium;
+    font-size: 1.5em;
 }
 .header{
     text-align: center;
@@ -57,7 +55,7 @@ main {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 90vw;
     margin: 0 auto;
     padding: 10px 0;
 }
@@ -77,6 +75,7 @@ main {
 
 #nav-bar {
     display: flex;
+    justify-content: center;
 }
 
 #nav-bar ul {
@@ -86,39 +85,35 @@ main {
 
 #nav-bar ul li {
     margin-top: 20px;
-    margin: 20px;
-    margin-left: 45px;
-    margin-right: auto;
+    margin-right: 20px;
 }
 
 .nav-link {
-    color: #ff3300;
+    color: #7e1313;
     text-decoration: none;
-    padding: 10px;
-    font-weight: 900;
+    padding: 10px 35px;
+    font-weight: 600;
 }
 
 .nav-link:hover {
-    color: #ddd;
+    color: #325a60;
 }
 
 #instagram-media {
-    margin-top: 50px;
+    margin-top: 2.5rem;
     display: flex;
     justify-content: center;
 }
 
 #instagram-media>iframe {
-    max-width: 560px;
-    width: 100%;
+    max-width: 50%;
+    width: 40%;
 }
 
   footer {
       display: flex;
-      justify-content: flex-end;
-      position: absolute;
-      /* bottom: 0; */
-      width: 100%;
+      justify-content: center;
+      position: relative;
       padding: 15px 20px;
       background-image: linear-gradient(135deg, #F05F57 10%, #360940 100%);
       font-style: italic;
@@ -144,12 +139,17 @@ main {
 }
 
 .section-i {
+    flex: 1;
+    max-width: calc(50% - 20px);
     display: inline-block;
     justify-content: space-between;
     flex-direction: column;
     max-width: 150px;
     max-height: 300px;
     margin-bottom: 20px;
+    width: 80vw;
+    border-radius: 20px;
+    background-color: #f9f9f9;
 }
 
 .hero:first-child {
