@@ -95,7 +95,7 @@ main {
       display: flex;
       justify-content: flex-end;
       position: absolute;
-      bottom: 0;
+      /* bottom: 0; */
       width: 100%;
       padding: 15px 20px;
       background-image: linear-gradient(135deg, #F05F57 10%, #360940 100%);
@@ -113,33 +113,19 @@ main {
       font-weight: 300;
   }
 
-  .profile {
-      display: inline-block;
-      justify-content: center;
-      flex-direction: column;
-      max-width: 150px;
-      max-height: 300px;
-      margin-bottom: 20px;
-  }
-  .profile1 {
-      display: inline-block;
-      justify-content: center;
-      flex-direction: column;
-      max-width: 150px;
-      max-height: 300px;
-      margin-bottom: 20px;
-  }
-  .profile2 {
-      display: inline-block;
-      justify-content: center;
-      flex-direction: column;
-      max-width: 150px;
-      max-height: 300px;
-      margin-bottom: 20px;
-  }
+.profile {
+    gap: 0;
+    margin-top: 0;
+    margin-left: 0;
+    text-align: inherit;
+}
+.image-text-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
 
-.profile:firstchild {
-    margin-right: 50px;
+.tech1:first-child {
+    margin-right: 100px;
 }
 
 main {
@@ -147,60 +133,84 @@ main {
 }
 
 .tech1 {
-    height: 250px;
-    width: 400px;
-    border-radius: 1000px 95px;
     display: inline-block;
     justify-content: center;
     flex-direction: column;
-    max-width: 150px;
+    max-width: 350px;
     max-height: 300px;
-    margin-right: 50px;
-  }
-.tech2 {
+    margin-bottom: 20px;
+    border-radius: 360px 360px;
     height: 250px;
-    width: 400px;
-    border-radius: 00 95px;
-    border-color: solid #080f11;
-    display: inline-block;
-    justify-content: space-between;
-    flex-direction: column;
-    max-width: 150px;
-    max-height: 300px;
-    margin-right: 50px;
-  }
-.tech3 {
-    height: 250px;
-    width: 400px;
-    border-radius: 1000px 95px;
-    display: inline-block;
-    justify-content: center;
-    flex-direction: column;
-    max-width: 150px;
-    max-height: 300px;
-    margin-right: 50px;
+    width: 250px;
 }
 
-.tech4 {
-    height: 250px;
-    width: 400px;
-    border-radius: 00 95px;
-    border-color: solid #080f11;
-    display: inline-block;
-    justify-content: space-between;
-    flex-direction: column;
-    max-width: 150px;
-    max-height: 300px;
-    margin-right: 50px;
+.tech1 {
+    padding: 20px;
+    border-radius: 360px;
+    background-color: #f0f0f0;
 }
+
+.good {
+    flex-direction: initial;
+    text-align: center;
+        /* display: inline-flex;
+            justify-content: space-between;
+            flex-direction: column;
+            max-width: 500px;
+            max-height: 300px;
+            margin-bottom: 20px; */
+    }
+
+.tech2 {
+        height: 250px;
+        width: 250px;
+        border-radius: 360px 360px;
+        display: inline-block;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 5000px;
+        max-height: 300px;
+        margin-left: 50px;
+        padding-right: 10;
+    }
+.tech3 {
+        height: 250px;
+        width: 250px;
+        border-radius: 360px 360px;
+        display: inline-flex;
+        justify-content: center;
+        flex-direction: row;
+        max-width: 5000px;
+        max-height: 300px;
+        margin: 10px 15px;
+        padding-right: 10;
+    }
+
+.tech4 {
+        height: 250px;
+        width: 250px;
+        border-radius: 360px 360px;
+        display: inline-block;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 5000px;
+        max-height: 300px;
+        margin: 10px 15px;
+        padding-right: 10;
+    }
 .tech5 {
-    height: 250px;
-    width: 400px;
-    border-radius: 1000px 95px;
-    display: inline-block;
-    justify-content: center;
-    flex-direction: column;
-    max-width: 150px;
-    max-height: 300px;
-    margin-right: 50px;
+        height: 250px;
+        width: 250px;
+        border-radius: 360px 360px;
+        display: inline-block;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 5000px;
+        max-height: 300px;
+        margin: 10px 15px;
+        padding-right: 10;
+    }
+
+.Onboarding1 {
+    position: relative;
 }
