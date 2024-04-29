@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,4 +8,256 @@
 <body>
     
 </body>
+</html> -->
+<!-- index.html -->
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content= 
+		"width=device-width, initial-scale=1.0"> 
+	<title>Pagination Example</title> 
+	<link rel="stylesheet" href="style.css"> 
+    <style>
+        /* style.css */
+body { 
+	font-family: Arial, sans-serif; 
+	margin: 3rem; 
+} 
+
+.container { 
+	max-width: 1200px; 
+	margin: 0 auto; 
+	padding: 20px; 
+} 
+
+.pagination { 
+	text-align: center; 
+	margin-top: 2rem; 
+} 
+
+.pagination a { 
+	color: #007BFF; 
+	padding: 8px 16px; 
+	text-decoration: none; 
+	border: 1px solid #007BFF; 
+	margin: 0 5px; 
+	border-radius: 4px; 
+} 
+
+.pagination a:hover { 
+	background-color: #007BFF; 
+	color: white; 
+} 
+
+.pagination .active { 
+	background-color: #007BFF; 
+	color: white; 
+} 
+
+.card-container { 
+	display: grid; 
+	grid-template-columns: repeat(4, 1fr); 
+	gap: 20px; 
+} 
+
+.card { 
+	border: 1px solid #ddd; 
+	padding: 20px; 
+	border-radius: 10px; 
+	box-shadow: 0 2px 20px 0px rgba(0, 0, 0, 0.1); 
+	background-color: #fff; 
+	text-align: center; 
+} 
+
+.card img { 
+	max-width: 100%; 
+	height: auto; 
+	margin-bottom: 10px; 
+	border-radius: 10px; 
+} 
+
+h3 { 
+	margin-top: 10px; 
+	font-size: 18px; 
+	text-transform: capitalize; 
+} 
+
+h1 { 
+	text-align: center; 
+	margin: 2rem; 
+} 
+
+p { 
+	font-size: 14px; 
+} 
+
+#page-numbers { 
+	margin-top: 20px; 
+	font-size: 16px; 
+}
+
+    </style>
+</head> 
+
+<body> 
+	<div id="data-container"> 
+		<h1> Pagination in HTML CSS & JavaScript</h1> 
+		<div class="card-container"> 
+			<div class="card"> 
+				<img src= 
+"https://media.geeksforgeeks.org/img-practice/banner/mern-full-stack-development-classroom-thumbnail.png?v=19630"
+					alt="Image 1"> 
+				<h3>mern full stack development classroom</h3> 
+				<p>This is the content of Card 1.</p> 
+			</div> 
+			<div class="card"> 
+				<img src= 
+"https://media.geeksforgeeks.org/img-practice/banner/devops-live-thumbnail.png?v=19630"
+					alt="Image 2"> 
+				<h3>Dev Ops Live</h3> 
+				<p>This is the content of Card 2.</p> 
+			</div> 
+			<div class="card"> 
+				<img src= 
+"https://media.geeksforgeeks.org/img-practice/banner/gate-data-science-and-artificial-intelligence-da-2024-thumbnail.png?v=19630"
+					alt="Image 3"> 
+				<h3>Gate Date science and artificial intelligence</h3> 
+				<p>This is the content of Card 3.</p> 
+			</div> 
+			<div class="card"> 
+				<img src= 
+"https://media.geeksforgeeks.org/img-practice/banner/gate-crash-course-2024-thumbnail.png?v=19630"
+					alt="Image 4"> 
+				<h3>gate crash course 2024 </h3> 
+				<p>This is the content of Card 4.</p> 
+			</div> 
+			<div class="card"> 
+				<img src= 
+"https://media.geeksforgeeks.org/img-practice/banner/complete-test-series-product-companies-thumbnail.png?v=19631"
+					alt="Image 5"> 
+				<h3>complete test series product companies</h3> 
+				<p>This is the content of Card 5.</p> 
+			</div> 
+			<div class="card"> 
+				<img src= 
+"https://media.geeksforgeeks.org/img-practice/banner/dsa-to-development-coding-guide-thumbnail.png?v=19630"
+					alt="Image 6"> 
+				<h3>dsa to development coding guide</h3> 
+				<p>This is the content of Card 6.</p> 
+			</div> 
+			<div class="card"> 
+				<img src="https://media.geeksforgeeks.org/img-practice/banner/geeks-classes-live-thumbnail.png?v=19630"	alt="Image 7"> 
+				<h3>geeks classes live</h3> 
+				<p>This is the content of Card 7.</p> 
+			</div> 
+			<div class="card"> 
+				<img src="https://media.geeksforgeeks.org/img-practice/banner/dsa-interview-preparation-classroom-thumbnail.png?v=19631" alt="Image 8"> 
+				<h3>dsa interview preparation classroom</h3> 
+				<p>This is the content of Card 8.</p> 
+			</div> 
+			<div class="card"> 
+				<img src="https://media.geeksforgeeks.org/img-practice/banner/complete-interview-preparation-thumbnail.png?v=19631"	alt="Image 9"> 
+				<h3>complete interview preparation</h3> 
+				<p>This is the content of Card 9.</p> 
+			</div> 
+			<div class="card"> 
+				<img src="https://media.geeksforgeeks.org/img-practice/banner/Data-Structures-With-Python-thumbnail.png?v=19631" alt="Image 10"> 
+				<h3>Data Structures With Python</h3> 
+				<p>This is the content of Card 10.</p> 
+			</div> 
+			<!-- Add more cards as needed -->
+		</div> 
+	</div> 
+
+	<div class="pagination" id="pagination"> 
+		<a href="#" id="prev">Previous</a> 
+		<a href="#" class="page-link" data-page="1">1</a> 
+		<a href="#" class="page-link" data-page="2">2</a> 
+		<a href="#" class="page-link" data-page="3">3</a> 
+		<a href="#" id="next">Next</a> 
+		<p id="page-numbers"> </p> 
+	</div> 
+
+	<script src="script.js"> </script> 
+    <script>
+            //script.js 
+        const cardsPerPage = 4; // Number of cards to show per page 
+        const dataContainer = document.getElementById('data-container'); 
+        const pagination = document.getElementById('pagination'); 
+        const prevButton = document.getElementById('prev'); 
+        const nextButton = document.getElementById('next'); 
+        const pageNumbers = document.getElementById('page-numbers'); 
+        const pageLinks = document.querySelectorAll('.page-link'); 
+
+        const cards = Array.from(dataContainer.getElementsByClassName('card')); 
+
+        // Calculate the total number of pages 
+        const totalPages = Math.ceil(cards.length / cardsPerPage); 
+        let currentPage = 1; 
+
+        // Function to display cards for a specific page 
+        function displayPage(page) { 
+            const startIndex = (page - 1) * cardsPerPage; 
+            const endIndex = startIndex + cardsPerPage; 
+            cards.forEach((card, index) => { 
+                if (index >= startIndex && index < endIndex) { 
+                    card.style.display = 'block'; 
+                } else { 
+                    card.style.display = 'none'; 
+                } 
+            }); 
+        } 
+
+        // Function to update pagination buttons and page numbers 
+        function updatePagination() { 
+            pageNumbers.textContent = 
+                `Page ${currentPage} of ${totalPages}`; 
+            prevButton.disabled = currentPage === 1; 
+            nextButton.disabled = currentPage === totalPages; 
+            pageLinks.forEach((link) => { 
+                const page = parseInt(link.getAttribute('data-page')); 
+                link.classList.toggle('active', page === currentPage); 
+            }); 
+        } 
+
+// Event listener for "Previous" button 
+prevButton.addEventListener('click', () => { 
+	if (currentPage > 1) { 
+		currentPage--; 
+		displayPage(currentPage); 
+		updatePagination(); 
+	} 
+}); 
+
+// Event listener for "Next" button 
+nextButton.addEventListener('click', () => { 
+	if (currentPage < totalPages) { 
+		currentPage++; 
+		displayPage(currentPage); 
+		updatePagination(); 
+	} 
+}); 
+
+// Event listener for page number buttons 
+pageLinks.forEach((link) => { 
+	link.addEventListener('click', (e) => { 
+		e.preventDefault(); 
+		const page = parseInt(link.getAttribute('data-page')); 
+		if (page !== currentPage) { 
+			currentPage = page; 
+			displayPage(currentPage); 
+			updatePagination(); 
+		} 
+	}); 
+}); 
+
+// Initial page load 
+displayPage(currentPage); 
+updatePagination();
+
+    </script>
+</body> 
+
 </html>
