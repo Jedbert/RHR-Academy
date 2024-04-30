@@ -143,12 +143,12 @@ main {
     color: #325a60;
 }
 
-/* @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .nav-link {
         padding: 5px 7px;
         font-size: 0.68rem;
     }
-} */
+}
 
 #instagram-media {
     margin-top: 2.5rem;
