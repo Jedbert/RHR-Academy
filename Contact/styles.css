@@ -41,6 +41,12 @@ header {
     padding: 0;
 }
 
+@media screen and (max-width: 750px) {
+    .logo {
+        max-height: 8vh;
+    }
+}
+
 .header-image {
     width: 100%;
     height: 350px;
