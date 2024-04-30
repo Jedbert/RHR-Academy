@@ -1,0 +1,34 @@
+body{
+    margin: 0;
+    padding: 0;
+   
+}
+:root{
+    --color:#202020;
+    --color1:#fff;
+    --color2:#000;
+}
+footer{
+    background-color: var(--color);
+    color: var(--color1);
+}
+footer p, footer a{
+    font-size: 1.5vw;
+    text-decoration: none;
+    color: var(--color1);
+}
+
+.footer-note{
+    background-color: var(--color);
+    padding: 1.5vw;
+    width:  100%;
+}
+.last-footer{
+    background-color: var(--color2);
+    width:  100%;
+}
+.last-footer p{
+   padding: 1vw;
+    margin: auto; 
+    text-align: center;
+}

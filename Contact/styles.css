@@ -151,7 +151,7 @@ button:hover {
     background-color: #0056b3;
 }
 
-.footer-note {
+/*.footer-note {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -176,4 +176,4 @@ button:hover {
     display: flex;
     justify-items: flex-end;
     font-weight: 300;
-}
+}*/
