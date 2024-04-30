@@ -9,40 +9,19 @@ html {
       scroll-behavior: smooth;
   }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 768px) {
     html {
-            font-size: 14px;
+        font-size: 14px;
     }
     body {
         font-size: 1.2rem;
-    }
-    header {
-        height: 20rem;
     }
     .main-content>h2 {
         font-size: 1.2em;
     }
 }
 
-@media screen and (max-width: 480px) {
-    html {
-        font-size: 12px;
-    }
-
-    body {
-        font-size: 1rem;
-    }
-
-    header {
-        height: 15rem;
-    }
-
-    .main-content>h2 {
-        font-size: 1.1em;
-    }
-}
-
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 768px) {
 body {
     width: 100vw;
     height: 100vh;
@@ -53,9 +32,8 @@ body {
 @media screen and (max-width: 768px) {
     .container {
             width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
+            max-width: 100%;
+            padding: 0 410px;
         }
 }
 
@@ -69,7 +47,7 @@ header {
     background-position: center;
     justify-content: space-between;
     align-items: center;
-    height: 100vh;
+    height: 30rem;
     z-index: 1000;
     overflow: hidden;
 }
@@ -114,6 +92,7 @@ main {
     margin: 0 auto;
     padding: 0 20px;
 }
+
 .logo {
     display: flex;
     position: absolute;
@@ -178,8 +157,8 @@ main {
 }
 
 #instagram-media>iframe {
-    max-width: 90%;
-    width: 40%;
+    max-width: 100%;
+    width: 50%;
 }
 
   footer {
@@ -204,6 +183,7 @@ main {
 
 #main-content1 {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     gap: 20px;
     margin-top: 20px;
@@ -211,12 +191,12 @@ main {
 
 .section-i {
     flex: 1;
-    max-width: calc(50% - 20px);
+    max-width: 100%;
     display: inline-block;
     justify-content: space-between;
     flex-direction: column;
     max-width: 150px;
-    max-height: 300px;
+    max-height: 320px;
     margin-bottom: 20px;
     width: 80vw;
     border-radius: 20px;
@@ -231,12 +211,9 @@ main {
     display: inline-block;
     justify-content: center;
     flex-direction: column;
-    max-width: 150px;
-    max-height: 300px;
-    margin-bottom: 20px;
-}
-
-.hero {
+    max-width: 100%;
+    max-height: auto;
+    margin-top: 1.5rem;
     padding: 20px;
     border-radius: 20px;
     background-color: #f0f0f0;
