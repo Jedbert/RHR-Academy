@@ -121,6 +121,18 @@ main {
     padding: 0;
 }
 
+.solution-image {
+    display: flex;
+    position: relative;
+    max-width: 100%;
+    max-height: 150vh;
+}
+ @media screen and (max-width: 768px) {
+    .solution-image{
+        height: 250px;
+        width: 150vw;
+    }
+ }
 #nav-bar {
     display: flex;
     justify-content: center;
