@@ -7,7 +7,7 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 @media screen and (max-width: 768px) {
@@ -196,7 +196,7 @@ main {
     width: 50%;
 }
 
-f.footer {
+.footer {
     display: flex;
     flex-flow: row wrap;
     padding: 30px 30px 20px 30px;
