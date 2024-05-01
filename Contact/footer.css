@@ -1,6 +1,7 @@
 body{
     margin: 0;
     padding: 0;
+    width: 100%;
    
 }
 :root{
@@ -11,23 +12,46 @@ body{
 footer{
     background-color: var(--color);
     color: var(--color1);
+   
 }
 footer p, footer a{
     font-size: 1.5vw;
     text-decoration: none;
     color: var(--color1);
 }
-
+footer li{
+    list-style: none;
+}
+.foot-links, .social-links{
+    display: flex;
+    gap:2vw;
+    cursor: pointer;
+}
+.social-links .fa{
+    width: 5vw;
+}
+.foot-links li{
+    border-right: 1px solid #fff;
+    padding-right: 2vw;
+}
+ li .map{
+    border: #9dd65b;
+}
 .footer-note{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
     background-color: var(--color);
-    padding: 1.5vw;
-    width:  100%;
+    padding: 1.3vw;
+    width: 80%;
+    margin: auto;
 }
 .last-footer{
     background-color: var(--color2);
     width:  100%;
 }
 .last-footer p{
+    font-size: 1VW;
    padding: 1vw;
     margin: auto; 
     text-align: center;
