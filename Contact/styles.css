@@ -62,16 +62,16 @@ header {
 
 .header-text {
     position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-        font-size: 34px;
-        font-weight: bold;
-        text-align: center;
-        padding: 10px;
-        width: 80%;
-        text-shadow: 0 0 1.5px rgba(0, 0, 0, 0.5);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 34px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    width: 80%;
+    text-shadow: 0 0 1.5px rgba(0, 0, 0, 0.5);
 }
 
 #nav-bar {
@@ -151,29 +151,154 @@ button:hover {
     background-color: #0056b3;
 }
 
-.footer-note {
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-family: acumin-pro, system-ui, sans-serif;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-size: 14px;
+    background-color: #f4f4f4;
+    align-items: start;
+    min-height: 100vh;
+}
+
+.footer {
     display: flex;
-    justify-content: space-between;
+    flex-flow: row wrap;
+    padding: 30px 30px 20px 30px;
+    color: #2f2f2f;
+    background-color: #dfdcdc93;
+    border-top: 1px solid #e5e5e5;
+    /* height: ; */
+    max-height: 100rem;
+}
+
+.footer>* {
+    flex: 1 100%;
+}
+
+.footer-addr {
+    margin-right: 1.2 em;
+    margin-bottom: 2em;
+}
+
+.footer-logo {
+    font-family: 'Georgia', cursive;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    color: crimson;
+}
+
+.footer-addr h2 {
+    margin-top: 1.3em;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.nav-title {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.footer address {
+    font-style: normal;
+    color: #999;
+}
+
+.footer-btn {
+    display: flex;
     align-items: center;
-    padding: 15px 20px;
-    background-image: linear-gradient(135deg, #F05F57 10%, #360940 100%);
-    font-style: italic;
+    justify-content: center;
+    height: 36px;
+    max-width: max-content;
+    background-color: rgb(33, 33, 33, 0.07);
+    border-radius: 100px;
+    color: #2f2f2f;
+    line-height: 0;
+    margin: 0.6em 0;
+    font-size: 1rem;
+    padding: 0 1.3em;
 }
 
-.footer-note{
-    padding: 0 20px;
+.footer ul {
+    list-style: none;
+    padding-left: 0;
 }
 
-.footer-note>p {
-    margin: 0.5rem 0;
-}
-.footer-note h3{
-    margin-bottom: 0.5rem;
+.footer li {
+    line-height: 2em;
 }
 
-.footer-note .rhr-academy {
-    font-size: small;
+.footer a {
+    text-decoration: none;
+}
+
+.footer-nav {
     display: flex;
-    justify-items: flex-end;
-    font-weight: 300;
+    flex-flow: row wrap;
+}
+
+.footer-nav>* {
+    flex: 1 50%;
+    margin-right: 1.25em;
+}
+
+.nav-ul a {
+    color: #999;
+}
+
+.nav-ul-extra {
+    column-count: 2;
+    column-gap: 1.25em;
+}
+
+.copyright {
+    display: flex;
+    flex-wrap: wrap;
+    color: #999;
+}
+
+.copyright-link {
+    display: flex;
+    align-items: center;
+}
+
+.heart {
+    color: #2f2f2f;
+}
+
+@media screen and (max-width: 768px) {
+    .copyright .copyright-link {
+        margin-left: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer-nav>* {
+        flex: 1;
+    }
+
+    .nav-item-extra {
+        flex-grow: 2;
+    }
+
+    .footer-addr {
+        flex: 1 0px;
+    }
+
+    .footer-nav {
+        flex: 2 0px;
+    }
 }
