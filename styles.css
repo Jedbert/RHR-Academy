@@ -113,7 +113,7 @@ header {
 }
 
 .navbar {
-    overflow: hidden;
+    overflow:visible;
     background-color: #333;
     justify-content: flex-end;
     display: flex;
