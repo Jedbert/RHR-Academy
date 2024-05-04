@@ -199,13 +199,14 @@ header {
     margin-right: 20px;
     z-index: 1000;
 }
- @media screen and (max-width: 768px) {
-    .solution-image{
+
+@media screen and (max-width: 768px) {
+    .solution-image {
         height: 250px;
         width: 150vw;
         padding: 1.5em 2.5rem;
     }
- }
+}
 
 @media screen and (max-width: 768px) {
     .nav-link {
