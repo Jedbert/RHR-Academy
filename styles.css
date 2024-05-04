@@ -29,12 +29,6 @@ html {
         padding: 0 20px;
     }
 
-    header {
-        height: 20rem;
-        font-size: 1.4rem;
-        padding: 10px 0;
-    }
-
     .nav-link {
         padding: 5px 7px;
         font-size: 0.68rem;
@@ -69,6 +63,8 @@ header {
     background-color: #fff;
     text-align: center;
     padding-top: 0;
+    height: 20rem;
+    font-size: 1.4rem;
 }
 
 .header-image {
@@ -103,15 +99,15 @@ header {
     margin: 0 auto;
 }
 
-.logo {
+.logo-container> .logo {
     display: flex;
     position: absolute;
     top: 0;
     left: 0;
     width: 7px;
-    height: 70px;
+    height: 6.0vh;
     max-width: 100%;
-    max-height: 7vh;
+    max-height: 50%;
     margin: 10px;
     padding: 0;
 }
