@@ -10,13 +10,15 @@ html {
     overflow-x: hidden;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
     html {
         font-size: 14px;
+        overflow-x: hidden;
     }
 
     body {
         font-size: 1.2rem;
+        overflow-x: hidden;
     }
 
     .main-content>h2 {
@@ -33,6 +35,12 @@ html {
         padding: 5px 7px;
         font-size: 0.68rem;
     }
+
+    #instagram-media {
+        margin-top: 2.5em;
+        display: flex;
+        justify-content: center;
+        }
 
     #instagram-media>iframe {
         width: 100%;
@@ -54,7 +62,7 @@ html {
         margin-right: 0;
         display: flex;
         justify-content: center;
-        padding: 35rem 2.5rem;
+        padding-top: 2.5em;
     }
 }
 
@@ -69,7 +77,7 @@ header {
 
 .header-image {
     width: 100%;
-    height: 350px;
+    height: 190%;
     object-fit: cover;
     z-index: 1;
 }
@@ -178,7 +186,7 @@ header {
 
 .main-content {
     text-align: center;
-    padding-top: 10.5rem;
+    padding-top: 7em;
 }
 
 .main-content>h2 {
@@ -190,7 +198,7 @@ header {
     position: relative;
     max-width: 100%;
     max-height: 150vh;
-    padding: 1.5rem 20rem;
+    padding: 1.5em 20em;
     height: 15em;
     width: 500vw;
     margin-left: 20px;
@@ -225,6 +233,7 @@ header {
     width: 50%;
     max-height: 1000vh;
     height: 160vh;
+    margin-bottom: 2.5em;
 }
 
 .footer {
@@ -393,8 +402,7 @@ header {
     flex-direction: column;
     max-width: 100%;
     max-height: auto;
-    margin-top: 1.5rem;
-    padding: 2.5em;
+    padding: 2em;
     border-radius: 20px;
     background-color: #f0f0f0;
 }
