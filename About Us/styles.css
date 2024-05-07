@@ -152,8 +152,10 @@ span {
 }
 
 .about-text {
-    width: 50rem;
-    padding: 30px;
+    width: auto;
+    padding: 10px;
+    background-color: #f1ebeb;
+    margin: 20px;
 }
 
 .about-text h2 {
@@ -175,10 +177,9 @@ span {
     color: #505050;
     font-family: 'Rubik', sans-serif;
     text-align: justify;
-    vertical-align: baseline;
     line-height: 26px;
     font-weight: 400;
-    word-wrap: wrap;
+    /* word-wrap: wrap; */
 }
 
 .about-image img {
@@ -193,16 +194,28 @@ span {
 
 /* MISSION, VISION AND VALUE STATEMENT */
 
-
+.our-mission-vision {
+    width: 100%;
+}
 .our-mission-vision img {
     width: 350px;
+    padding: 15px;
     float: left;
-    margin-top: -30px;
+}
+
+.mvv-div {
+    background-color: #f1ebeb;
+    width: 60%;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
 }
 
 .our-mission-vision p {
-    width: 95%;
     text-align: justify;
+    padding: 15px;
 }
 
 
@@ -233,7 +246,15 @@ span {
 }
 
 /* OUR APPROACH */
+.our-approach {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.our-approach h2 {
+    padding-top:100px;
+}
 
 .our-approach img {
     object-fit: fill;
@@ -246,6 +267,9 @@ span {
 .our-approach p {
     padding: 15px;
     text-align: justify;
+    background-color: #f1ebeb;
+    width: 70%;
+    line-height: 2em;
 }
 
 .our-approach .approach-img2 {
@@ -289,7 +313,6 @@ span {
     color: #2f2f2f;
     background-color: #dfdcdc93;
     border-top: 1px solid #e5e5e5;
-    height: ;
     max-height: 100rem;
 }
 
@@ -420,6 +443,7 @@ span {
     }
 }
 
+
 @media (min-width: 992px) and (max-width: 992px) {
     .logo-container>.logo {
         width: 110px;
@@ -431,9 +455,6 @@ span {
         width: 100px;
     }
 }
-
-
-
 
 
 @media screen and (max-width: 768px) {
