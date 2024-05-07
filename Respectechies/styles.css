@@ -12,6 +12,7 @@ html {
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1.5rem;
+    overflow-x: hidden;
 }
 
 header {
@@ -25,6 +26,7 @@ header {
     align-items: center;
     height: 17vh;
     width: 100%;
+    overflow-x: hidden;
 }
 
 .main-content1 {
@@ -139,7 +141,7 @@ main {
     max-width: 350px;
     max-height: 300px;
     margin-bottom: 20px;
-    border-radius: 360px 360px;
+    border-radius: 50%;
     height: 250px;
     width: 250px;
 }
@@ -147,69 +149,31 @@ main {
 .tech1 {
     padding: 20px;
     border-radius: 360px;
-    background-color: #f0f0f0;
+    background-color: #c5aaaa;
 }
 
 .good {
     flex-direction: initial;
     text-align: center;
-        /* display: inline-flex;
-            justify-content: space-between;
-            flex-direction: column;
-            max-width: 500px;
-            max-height: 300px;
-            margin-bottom: 20px; */
     }
 
-.tech2 {
-        height: 250px;
-        width: 250px;
-        border-radius: 360px 360px;
-        display: inline-block;
-        justify-content: center;
-        flex-direction: column;
-        max-width: 5000px;
-        max-height: 300px;
-        margin-left: 50px;
-        padding-right: 10;
-    }
 .tech3 {
-        height: 250px;
-        width: 250px;
-        border-radius: 360px 360px;
-        display: inline-flex;
-        justify-content: center;
-        flex-direction: row;
-        max-width: 5000px;
-        max-height: 300px;
-        margin: 10px 15px;
-        padding-right: 10;
-    }
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 350px;
+    max-height: 300px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+}
 
-.tech4 {
-        height: 250px;
-        width: 250px;
-        border-radius: 360px 360px;
-        display: inline-block;
-        justify-content: center;
-        flex-direction: column;
-        max-width: 5000px;
-        max-height: 300px;
-        margin: 10px 15px;
-        padding-right: 10;
-    }
-.tech5 {
-        height: 250px;
-        width: 250px;
-        border-radius: 360px 360px;
-        display: inline-block;
-        justify-content: center;
-        flex-direction: column;
-        max-width: 5000px;
-        max-height: 300px;
-        margin: 10px 15px;
-        padding-right: 10;
-    }
+.tech3 {
+    padding: 20px;
+    border-radius: 360px;
+    background-color: #c5aaaa;
+}
 
 .Onboarding1 {
     position: relative;

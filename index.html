@@ -6,37 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Respectech-HR Academy</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-          footer{
-            display: flex;
-            justify-content: center;
-          }  
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="images/favicon.ico">
 </head>
 
 <body>
     <header>
-        <div class="logo">
-            <img src="https://i.ibb.co/7zcWS13/respectech-logo-2-1.png" alt="Respectech-HR Academy Logo">
+        <div class="logo-container">
+            <div class="logo">
+                <img src="https://i.ibb.co/RQFbQ87/respectech-logo-2-1.png" alt="Respectech-HR Academy Logo">
+            </div>
+            <div class="navbar">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="onboarding/onboard.html">Onboard</a>
+                <a class="nav-link" href="About Us/about_us.html">About Us</a>
+                <a class="nav-link" href="Contact/contact.html">Contact Us</a>
+                <div class="dropdown">
+                    <button class="dropbtn">Respectechies
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a class="nav-link" href="Respectechies/techies.html">Cohorts</a>
+                        <a class="nav-link" href="Unemployment Statistics/unemployment.html">Unemployment
+                            Statistics</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="container">
-            <h1 class="header">Respectech-HR Academy</h1>
-            <nav id="nav-bar">
-                <ul>
-                    <li><a class="nav-link" href=" index.html">Home</a></li>
-                    <li><a class="nav-link" href="Unemployment Statistics/unemployment.html">Unemployment Statistics</a>
-                    </li>
-                    <li><a class="nav-link" href="Respectechies/techies.html">Respectechies</a></li>
-                    <li><a class="nav-link" href="About Us/about_us.html">About Us</a></li>
-                    <li><a class="nav-link" href="Contact/contact.html">Contact</a></li>
-                    <li><a class="nav-link" href="onboarding/onboard.html">Onboard</a></li>
-                </ul>
-            </nav>
+        <div class="header-image-container">
+            <img class="header-image" src="https://i.ibb.co/mydxtfR/respectech-3.jpg" alt="Contact Us Image">
+            <div class="header-text">Respectech-HR Academy</div>
         </div>
     </header>
     <main>
         <div class="main-content">
-            <!-- <h2>Welcome to Respectech-HR Academy</h2> -->
             <p>We connect tech talents with global opportunities, fostering a community of tech companies, experts,
                 and
                 undeserved communities.</p>
@@ -67,7 +70,7 @@
                     src="https://www.instagram.com/reel/C5EfzPkrFYa/embed/?cr=1&v=14&wp=500&rd=https%3A%2F%2Fwww.example.com&rp=%2F"
                     width="500" height="600" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
             </section>
-            <fieldset class="section-i">
+            <fieldset class="hero">
                 <section class="solution-section">
                     <h4>Our Solution</h4>
                     <p>We equip individuals with tech skills and connect them to career opportunities. Our second
@@ -93,9 +96,56 @@
             </fieldset>
         </div>
     </main>
-    <footer>
-        <div class="footer-note">
-            <p class="rhr-academy">&copy; Respectech-HR Academy. <br>All Rights Reserved.</p>
+    <footer class="footer">
+        <div class="footer-addr">
+            <h1 class="footer-logo">Respectech-Hr</h1>
+            <h2>Contact Us</h2>
+            <address>
+                Respectech Centre, 24 Bambari Cres. Fairtrade Business Complex, Wuse Zone 7, Abuja<br>
+                <a class="footer-btn" href="info-respectech@gmail.com">Email Us</a>
+            </address>
+        </div>
+        <ul class="footer_nav">
+            <li class="nav-item">
+                <h2 class="nav-title">Courses</h2>
+                <ul class="nav-ul nav-ul-extra">
+                    <li>
+                        <a href="#">Software Programming</a>
+                    </li>
+                    <li>
+                        <a href="#">UI/UX</a>
+                    </li>
+                    <li>
+                        <a href="#">Cyber Security</a>
+                    </li>
+                    <li>
+                        <a href="#">Digital Marketing</a>
+                    </li>
+                    <li>
+                        <a href="#">Data Analysis</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <h2 class="nav-title">Legal</h2>
+                <ul class="nav-ul">
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#">Terms of Use</a>
+                    </li>
+                    <li>
+                        <a href="#">Sitemap</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="copyrights">
+            <p>&copy; Respectech-HR Academy. All Rights Reserved.</p>
+            <div class="copyrights-link">
+                Made by RHR Software Programmers C2
+            </div>
         </div>
     </footer>
 </body>
