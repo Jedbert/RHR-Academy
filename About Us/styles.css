@@ -10,39 +10,58 @@ html {
 }
 
 body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Tahoma, Georgia, 'Times New Roman', Times, serif;
     font-size: 1.5rem;
     overflow-x: hidden;
 }
 
-header {
-    position: relative;
-    background-color: #fff;
+h1,h2, h3, h4, h5,h6 {
+    color: red;
+}
+
+span {
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.span-black {
+    color: black;
+    font-style: normal;
+}
+
+.header-div{
+    background-color: white;
     text-align: center;
-    padding-top: 2.5rem;
-}
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.logo {
+    color: red;
+    border-bottom: 4px solid red;
     display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    height: 10vh;
-    max-width: 175px;
-    max-height: 190px;
-    margin: 10px;
-    padding: 0;
+    height: 60px;
+    /* position: fixed; */
+}
+
+.brand-logo-div {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.brand-logo-div img {
+    width: 35px;
+    padding-left: 5px;
+}
+
+.brand-logo-div h1 {
+    font-size: 2.5rem;
+    padding-left: 8px;
 }
 
 #nav-bar {
+    margin-right: 40px;
     display: flex;
-    justify-content: center;
 }
 
 #nav-bar ul {
@@ -51,20 +70,270 @@ header {
 }
 
 #nav-bar ul li {
-    margin-top: 20px;
-    margin-bottom: 0;
-    margin-right: 20px;
+    font-size: 1.0em;
+    padding: 8px;
+    background-color: white;
 }
 
 .nav-link {
-    color: #994949;
+    color: rgba(0, 0, 0, 0.719);
     text-decoration: none;
-    padding: 10px;
 }
 
 .nav-link:hover {
-    color: #ddd;
+    color: black;
+    font-weight: bold;
+} 
+
+/* NEW STYLE FROM INDEX.HTML NAV BAR */
+
+/* .logo-container {
+    max-width: 100%;
+    margin: 0 auto;
 }
+
+.logo-container> .logo {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 7px;
+    height: 2.5rem;
+    max-width: 100%;
+    max-height: 50%;
+    margin: 10px;
+    padding: 0;
+}
+
+.navbar {
+    overflow:visible;
+    background-color: #333;
+    justify-content: flex-end;
+    display: flex;
+    height: 3rem;
+}
+
+.navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+} */
+
+
+/* NAV BAR FOR COPIED INDEX.HTML ENDED */
+
+
+/* SHOWCASE */
+
+.about-us-showcase{
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3)70%, rgba(0,0,0,0.3)90%), url(./images/about-us-img.jpg);
+    width: 100%;
+    height: 370px;    
+}
+
+/* .about-us-showcase h2 {
+    font-size: 2.5em;
+    color: white;
+    margin: auto;
+    padding: 50px;
+    text-shadow: 4px 2px black;
+    font-weight: light;
+} */
+
+
+/* MAIN ABOUT */
+
+.main-about-div {
+    display: flex;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    /* width: 95%; */
+    /* margin: 25px auto; */
+    height: auto;
+    /* flex-wrap: wrap; */
+}
+
+.about-text {
+    width: 50rem;
+    padding: 30px;
+}
+
+.about-text h2 {
+    text-align: left;
+    /* font-size: 15px; */
+    padding: 0;
+}
+.about-text .welcome {
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.about-text p {
+    font-size: 15px;
+    color: #505050;
+    font-family: 'Rubik', sans-serif;
+    text-align: justify;
+    vertical-align: baseline;
+    line-height: 26px;
+    font-weight: 400;
+    word-wrap: wrap;
+}
+
+.about-image {
+    /* width: 30rem; */
+    /* display: flex; */
+    justify-content: center;
+}
+
+.about-image img {
+    display: flex;
+    flex-wrap: wrap;
+    width: 700px;
+    border-radius: 25px;
+    margin: 20px;
+}
+
+
+/* MISSION, VISION AND VALUE STATEMENT */
+
+
+.our-mission-vision img {
+    width: 350px;
+    float: left;
+    margin-top: -30px;
+}
+
+.our-mission-vision p {
+    width: 95%;
+    text-align: justify;
+}
+
+
+/* OUR TEAM */
+
+.our-team {
+    clear: both;
+}
+.images {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.images img {
+    width: 200px;
+    padding: 20px;
+}
+
+.image .team-title {
+    text-align: center;
+}
+
+/* OUR APPROACH */
+
+
+.our-approach img {
+    object-fit: fill;
+    width: 800px;
+    float: left;
+    border-radius: 35px;
+    padding: 15px;
+}
+
+.our-approach p {
+    padding: 15px;
+    text-align: justify;
+}
+
+.our-approach .approach-img2 {
+        object-fit: fill;
+        width: 400px;
+        float: left;
+        border-radius: 35px;
+        padding: 15px;
+    }
+}
+
+
+/* PARTNERS */
+.our-partnership {
+    clear: both;
+}
+
+.partners {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.partners img {
+    width: 150px;
+    max-width: 150px;
+    margin: 20px;
+    /* padding: 25px; */
+}
+
+
+
+/* FOOTER */
+
 
 .footer {
     display: flex;
@@ -73,7 +342,7 @@ header {
     color: #2f2f2f;
     background-color: #dfdcdc93;
     border-top: 1px solid #e5e5e5;
-    /* height: ; */
+    height: ;
     max-height: 100rem;
 }
 
@@ -172,6 +441,10 @@ header {
 .heart {
     color: #2f2f2f;
 }
+
+
+
+/* RESPONSIVE STYLING BEGIN */
 
 @media screen and (max-width: 768px) {
     .copyright .copyright-link {
