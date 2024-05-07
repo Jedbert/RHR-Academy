@@ -10,6 +10,13 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 
+        .logo {
+            padding: 7px 7px;
+        }
+
+        .main {
+            text-align: center;
+        }
 
         h3 {
         color: #ed1c24;
@@ -30,12 +37,27 @@
         text-align: center;
         }
 
-        /* .btn {
+        .flex-btn {
+        display: flex;
+        flex-direction: row;
+        justify-content:  space-between;
+        }
+      
+        .btn-1 {
+            padding-left: 450px;
+        }
+
+        .btn-2 {
+            padding-right: 450px;
+        }
+
+        .btn {
         padding: 10px;
         border-radius: 10px;
         color: #FFFFFF;
         background-color: #ED1C24;
-        } */
+        border-style: none;
+        }
     
 </style>
 </head>
@@ -64,8 +86,13 @@
                     Explore diverse topics, engage with experts, 
                     and unlock your potential in tech.</p>
             </div>
-            <div>
-                <button class="btn">Discover more..</button>
+            <div class="flex-btn">
+                <div class="btn-1">
+                <button class="btn">Skip</button>
+            </div>
+                <div class="btn-2">
+                <button class="btn">Next</button>
+            </div>
             </div>
         </main>
     </div>
