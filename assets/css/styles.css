@@ -204,7 +204,7 @@ header {
 
 .main-content {
     text-align: center;
-    margin-top: 7%;
+    margin-top: 9px;
 }
 
 @media (min-width: 576px) and (max-width: 576px) {
