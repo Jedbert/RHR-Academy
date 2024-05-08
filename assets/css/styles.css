@@ -10,15 +10,21 @@ html {
     overflow-x: hidden;
 }
 
+@media  (min-width: 144px) and (max-width: 1400px) {
+    html {
+            overflow-x: hidden;
+        }
+}
+
 .wrapper-main {
     width: 100%;
     margin: 0 auto;
     /* padding-top: 80rem; */
 }
 
-@media (min-width: 576px) and (max-width: 576px) {
+@media (min-width: 144px) and (max-width: 1400px) {
     .wrapper-main {
-        padding-top: 20em;
+        margin-top: 2.0em;
     }
 }
 
@@ -47,9 +53,12 @@ header {
     padding-top: 0;
 }
 
-@media (min-width: 576px) and (max-width: 576px) {
+@media (min-width: 144px) and (max-width: 1400px) {
     .header-image {
-        height: 50vh;
+        height: auto;
+        width: 100%;
+        object-fit: cover;
+        position: relative;
     }
 }
 
@@ -69,10 +78,10 @@ header {
     z-index: 1000;
 }
 
-@media (min-width: 576px) and (max-width: 576px) {
+@media (min-width: 144px) and (max-width: 1400px) {
     header {
         font-size: 0.8em;
-        height: 2.5rem;
+        height: auto;
     }
 
     .header-text {
@@ -110,7 +119,7 @@ header {
     }
 }
 
-@media (min-width: 576px) and (max-width: 576px) {
+@media (min-width: 144px) and (max-width: 1400px) {
     .logo-container>.logo {
         width: 70px;
     }
@@ -208,14 +217,16 @@ header {
 }
 
 @media (min-width: 576px) and (max-width: 576px) {
-    .navbar {
-        flex-direction: row;
-        align-items: flex-start;
+.navbar {
+        overflow: visible;
+        justify-content: flex-end;
+        display: flex;
+        align-items: center;
     }
 
     .navbar a,
     .dropdown .dropbtn {
-        padding: 0.5rem;
+        padding: 0.5em;
         font-size: 1.1em;
     }
 
@@ -320,7 +331,6 @@ header {
 
     100% {
         transform: translateY(-80%);
-        /* set the translateY value to negative 50% to make the content scroll completely */
     }
 }
 
