@@ -96,7 +96,7 @@ main {
   footer {
       display: flex;
       justify-content: flex-end;
-      position: absolute;
+      /* position: absolute; */
       /* bottom: 0; */
       width: 100%;
       padding: 15px 20px;
@@ -115,49 +115,103 @@ main {
       font-weight: 300;
   }
 
-.profile {
-    gap: 0;
-    margin-top: 0;
-    margin-left: 0;
-    text-align: inherit;
-}
-.image-text-wrapper {
-    display: flex;
-    justify-content: space-between;
-}
+  .container-mobile{
+    display: none;
+  }
 
-.tech1:first-child {
-    margin-right: 100px;
-}
+
+
+
 
 main {
     text-align: center;
 }
 
-.tech1 {
-    display: inline-block;
-    justify-content: center;
-    flex-direction: column;
-    max-width: 350px;
-    max-height: 300px;
-    margin-bottom: 20px;
-    border-radius: 50%;
-    height: 250px;
-    width: 250px;
-}
 
 .tech1 {
+
+    width: 40%;
+    height: 100px;
+
+}
+
+.carousel-indicators{
+    position: absolute;
+    top: 390px;
+}
+
+  ol.carousel-indicators li,
+  ol.carousel-indicators li.active {
+    /* float: left; */
+    width: 33%;
+    height: 10px;
+    margin: 0;
+    border-radius: 0;
+    border: 0;
+    background: black;
+  }
+
+  ol.carousel-indicators li.active {
+    background: yellow;
+  }
+@media only screen and (max-width: 786px) {
+    .container-desktop{
+        display: none;
+    }
+    .container-mobile{
+        display: block;
+    }
+
+    .card-body {
+        text-align: left;
+    }
+
+    .tech1 {
+
+        width: 20%;
+        height: 80px;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* .profile {
+    gap: 0;
+    margin-top: 0;
+    margin-left: 0;
+    text-align: inherit;
+} */
+/* .image-text-wrapper {
+    display: flex;
+    justify-content: space-between;
+} */
+
+/* .tech1 {
     padding: 20px;
     border-radius: 360px;
     background-color: #c5aaaa;
-}
+} */
 
-.good {
+/* .good {
     flex-direction: initial;
     text-align: center;
-    }
+    } */
 
-.tech3 {
+/* .tech3 {
     display: inline-flex;
     justify-content: center;
     flex-direction: column;
@@ -167,9 +221,9 @@ main {
     border-radius: 50%;
     height: 250px;
     width: 250px;
-}
+} */
 
-.tech3 {
+/* .tech3 {
     padding: 20px;
     border-radius: 360px;
     background-color: #c5aaaa;
@@ -177,4 +231,4 @@ main {
 
 .Onboarding1 {
     position: relative;
-}
+} */
