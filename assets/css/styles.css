@@ -16,9 +16,11 @@ html {
         }
 }
 
-.wrapper-main {
+main {
     width: 100%;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40rem;
     /* padding-top: 80rem; */
 }
 
@@ -34,6 +36,7 @@ header {
     padding-top: 5px;
     height: 3.0rem;
     font-size: 1em;
+    /* margin-bottom: 55rem; */
 }
 
 .header-image-container {
@@ -213,7 +216,7 @@ header {
 
 .main-content {
     text-align: center;
-    margin-top: 575px;
+    /* margin-top: 575px; */
 }
 
 @media (min-width: 576px) and (max-width: 576px) {
