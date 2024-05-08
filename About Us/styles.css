@@ -420,8 +420,9 @@ span {
     color: #2f2f2f;
 }
 
-
-
+ul li {
+    list-style: none;
+}
 /* RESPONSIVE STYLING BEGIN */
 
 @media (min-width: 576px) and (max-width: 576px) {
