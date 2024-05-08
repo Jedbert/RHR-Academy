@@ -13,12 +13,76 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1.5rem;
 }
+.first-nav{
+    width: 100%;
+    height: 8vh;
+    background-color: #007bff;
+    display: flex;
+    color: #fff;
+    gap: 10px;
+    cursor: pointer;
+    
+}
+.envelope{
+    margin-left: 6%;
+    margin-top: 23px;
+    width: 25px;
+    height: 30px;
+}
+.phonecall{
+    margin-left: 15px;
+    width: 25px;
+    height: 35px;
+    margin-top: 20px;
+}
+.vertical-line {
+    border-left: 1px solid #ffff; 
+    height: 100px;
+    margin-left: 20px;
+    margin-top: 0;
+ }
+nav p{
+    margin-top: 28px;
+    font-weight: 600;
+    font-size: large;
+}
+
+ nav p {
+    transition: opacity 0.5s ease; 
+}
+
+nav p:hover {
+    opacity: 0; 
+}
+
+nav p:not(:hover) {
+    opacity: 1; 
+}
+section {
+    display: flex; 
+    gap: 24%;
+    margin-top: 50px;
+    margin-left: 80px;
+}
+
+.images {
+    width: 120px; 
+    max-width: ;
+    margin-left: 20px;
+ }
+ section p{
+    margin-top: 20px;
+    font-size: large;
+    font-weight: 600;
+ }
+
 
 header {
     position: relative;
     background-color: #fff;
     text-align: center;
     padding-top: 2.5rem;
+    
 }
 
 .logo-container {
@@ -26,6 +90,7 @@ header {
     margin: 0 auto;
     padding: 10px 0;
     z-index: 2;
+    margin-top: ;
 }
 
 .logo {
@@ -37,15 +102,16 @@ header {
     height: 70px;
     max-width: 100%;
     max-height: 7vh;
-    margin: 10px;
+    margin-left: 10%;
+    margin-top: 30px;
     padding: 0;
 }
 
-@media screen and (max-width: 750px) {
+/*@media screen and (max-width: 750px) {
     .logo {
         max-height: 8vh;
     }
-}
+}*/
 
 .header-image {
     width: 100%;
@@ -54,11 +120,14 @@ header {
     z-index: 1;
 }
 
-.header-image-container {
+/*.header-image-container {
     position: relative;
     width: 100%;
     height: 200px;
-}
+    margin-top: 5px;
+    margin-bottom: 30px;
+}*/
+
 
 .header-text {
     position: absolute;
@@ -66,22 +135,29 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 34px;
+    font-size: 50px;
     font-weight: bold;
     text-align: center;
     padding: 10px;
     width: 80%;
     text-shadow: 0 0 1.5px rgba(0, 0, 0, 0.5);
+    margin-left: 30px;
 }
 
 #nav-bar {
     display: flex;
     justify-content: center;
+    margin-left: 8%;
+    font-size: large;
+    font-weight: 600;
+    color: #000;
 }
 
 #nav-bar ul {
     list-style: none;
     display: flex;
+    color: #000;
+    
 }
 
 #nav-bar ul li {
@@ -100,16 +176,24 @@ header {
 }
 
 main {
-    padding: 20px;
-    margin-top: 12em;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1.5rem;
+    display: flex;
+    margin-top: 10%;
+    margin-left: 20px;
+    gap: 25%;
+    margin-bottom: 50px;
+}
+
+    .container-main{
     max-width: 800px;
     background-color: #f5f5f5;
     border: 2px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50vw;
+    height: 50vh;
+    margin-top: 50px;
+    margin-right: 20px;
+    padding: 10px;
 }
 
 .container h2 {
@@ -172,25 +256,30 @@ body {
     min-height: 100vh;
 }
 
+.Footer{
+    background-color: #007bff;
+    color: #fff;
+    
+}
 .footer {
     display: flex;
-    flex-flow: row wrap;
-    padding: 30px 30px 20px 30px;
-    color: #2f2f2f;
-    background-color: #dfdcdc93;
+    gap: 100px;
+    color: #fff;
+    background-color: #007bff;
     border-top: 1px solid #e5e5e5;
-    /* height: ; */
     max-height: 100rem;
+    padding: 30px 30px 20px 30px;
+    margin-right: 70px;
 }
 
-.footer>* {
+/*.footer>* {
     flex: 1 100%;
 }
 
 .footer-addr {
     margin-right: 1.2 em;
     margin-bottom: 2em;
-}
+}*/
 
 .footer-logo {
     font-family: 'Georgia', cursive;
@@ -223,13 +312,16 @@ body {
     justify-content: center;
     height: 36px;
     max-width: max-content;
-    background-color: rgb(33, 33, 33, 0.07);
-    border-radius: 100px;
-    color: #2f2f2f;
+    background-color: #fff;
+    border-radius: 30px;
+    color: #007bff;
     line-height: 0;
     margin: 0.6em 0;
     font-size: 1rem;
-    padding: 0 1.3em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .footer ul {
@@ -256,7 +348,7 @@ body {
 }
 
 .nav-ul a {
-    color: #999;
+    color: #fff;
 }
 
 .nav-ul-extra {
@@ -267,7 +359,7 @@ body {
 .copyright {
     display: flex;
     flex-wrap: wrap;
-    color: #999;
+    color: #fff;
 }
 
 .copyright-link {
