@@ -12,8 +12,8 @@ html {
 
 .wrapper-main {
     width: 100%;
-    margin: 0 auto;
-    padding-top: 30em;
+    margin: 50rem auto;
+    /* padding-top: 80rem; */
 }
 
 @media (min-width: 576px) and (max-width: 576px) {
@@ -28,7 +28,6 @@ header {
     padding-top: 7px;
     height: 3.0rem;
     font-size: 1em;
-    padding-bottom: 25.5rem;
 }
 
 .header-image-container {
