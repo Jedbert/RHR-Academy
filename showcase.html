@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Day & Employer Showcase | Respectech-HR Academy</title>
+    <meta name="description" content="Explore production capstone SaaS products built by Respectech-HR Academy fellows. Hire top-tier African Software Engineers, UI/UX Designers, and Cyber Analysts.">
+    <link rel="icon" href="assets/images/favicon.ico">
+
+    <!-- Google Fonts & FontAwesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Design System Stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <style>
+        .showcase-hero {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1E293B 100%);
+            color: var(--text-inverse);
+            padding: 5rem 0 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .showcase-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition-base);
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-border);
+        }
+
+        .showcase-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag-cohort {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--primary-border);
+        }
+
+        .tag-track {
+            background: var(--bg-light);
+            color: var(--text-main);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        <span>🚀 Demo Day Showcase • Hire Verified Remote & On-Site Tech Talent from Respectech</span>
+        <a href="#showcaseSection">Explore Projects <i class="fa-solid fa-arrow-down"></i></a>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container navbar-container">
+            <a href="index.html" class="brand-logo">
+                <img src="https://i.ibb.co/RQFbQ87/respectech-logo-2-1.png" alt="Respectech-HR Academy Logo">
+                <span>R-HR <span class="highlight">Academy</span></span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="About Us/about_us.html" class="nav-link">About Us</a>
+                
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle">
+                        Respectechies <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="Respectechies/techies.html" class="dropdown-item">
+                            <i class="fa-solid fa-user-graduate" style="color: var(--primary);"></i> Cohorts (1 to 6)
+                        </a>
+                        <a href="showcase.html" class="dropdown-item">
+                            <i class="fa-solid fa-rocket" style="color: var(--primary);"></i> Demo Day Showcase
+                        </a>
+                        <a href="Unemployment Statistics/unemployment.html" class="dropdown-item">
+                            <i class="fa-solid fa-chart-line" style="color: var(--primary);"></i> Unemployment Stats
+                        </a>
+                    </div>
+                </div>
+
+                <a href="Contact/contact.html" class="nav-link">Contact Us</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="auth.html" class="btn btn-outline btn-sm"><i class="fa-solid fa-user-lock"></i> Portal Sign In</a>
+                <button onclick="openModal('hireModal')" class="btn btn-primary btn-sm"><i class="fa-solid fa-briefcase"></i> Hire Graduates</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Showcase Hero -->
+    <section class="showcase-hero">
+        <div class="container" style="max-width: 800px;">
+            <span class="section-tag" style="background: rgba(217, 45, 32, 0.2); color: #FCA5A5; border-color: var(--primary);">Employer Showcase & Demo Day</span>
+            <h1 style="font-size: 2.75rem; color: white; margin: 0.75rem 0 1rem;">Production SaaS Capstones Built By Respectech Fellows</h1>
+            <p style="color: #94A3B8; font-size: 1.1rem; line-height: 1.6;">
+                Review real-world software, design prototypes, and security tools engineered by Cohort 1-6 graduates. Hire job-ready African tech talent directly.
+            </p>
+        </div>
+    </section>
+
+    <!-- Showcase Filter & Cards Section -->
+    <main class="section container" id="showcaseSection" style="padding-top: 3rem; padding-bottom: 5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+            <div>
+                <h2 class="section-title" style="font-size: 1.75rem;">Capstones & Demo Projects</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Filter by engineering track or cohort</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <button class="btn btn-primary btn-sm" onclick="filterShowcase('all')">All Tracks</button>
+                <button class="btn btn-outline btn-sm" onclick="filterShowcase('Software Engineering')">Software Engineering</button>
+                <button class="btn btn-outline btn-sm" onclick="filterShowcase('UI/UX Product Design')">UI/UX Design</button>
+                <button class="btn btn-outline btn-sm" onclick="filterShowcase('Cyber Security')">Cyber Security</button>
+            </div>
+        </div>
+
+        <!-- Showcase Cards Container -->
+        <div class="showcase-grid" id="showcaseGrid">
+            <!-- Dynamically populated by JS -->
+        </div>
+    </section>
+
+    <!-- Recruiter Hire Modal -->
+    <div class="modal-overlay" id="hireModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal('hireModal')"><i class="fa-solid fa-xmark"></i></button>
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <span class="section-tag">HR Linkage</span>
+                <h3 style="font-size: 1.5rem;">Hire Respectech Fellows & Capstone Teams</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">Connect with our Admissions & HR Board at dexterdavid835@gmail.com</p>
+            </div>
+
+            <form id="hireForm">
+                <div class="form-group">
+                    <label class="form-label" for="companyName">Company / Organization Name</label>
+                    <input type="text" id="companyName" class="form-control" placeholder="e.g. SystemSpecs Ltd / Remote Client" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="recruiterEmail">Work Email Address</label>
+                    <input type="email" id="recruiterEmail" class="form-control" placeholder="hiring@company.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="roleNeeded">Roles Interested In</label>
+                    <select id="roleNeeded" class="form-control" required>
+                        <option value="Software Engineer (Full Stack / Frontend)">Software Engineer (Full Stack / Frontend)</option>
+                        <option value="UI/UX Product Designer">UI/UX Product Designer</option>
+                        <option value="Cybersecurity Analyst">Cybersecurity Analyst</option>
+                        <option value="Complete Capstone Team Hire">Complete Capstone Team Hire</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="hireMsg">Project or Job Description Notes</label>
+                    <textarea id="hireMsg" class="form-control" rows="3" placeholder="Tell us about your open position or capstone project interest..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Submit Recruiter Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Video Demo Player Modal -->
+    <div class="modal-overlay" id="videoModal">
+        <div class="modal-card" style="max-width: 720px; padding: 1.5rem;">
+            <button class="modal-close" onclick="closeModal('videoModal')"><i class="fa-solid fa-xmark"></i></button>
+            <h4 id="videoTitle" style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-main);">Demo Day Presentation Video</h4>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-lg); background: black;">
+                <iframe id="videoFrame" src="" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="brand-logo" style="margin-bottom: 1rem; display: inline-flex;">
+                    <img src="https://i.ibb.co/RQFbQ87/respectech-logo-2-1.png" alt="Respectech-HR Academy Logo">
+                    <span>R-HR <span class="highlight">Academy</span></span>
+                </a>
+                <p style="color: #94A3B8; font-size: 0.9rem;">Connecting African tech talent with global remote and local opportunities.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Navigation</h4>
+                <a href="index.html" class="footer-link">Home</a>
+                <a href="About Us/about_us.html" class="footer-link">About Us</a>
+                <a href="showcase.html" class="footer-link">Demo Day Showcase</a>
+            </div>
+            <div class="footer-col">
+                <h4>Get In Touch</h4>
+                <p style="margin-bottom: 0.75rem;"><i class="fa-solid fa-location-dot" style="color: var(--primary);"></i> Respectech Centre, Wuse Zone 7, Abuja</p>
+                <p style="margin-bottom: 1.25rem;"><i class="fa-solid fa-envelope" style="color: var(--primary);"></i> dexterdavid835@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderShowcase('all');
+        });
+
+        function filterShowcase(track) {
+            renderShowcase(track);
+        }
+
+        function renderShowcase(filterTrack) {
+            const capstones = window.RHRDB.getCapstones();
+            const grid = document.getElementById('showcaseGrid');
+
+            let filtered = capstones;
+            if (filterTrack !== 'all') {
+                filtered = capstones.filter(c => c.track === filterTrack);
+            }
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-muted);">No Capstone projects found for this track filter.</div>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(cap => `
+                <div class="showcase-card">
+                    <div>
+                        <div class="showcase-tags">
+                            <span class="tag-cohort">${cap.cohort}</span>
+                            <span class="tag-track">${cap.track}</span>
+                        </div>
+                        <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem; color: var(--text-main);">${cap.title}</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.5;">${cap.tagline}</p>
+                        
+                        <div style="background: var(--bg-light); border-radius: var(--radius-md); padding: 0.75rem; margin-bottom: 1.5rem;">
+                            <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); display: block;">ENGINEERED BY FELLOWS:</span>
+                            <span style="font-size: 0.875rem; color: var(--primary); font-weight: 600;">${cap.teamMembers}</span>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+                        <div style="display: flex; gap: 0.5rem;">
+                            <a href="${cap.liveAppUrl}" target="_blank" class="btn btn-primary btn-sm" style="flex: 1;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Launch SaaS</a>
+                            <button onclick="playDemo('${cap.title}', '${cap.demoVideoUrl}')" class="btn btn-outline btn-sm"><i class="fa-solid fa-play"></i> Watch Demo</button>
+                        </div>
+                        <button onclick="openModal('hireModal')" class="btn btn-secondary btn-sm"><i class="fa-solid fa-briefcase"></i> Hire This Capstone Team</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function playDemo(title, videoUrl) {
+            document.getElementById('videoTitle').innerText = `Demo Day Presentation: ${title}`;
+            document.getElementById('videoFrame').src = videoUrl;
+            openModal('videoModal');
+        }
+
+        document.getElementById('hireForm')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const company = document.getElementById('companyName').value;
+            closeModal('hireModal');
+            if (window.showToast) window.showToast(`Inquiry sent! Respectech HR Board will contact ${company} within 24 hrs.`);
+        });
+    </script>
+</body>
+
+</html>
