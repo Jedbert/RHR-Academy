@@ -230,6 +230,55 @@ class RHRDatabaseService {
     logout() {
         localStorage.removeItem(this.storagePrefix + "session");
     }
+
+    // --- PHASE 3: LMS ASSIGNMENTS & CAPSTONE SUBMISSIONS ---
+
+    async submitAssignment(submission) {
+        const submissions = JSON.parse(localStorage.getItem(this.storagePrefix + "assignments") || "[]");
+        const newSub = {
+            id: "sub_" + Date.now(),
+            userEmail: submission.userEmail,
+            moduleTitle: submission.moduleTitle,
+            githubUrl: submission.githubUrl,
+            liveUrl: submission.liveUrl || "",
+            notes: submission.notes || "",
+            status: "submitted",
+            submittedAt: new Date().toLocaleString()
+        };
+        submissions.unshift(newSub);
+        localStorage.setItem(this.storagePrefix + "assignments", JSON.stringify(submissions));
+        return { success: true, submission: newSub };
+    }
+
+    async submitCapstone(capstoneData) {
+        const capstones = JSON.parse(localStorage.getItem(this.storagePrefix + "capstones") || "[]");
+        const newCapstone = {
+            id: "cap_" + Date.now(),
+            title: capstoneData.title,
+            tagline: capstoneData.tagline,
+            track: capstoneData.track || "Software Engineering",
+            cohort: capstoneData.cohort || "Cohort 6",
+            demoVideoUrl: capstoneData.demoVideoUrl,
+            liveAppUrl: capstoneData.liveAppUrl,
+            githubRepoUrl: capstoneData.githubRepoUrl,
+            teamMembers: capstoneData.teamMembers,
+            submittedBy: capstoneData.userEmail,
+            status: "pending_demo_day",
+            submittedAt: new Date().toLocaleString()
+        };
+        capstones.unshift(newCapstone);
+        localStorage.setItem(this.storagePrefix + "capstones", JSON.stringify(capstones));
+        return { success: true, capstone: newCapstone };
+    }
+
+    getStudentAssignments(userEmail) {
+        const submissions = JSON.parse(localStorage.getItem(this.storagePrefix + "assignments") || "[]");
+        return submissions.filter(s => s.userEmail === userEmail);
+    }
+
+    getCapstones() {
+        return JSON.parse(localStorage.getItem(this.storagePrefix + "capstones") || "[]");
+    }
 }
 
 // Global Database Instance
