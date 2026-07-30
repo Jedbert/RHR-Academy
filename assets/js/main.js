@@ -1,5 +1,6 @@
 /* ==========================================================================
-   RESPECTECH-HR ACADEMY - INTERACTIVE CORE SCRIPT
+   RESPECTECH-HR ACADEMY - PRODUCTION INTERACTIVE SCRIPT
+   Updated for Cohort 6 (Current Session) & Cohort 7 Enrollment
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,16 +13,55 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.toggle('active');
             const icon = mobileToggle.querySelector('i');
             if (icon) {
-                if (navMenu.classList.contains('active')) {
-                    icon.className = 'fa-solid fa-xmark';
-                } else {
-                    icon.className = 'fa-solid fa-bars';
-                }
+                icon.className = navMenu.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
             }
         });
     }
 
-    // 2. Interactive Modal Manager
+    // 2. Toast Notification System
+    window.showToast = function (message, type = 'success') {
+        let toastContainer = document.getElementById('toastContainer');
+        if (!toastContainer) {
+            toastContainer = document.createElement('div');
+            toastContainer.id = 'toastContainer';
+            toastContainer.style.cssText = 'position: fixed; bottom: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;';
+            document.body.appendChild(toastContainer);
+        }
+
+        const toast = document.createElement('div');
+        toast.style.cssText = `
+            background-color: ${type === 'success' ? '#0F172A' : '#D92D20'};
+            color: #FFFFFF;
+            padding: 14px 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 4px solid ${type === 'success' ? '#D92D20' : '#FFFFFF'};
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(20px);
+            opacity: 0;
+        `;
+        toast.innerHTML = `<i class="${type === 'success' ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle-exclamation'}" style="color: #D92D20; font-size: 1.1rem;"></i> <span>${message}</span>`;
+        toastContainer.appendChild(toast);
+
+        setTimeout(() => {
+            toast.style.transform = 'translateY(0)';
+            toast.style.opacity = '1';
+        }, 50);
+
+        setTimeout(() => {
+            toast.style.transform = 'translateY(20px)';
+            toast.style.opacity = '0';
+            setTimeout(() => toast.remove(), 300);
+        }, 4000);
+    };
+
+    // 3. Interactive Modal Manager
     window.openModal = function (modalId) {
         const modal = document.getElementById(modalId);
         if (modal) {
@@ -38,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Close modal on background click
     document.querySelectorAll('.modal-overlay').forEach(overlay => {
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) {
@@ -48,54 +87,122 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Application / Enrollment Form Handler
+    // 4. Enrollment Form Submission Handler (Cohort 7 Applications)
     const enrollForm = document.getElementById('enrollForm');
     if (enrollForm) {
         enrollForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('emailAddr').value.trim();
+            const phone = document.getElementById('phoneNum').value.trim();
+            const track = document.getElementById('trackSelect').value;
+
+            if (!fullName || !email || !track) {
+                window.showToast('Please fill out all required fields.', 'error');
+                return;
+            }
+
+            // Save application for local testing inspection
+            const applications = JSON.parse(localStorage.getItem('rhr_applications') || '[]');
+            const newApp = {
+                id: 'APP-' + Date.now().toString().slice(-5),
+                fullName,
+                email,
+                phone,
+                track,
+                cohort: 'Cohort 7',
+                date: new Date().toLocaleDateString()
+            };
+            applications.push(newApp);
+            localStorage.setItem('rhr_applications', JSON.stringify(applications));
+
             const formCard = enrollForm.closest('.modal-card');
             if (formCard) {
                 formCard.innerHTML = `
-                    <div style="text-align: center; padding: 2rem 1rem;">
-                        <div style="width: 64px; height: 64px; background: #FEF2F2; color: #D92D20; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 2rem;">
+                    <div style="text-align: center; padding: 2.5rem 1rem;">
+                        <div style="width: 72px; height: 72px; background: #FEF2F2; color: #D92D20; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 2.25rem;">
                             <i class="fa-solid fa-circle-check"></i>
                         </div>
-                        <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem; color: #0F172A;">Application Submitted!</h3>
-                        <p style="color: #64748B; margin-bottom: 1.5rem; line-height: 1.6;">Thank you for applying to Respectech-HR Academy. Our admissions team will review your application and contact you within 24 hours.</p>
-                        <button onclick="closeModal('enrollModal')" class="btn btn-primary">Done</button>
+                        <span class="section-tag">Application Received</span>
+                        <h3 style="font-size: 1.6rem; margin: 0.5rem 0; color: #0F172A;">Application Code: ${newApp.id}</h3>
+                        <p style="color: #64748B; margin-bottom: 1.5rem; line-height: 1.6; font-size: 0.95rem;">
+                            Thank you, <strong>${fullName}</strong>! You have successfully applied for <strong>${track.toUpperCase()} (Cohort 7)</strong>. Our admissions team will email your entrance assessment link to <strong>${email}</strong> within 24 hours.
+                        </p>
+                        <button onclick="location.reload()" class="btn btn-primary">Done</button>
                     </div>
                 `;
             }
+            window.showToast('Cohort 7 Application submitted successfully!');
         });
     }
 
-    // 4. Certificate Verification Demo Tool
+    // 5. Certificate Verification Database Simulation
+    const certificateDB = {
+        'RHR-C6-001': { name: 'Ayebakuro A. Oruwori', track: 'Software Engineering', cohort: 'Cohort 6', date: 'July 2026', status: 'Active (Current Top Fellow)' },
+        'RHR-C5-102': { name: 'Nathan Macaver', track: 'UI/UX Product Design', cohort: 'Cohort 5', date: 'March 2026', status: 'Graduated & Verified' },
+        'RHR-C5-204': { name: 'Tabitha Joledo', track: 'Cybersecurity & Cloud', cohort: 'Cohort 5', date: 'March 2026', status: 'Graduated & Verified' },
+        'RHR-C4-089': { name: 'Pemalla Joledo', track: 'Data Science & PowerBI', cohort: 'Cohort 4', date: 'November 2025', status: 'Graduated & Verified' },
+        'RHR-C1-012': { name: 'Benedict Joledo', track: 'Digital Marketing', cohort: 'Cohort 1', date: 'January 2024', status: 'Alumni Fellow' }
+    };
+
     const verifyForm = document.getElementById('verifyForm');
     if (verifyForm) {
         verifyForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const certInput = document.getElementById('certId').value.trim();
+            const certInput = document.getElementById('certId').value.trim().toUpperCase();
             const resultBox = document.getElementById('verifyResult');
 
-            if (resultBox) {
-                resultBox.style.display = 'block';
-                if (certInput.length > 3) {
-                    resultBox.innerHTML = `
-                        <div style="background: #FEF2F2; border: 1px solid #FCA5A5; border-radius: 12px; padding: 1rem; margin-top: 1rem; color: #7A1712;">
-                            <h5 style="font-weight: 700; color: #D92D20; margin-bottom: 0.25rem;"><i class="fa-solid fa-certificate"></i> Verified Certificate</h5>
-                            <p style="font-size: 0.875rem; margin-bottom: 0.25rem;"><strong>Student Name:</strong> Ayebakuro Oruwori</p>
-                            <p style="font-size: 0.875rem; margin-bottom: 0.25rem;"><strong>Track:</strong> Software Engineering (Cohort 2)</p>
-                            <p style="font-size: 0.875rem;"><strong>Status:</strong> <span style="color: #10B981; font-weight: 700;">Valid & Authenticated</span></p>
+            if (!resultBox) return;
+            resultBox.style.display = 'block';
+
+            if (certificateDB[certInput]) {
+                const data = certificateDB[certInput];
+                resultBox.innerHTML = `
+                    <div style="background: #FEF2F2; border: 1.5px solid #FCA5A5; border-radius: 16px; padding: 1.25rem; margin-top: 1.25rem; color: #0F172A; text-align: left; box-shadow: 0 4px 12px rgba(217, 45, 32, 0.08);">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; border-bottom: 1px solid #FCA5A5; padding-bottom: 0.5rem;">
+                            <span style="font-weight: 800; color: #D92D20; font-size: 0.9rem;"><i class="fa-solid fa-certificate"></i> AUTHENTIC RHR CREDENTIAL</span>
+                            <span style="background: #D92D20; color: #FFF; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 99px;">VERIFIED</span>
                         </div>
-                    `;
-                } else {
-                    resultBox.innerHTML = `
-                        <div style="background: #FEF2F2; border: 1px solid #FCA5A5; border-radius: 12px; padding: 1rem; margin-top: 1rem; color: #7A1712;">
-                            <p style="font-size: 0.875rem; color: #D92D20;"><i class="fa-solid fa-triangle-exclamation"></i> Invalid Certificate ID. Please verify the ID number and try again.</p>
-                        </div>
-                    `;
-                }
+                        <p style="font-size: 0.9rem; margin-bottom: 0.35rem;"><strong>Graduate Name:</strong> ${data.name}</p>
+                        <p style="font-size: 0.9rem; margin-bottom: 0.35rem;"><strong>Specialization:</strong> ${data.track}</p>
+                        <p style="font-size: 0.9rem; margin-bottom: 0.35rem;"><strong>Cohort:</strong> ${data.cohort} (${data.date})</p>
+                        <p style="font-size: 0.9rem;"><strong>Status:</strong> <span style="color: #10B981; font-weight: 700;">${data.status}</span></p>
+                    </div>
+                `;
+                window.showToast(`Credential ${certInput} verified!`);
+            } else {
+                resultBox.innerHTML = `
+                    <div style="background: #FEF2F2; border: 1.5px solid #FCA5A5; border-radius: 16px; padding: 1.25rem; margin-top: 1.25rem; color: #7A1712; text-align: left;">
+                        <p style="font-weight: 700; color: #D92D20; margin-bottom: 0.35rem;"><i class="fa-solid fa-triangle-exclamation"></i> Certificate Not Found</p>
+                        <p style="font-size: 0.85rem; color: #475569;">Try testing with valid sample IDs: <strong>RHR-C6-001</strong>, <strong>RHR-C5-102</strong>, or <strong>RHR-C4-089</strong>.</p>
+                    </div>
+                `;
+                window.showToast('Invalid certificate serial number', 'error');
             }
+        });
+    }
+
+    // 6. Interactive Contact Form Submission Handler
+    const contactPageForm = document.getElementById('contactPageForm');
+    if (contactPageForm) {
+        contactPageForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const subject = document.getElementById('contactSubject').value.trim();
+            const message = document.getElementById('contactMsg').value.trim();
+
+            if (!name || !email || !message) {
+                window.showToast('Please complete all form fields.', 'error');
+                return;
+            }
+
+            const messages = JSON.parse(localStorage.getItem('rhr_contact_messages') || '[]');
+            messages.push({ id: Date.now(), name, email, subject, message, date: new Date().toLocaleString() });
+            localStorage.setItem('rhr_contact_messages', JSON.stringify(messages));
+
+            window.showToast('Message sent! Our admissions team will reply shortly.');
+            contactPageForm.reset();
         });
     }
 });
