@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student LMS Dashboard | Respectech-HR Academy</title>
+    <meta name="description" content="Fellow LMS portal for Respectech-HR Academy. Track curriculum modules, attendance, assignments, and capstone submission.">
+    <link rel="icon" href="assets/images/favicon.ico">
+
+    <!-- Google Fonts & FontAwesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Design System Stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <style>
+        .dashboard-header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1.25rem 0;
+        }
+
+        .fellow-banner {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1E293B 100%);
+            color: var(--text-inverse);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .dash-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .module-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .module-item {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            transition: var(--transition-base);
+        }
+
+        .module-item:hover {
+            border-color: var(--primary-border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .status-badge {
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.3rem 0.75rem;
+            border-radius: var(--radius-full);
+        }
+
+        .status-completed {
+            background-color: #ECFDF5;
+            color: #10B981;
+            border: 1px solid #A7F3D0;
+        }
+
+        .status-inprogress {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border: 1px solid var(--primary-border);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Dashboard Header Nav -->
+    <header class="dashboard-header">
+        <div class="container navbar-container">
+            <a href="index.html" class="brand-logo">
+                <img src="https://i.ibb.co/RQFbQ87/respectech-logo-2-1.png" alt="Respectech-HR Academy Logo">
+                <span>R-HR <span class="highlight">Fellow Portal</span></span>
+            </a>
+
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <span id="navStudentName" style="font-weight: 600; font-size: 0.95rem; color: var(--text-main);"><i class="fa-solid fa-user-graduate" style="color: var(--primary);"></i> Ayebakuro Oruwori</span>
+                <button onclick="handleLogout()" class="btn btn-outline btn-sm"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-bottom: 4rem;">
+        <!-- Fellow Greeting Banner -->
+        <div class="fellow-banner">
+            <div>
+                <span class="section-tag" style="color: var(--primary-border);">Cohort 6 Active Fellow</span>
+                <h1 style="font-size: 2rem; color: white; margin: 0.25rem 0;" id="welcomeHeadline">Welcome back, Fellow!</h1>
+                <p style="color: #94A3B8; font-size: 1rem;" id="trackSubtitle">Software Engineering Track • Cohort 6</p>
+            </div>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <button onclick="openModal('assignModal')" class="btn btn-secondary"><i class="fa-solid fa-cloud-arrow-up"></i> Submit Assignment</button>
+                <button onclick="openModal('capstoneModal')" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> Submit Capstone Project</button>
+            </div>
+        </div>
+
+        <!-- Fellow Metric Stats Cards -->
+        <div class="stats-row">
+            <div class="dash-card">
+                <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Curriculum Progress</span>
+                <h3 style="font-size: 1.85rem; color: var(--primary); margin: 0.25rem 0;">75%</h3>
+                <div class="quiz-progress-bar" style="margin-bottom: 0;"><div class="quiz-progress-fill" style="width: 75%;"></div></div>
+            </div>
+
+            <div class="dash-card">
+                <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Standup Attendance</span>
+                <h3 style="font-size: 1.85rem; color: #10B981; margin: 0.25rem 0;">94%</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">16 / 17 Days Verified</span>
+            </div>
+
+            <div class="dash-card">
+                <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Assignments Submitted</span>
+                <h3 style="font-size: 1.85rem; color: var(--text-main); margin: 0.25rem 0;" id="subCount">4 / 5</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Next Due: Module 5</span>
+            </div>
+
+            <div class="dash-card">
+                <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Capstone Status</span>
+                <h3 style="font-size: 1.25rem; color: var(--primary); margin: 0.5rem 0;" id="capStatus">Ready for Upload</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Demo Day Upcoming</span>
+            </div>
+        </div>
+
+        <!-- Live Mentorship & Class Schedule Banner -->
+        <div style="background: var(--primary-light); border: 1px solid var(--primary-border); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div style="width: 44px; height: 44px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                    <i class="fa-solid fa-video"></i>
+                </div>
+                <div>
+                    <strong style="display: block; color: var(--text-main); font-size: 1rem;">Upcoming Live Workshop: Node.js & Express REST APIs</strong>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-calendar"></i> Thursday, 4:00 PM GMT • Instructor: Ayebakuro Oruwori</span>
+                </div>
+            </div>
+            <a href="https://zoom.us" target="_blank" class="btn btn-primary btn-sm"><i class="fa-solid fa-video"></i> Join Live Class Room</a>
+        </div>
+
+        <!-- Sprint Curriculum Progression (ALX SE Inspired) -->
+        <section>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <span class="section-tag">Interactive Sprints</span>
+                    <h2 class="section-title" style="font-size: 1.75rem;">Software Engineering Track Roadmap</h2>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Click on any module below to view learning guides, assignment prompts, and submission criteria.</p>
+                </div>
+            </div>
+
+            <div class="module-list">
+                <div class="module-item" onclick="showModuleGuide('mod1')" style="cursor: pointer;">
+                    <div>
+                        <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">WEEK 1 - 2</span>
+                        <h4 style="font-size: 1.1rem; color: var(--primary);">Module 1: Version Control & Git/GitHub Collaboration <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem;"></i></h4>
+                        <p style="font-size: 0.875rem; color: var(--text-muted);">Repository management, branch workflows, and pull requests.</p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span class="status-badge status-completed"><i class="fa-solid fa-circle-check"></i> Passed & Verified</span>
+                        <button class="btn btn-outline btn-sm"><i class="fa-solid fa-book-open"></i> Instructions</button>
+                    </div>
+                </div>
+
+                <div class="module-item" onclick="showModuleGuide('mod2')" style="cursor: pointer;">
+                    <div>
+                        <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">WEEK 3 - 6</span>
+                        <h4 style="font-size: 1.1rem; color: var(--primary);">Module 2: Advanced JavaScript (ES6+), DOM & Async API Fetching <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem;"></i></h4>
+                        <p style="font-size: 0.875rem; color: var(--text-muted);">Promises, async/await, REST API consumption, and dynamic UI state.</p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span class="status-badge status-completed"><i class="fa-solid fa-circle-check"></i> Passed & Verified</span>
+                        <button class="btn btn-outline btn-sm"><i class="fa-solid fa-book-open"></i> Instructions</button>
+                    </div>
+                </div>
+
+                <div class="module-item" onclick="showModuleGuide('mod3')" style="cursor: pointer;">
+                    <div>
+                        <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">WEEK 7 - 10</span>
+                        <h4 style="font-size: 1.1rem; color: var(--primary);">Module 3: React.js Architecture, Custom Hooks & State Management <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem;"></i></h4>
+                        <p style="font-size: 0.875rem; color: var(--text-muted);">Component hierarchy, props, useEffect, Context API, and routing.</p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span class="status-badge status-completed"><i class="fa-solid fa-circle-check"></i> Passed & Verified</span>
+                        <button class="btn btn-outline btn-sm"><i class="fa-solid fa-book-open"></i> Instructions</button>
+                    </div>
+                </div>
+
+                <div class="module-item" onclick="showModuleGuide('mod4')" style="cursor: pointer; border-left: 4px solid var(--primary);">
+                    <div>
+                        <span style="font-size: 0.8rem; font-weight: 700; color: var(--primary);">WEEK 11 - 14 (CURRENT SPRINT)</span>
+                        <h4 style="font-size: 1.1rem; color: var(--primary);">Module 4: Backend API Architecture with Node.js & Database Persistence <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem;"></i></h4>
+                        <p style="font-size: 0.875rem; color: var(--text-muted);">Express servers, PostgreSQL / MongoDB data modeling, and JWT Auth.</p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span class="status-badge status-inprogress"><i class="fa-solid fa-spinner fa-spin"></i> In Progress</span>
+                        <button class="btn btn-primary btn-sm"><i class="fa-solid fa-book-open"></i> View Prompt</button>
+                    </div>
+                </div>
+
+                <div class="module-item" onclick="showModuleGuide('mod5')" style="cursor: pointer;">
+                    <div>
+                        <span style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted);">WEEK 15 - 16</span>
+                        <h4 style="font-size: 1.1rem; color: var(--primary);">Module 5: Capstone Production Project & Demo Day Presentation <i class="fa-solid fa-chevron-right" style="font-size: 0.8rem;"></i></h4>
+                        <p style="font-size: 0.875rem; color: var(--text-muted);">Full-stack SaaS app building, deployment, and live employer presentation.</p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <button onclick="event.stopPropagation(); openModal('capstoneModal')" class="btn btn-primary btn-sm"><i class="fa-solid fa-rocket"></i> Submit Capstone</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Module Guide & Instructions Modal -->
+    <div class="modal-overlay" id="moduleGuideModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal('moduleGuideModal')"><i class="fa-solid fa-xmark"></i></button>
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <span class="section-tag" id="guideWeekTag">WEEK 11 - 14</span>
+                <h3 style="font-size: 1.5rem;" id="guideTitle">Module 4: Node.js & Express REST APIs</h3>
+            </div>
+
+            <div style="background: var(--bg-light); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+                <h5 style="color: var(--primary); font-size: 0.95rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-bullseye"></i> Learning Objectives & Resources</h5>
+                <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6;" id="guideDesc">
+                    Master building asynchronous Express servers, configuring RESTful routes (GET, POST, PUT, DELETE), data validation with middleware, and JWT authentication tokens.
+                </p>
+                <div style="display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap;">
+                    <a href="https://developer.mozilla.org" target="_blank" class="btn btn-outline btn-sm"><i class="fa-solid fa-book"></i> Read Documentation</a>
+                    <a href="https://github.com" target="_blank" class="btn btn-outline btn-sm"><i class="fa-brands fa-github"></i> View Starter Template</a>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <h5 style="font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--text-main);"><i class="fa-solid fa-list-check"></i> Project Acceptance Criteria</h5>
+                <ul style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; list-style: disc; padding-left: 1.25rem;" id="guideCriteria">
+                    <li>Create an Express server listening on port 5000.</li>
+                    <li>Implement CRUD endpoints for user authentication and data resource management.</li>
+                    <li>Push code to a public GitHub repository with a detailed `README.md`.</li>
+                    <li>Deploy the API to Vercel / Render and test endpoints.</li>
+                </ul>
+            </div>
+
+            <div style="display: flex; gap: 1rem;">
+                <button onclick="closeModal('moduleGuideModal'); openModal('assignModal');" class="btn btn-primary" style="width: 100%;"><i class="fa-solid fa-cloud-arrow-up"></i> Submit Assignment Link Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assignment Submission Modal -->
+    <div class="modal-overlay" id="assignModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal('assignModal')"><i class="fa-solid fa-xmark"></i></button>
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <span class="section-tag">Module Milestone</span>
+                <h3 style="font-size: 1.5rem;">Submit Module Assignment</h3>
+            </div>
+
+            <form id="assignForm">
+                <div class="form-group">
+                    <label class="form-label" for="modTitle">Module Title</label>
+                    <select id="modTitle" class="form-control" required>
+                        <option value="Module 4: Node.js & REST APIs">Module 4: Node.js & REST APIs</option>
+                        <option value="Module 3: React.js Architecture">Module 3: React.js Architecture</option>
+                        <option value="Module 2: Advanced JavaScript">Module 2: Advanced JavaScript</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="ghUrl">GitHub Repository URL</label>
+                    <input type="url" id="ghUrl" class="form-control" placeholder="https://github.com/username/repo" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="liveUrl">Live Deployed URL (Optional)</label>
+                    <input type="url" id="liveUrl" class="form-control" placeholder="https://my-app.vercel.app">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Submit Assignment Link</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Capstone Submission Modal for Demo Day -->
+    <div class="modal-overlay" id="capstoneModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal('capstoneModal')"><i class="fa-solid fa-xmark"></i></button>
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <span class="section-tag">Demo Day Evaluation</span>
+                <h3 style="font-size: 1.5rem;">Submit Capstone SaaS Project</h3>
+            </div>
+
+            <form id="capstoneForm">
+                <div class="form-group">
+                    <label class="form-label" for="capTitle">Capstone Project Title</label>
+                    <input type="text" id="capTitle" class="form-control" placeholder="e.g. EduPay African Tuition SaaS" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="capTagline">Project Tagline</label>
+                    <input type="text" id="capTagline" class="form-control" placeholder="Short 1-sentence summary" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="capAppUrl">Live Deployed App URL</label>
+                    <input type="url" id="capAppUrl" class="form-control" placeholder="https://edupay-africa.vercel.app" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="capRepoUrl">GitHub Repository URL</label>
+                    <input type="url" id="capRepoUrl" class="form-control" placeholder="https://github.com/team/edupay" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="capDemoUrl">Demo Video Link (Loom / YouTube)</label>
+                    <input type="url" id="capDemoUrl" class="form-control" placeholder="https://loom.com/share/..." required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="capMembers">Team Member Names & Handles</label>
+                    <input type="text" id="capMembers" class="form-control" placeholder="Ayebakuro Oruwori, Nathan Macaver" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Upload Capstone to Showcase</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Protected Route & Session Verification
+        let currentUser = null;
+        document.addEventListener('DOMContentLoaded', () => {
+            const session = window.RHRDB.getCurrentSession();
+            if (!session) {
+                alert("Session expired or unauthenticated. Please sign in.");
+                window.location.href = 'auth.html';
+                return;
+            }
+
+            currentUser = session.user;
+            document.getElementById('welcomeHeadline').innerText = `Welcome back, ${currentUser.fullName}!`;
+            document.getElementById('navStudentName').innerHTML = `<i class="fa-solid fa-user-graduate" style="color: var(--primary);"></i> ${currentUser.fullName}`;
+            document.getElementById('trackSubtitle').innerText = `${currentUser.role.toUpperCase()} • ${currentUser.cohort}`;
+
+            loadSubmissions();
+        });
+
+        function handleLogout() {
+            window.RHRDB.logout();
+            window.location.href = 'index.html';
+        }
+
+        const moduleData = {
+            'mod1': {
+                week: 'WEEK 1 - 2',
+                title: 'Module 1: Version Control & Git/GitHub Collaboration',
+                desc: 'Master branch workflows, merging, resolving merge conflicts, git rebase, pull request reviews, and GitHub Projects for team collaboration.',
+                criteria: '<li>Initialize a Git repository and commit files with conventional commit messages.</li><li>Create a feature branch and submit a GitHub Pull Request.</li><li>Resolve at least one simulated merge conflict with peer review.</li>'
+            },
+            'mod2': {
+                week: 'WEEK 3 - 6',
+                title: 'Module 2: Advanced JavaScript (ES6+), DOM & Async API Fetching',
+                desc: 'Deep dive into JavaScript event loops, Closures, Higher-Order Functions, Promises, async/await, and fetching RESTful API endpoints.',
+                criteria: '<li>Build an asynchronous web app consuming a public REST API.</li><li>Implement dynamic DOM rendering and error handling.</li><li>Deploy to Vercel/GitHub Pages with clean code structure.</li>'
+            },
+            'mod3': {
+                week: 'WEEK 7 - 10',
+                title: 'Module 3: React.js Architecture, Custom Hooks & State Management',
+                desc: 'Learn React component lifecycle, props vs state, custom hooks, Context API, and client-side routing with React Router v6.',
+                criteria: '<li>Build a multi-page React application with global state management.</li><li>Create custom hooks for data fetching and form input validation.</li>'
+            },
+            'mod4': {
+                week: 'WEEK 11 - 14 (CURRENT SPRINT)',
+                title: 'Module 4: Backend API Architecture with Node.js & Database Persistence',
+                desc: 'Master Express.js web servers, REST route architecture, PostgreSQL/MongoDB schemas, password hashing, and JWT Authentication middleware.',
+                criteria: '<li>Build a Node/Express REST API with complete CRUD routes.</li><li>Implement JWT login/signup authentication middleware.</li><li>Deploy API server and connect frontend client.</li>'
+            },
+            'mod5': {
+                week: 'WEEK 15 - 16',
+                title: 'Module 5: Capstone Production Project & Demo Day Presentation',
+                desc: 'Collaborate in fellow teams to build, test, and deploy a production SaaS application. Present live to corporate hiring partners on Demo Day.',
+                criteria: '<li>Submit Capstone Title, Tagline, Demo Video Link (Loom/YouTube), Live App URL, and GitHub Repository.</li>'
+            }
+        };
+
+        function showModuleGuide(modId) {
+            const data = moduleData[modId] || moduleData['mod4'];
+            document.getElementById('guideWeekTag').innerText = data.week;
+            document.getElementById('guideTitle').innerText = data.title;
+            document.getElementById('guideDesc').innerText = data.desc;
+            document.getElementById('guideCriteria').innerHTML = data.criteria;
+            openModal('moduleGuideModal');
+        }
+
+        function loadSubmissions() {
+            if (!currentUser) return;
+            const submissions = window.RHRDB.getStudentAssignments(currentUser.email);
+            document.getElementById('subCount').innerText = `${submissions.length + 3} / 5`;
+            
+            const capstones = window.RHRDB.getCapstones();
+            const myCap = capstones.find(c => c.submittedBy === currentUser.email);
+            if (myCap) {
+                document.getElementById('capStatus').innerText = 'Submitted (Pending Review)';
+                document.getElementById('capStatus').style.color = '#10B981';
+            }
+        }
+
+        document.getElementById('assignForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const moduleTitle = document.getElementById('modTitle').value;
+            const githubUrl = document.getElementById('ghUrl').value.trim();
+            const liveUrl = document.getElementById('liveUrl').value.trim();
+
+            await window.RHRDB.submitAssignment({ userEmail: currentUser.email, moduleTitle, githubUrl, liveUrl });
+            closeModal('assignModal');
+            if (window.showToast) window.showToast("Assignment submitted successfully!");
+            loadSubmissions();
+        });
+
+        document.getElementById('capstoneForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const title = document.getElementById('capTitle').value.trim();
+            const tagline = document.getElementById('capTagline').value.trim();
+            const liveAppUrl = document.getElementById('capAppUrl').value.trim();
+            const githubRepoUrl = document.getElementById('capRepoUrl').value.trim();
+            const demoVideoUrl = document.getElementById('capDemoUrl').value.trim();
+            const teamMembers = document.getElementById('capMembers').value.trim();
+
+            await window.RHRDB.submitCapstone({
+                title, tagline, liveAppUrl, githubRepoUrl, demoVideoUrl, teamMembers, userEmail: currentUser.email
+            });
+
+            closeModal('capstoneModal');
+            if (window.showToast) window.showToast("Capstone Project uploaded for Demo Day!");
+            loadSubmissions();
+        });
+    </script>
+</body>
+
+</html>

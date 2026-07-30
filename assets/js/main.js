@@ -112,20 +112,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const appId = 'RHR-APP-' + Math.floor(1000 + Math.random() * 9000);
 
-            // Save application for local testing inspection & Admin review
-            const applications = JSON.parse(localStorage.getItem('rhr_applications') || '[]');
-            const newApp = {
-                id: appId,
-                fullName,
-                email,
-                phone,
-                track,
-                cohort: 'Cohort 7',
-                status: 'Screening Pending',
-                date: new Date().toLocaleDateString()
-            };
-            applications.push(newApp);
-            localStorage.setItem('rhr_applications', JSON.stringify(applications));
+            // Phase 2 Database Service Integration
+            if (window.RHRDB) {
+                window.RHRDB.saveApplication({ id: appId, fullName, email, phone, track, cohort: 'Cohort 7' });
+            }
 
             // Phase 1 EmailJS Automated Dispatch
             if (typeof emailjs !== 'undefined') {
