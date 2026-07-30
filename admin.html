@@ -204,6 +204,7 @@
         <div class="admin-tabs">
             <button class="admin-tab-btn active" id="tabAppsBtn" onclick="switchTab('apps')"><i class="fa-solid fa-list-check"></i> Candidate Applications & Screening Scores</button>
             <button class="admin-tab-btn" id="tabCapBtn" onclick="switchTab('capstones')"><i class="fa-solid fa-rocket"></i> Capstone Projects & Demo Day</button>
+            <button class="admin-tab-btn" id="tabRolloverBtn" onclick="switchTab('rollover')"><i class="fa-solid fa-users-gear"></i> Cohort Students & Rollover Management</button>
         </div>
 
         <!-- Tab 1: Candidate Applications Table -->
@@ -249,6 +250,26 @@
                 </table>
             </div>
         </div>
+
+        <!-- Tab 3: Cohort Management & Student Rollover Table -->
+        <div id="sectionRollover" style="display: none;">
+            <div class="data-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Fellow Name</th>
+                            <th>Email Address</th>
+                            <th>Active Cohort</th>
+                            <th>Graduation Status</th>
+                            <th>Rollover Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rolloverTableBody">
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -284,13 +305,17 @@
         function switchTab(tabName) {
             document.getElementById('sectionApps').style.display = tabName === 'apps' ? 'block' : 'none';
             document.getElementById('sectionCapstones').style.display = tabName === 'capstones' ? 'block' : 'none';
+            document.getElementById('sectionRollover').style.display = tabName === 'rollover' ? 'block' : 'none';
+
             document.getElementById('tabAppsBtn').className = tabName === 'apps' ? 'admin-tab-btn active' : 'admin-tab-btn';
             document.getElementById('tabCapBtn').className = tabName === 'capstones' ? 'admin-tab-btn active' : 'admin-tab-btn';
+            document.getElementById('tabRolloverBtn').className = tabName === 'rollover' ? 'admin-tab-btn active' : 'admin-tab-btn';
         }
 
         async function loadAdminData() {
             const apps = await window.RHRDB.getApplications();
             const capstones = window.RHRDB.getCapstones();
+            const students = window.RHRDB.getStudents();
 
             document.getElementById('statTotalApps').innerText = apps.length;
             document.getElementById('statPendingApps').innerText = apps.filter(a => a.status === 'pending_review' || a.status === 'recommended').length;
@@ -349,6 +374,41 @@
                     </tr>
                 `).join('');
             }
+
+            // Render Rollover Table
+            const rolloverBody = document.getElementById('rolloverTableBody');
+            if (students.length === 0) {
+                rolloverBody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 2rem; color: var(--text-muted);">No student records found.</td></tr>`;
+            } else {
+                rolloverBody.innerHTML = students.map(st => {
+                    const isGrad = st.status === 'graduated';
+                    const isRolled = st.status === 'active_rolled_over';
+                    const badgeClass = isGrad ? 'badge-approved' : (isRolled ? 'badge-pending' : 'badge-rejected');
+                    const statusText = isGrad ? 'GRADUATED & CERTIFIED' : (isRolled ? 'ACTIVE IN COHORT 7' : 'INCOMPLETE (NEEDS ROLLOVER)');
+
+                    return `
+                        <tr>
+                            <td><strong>${st.fullName}</strong></td>
+                            <td>${st.email}</td>
+                            <td><strong>${st.cohort}</strong></td>
+                            <td><span class="${badgeClass}">${statusText}</span></td>
+                            <td>
+                                ${!isGrad && st.cohort !== 'Cohort 7' ? `
+                                    <button onclick="rolloverStudent('${st.email}')" class="btn btn-primary btn-sm" style="padding: 0.3rem 0.75rem;"><i class="fa-solid fa-users-gear"></i> Roll Over to Cohort 7</button>
+                                ` : `
+                                    <span style="font-size: 0.85rem; color: var(--text-muted);"><i class="fa-solid fa-circle-check"></i> ${isGrad ? 'Graduated' : 'In Current Cohort'}</span>
+                                `}
+                            </td>
+                        </tr>
+                    `;
+                }).join('');
+            }
+        }
+
+        async function rolloverStudent(email) {
+            await window.RHRDB.rolloverStudent(email, 'Cohort 7');
+            if (window.showToast) window.showToast(`Fellow ${email} rolled over to Cohort 7!`);
+            loadAdminData();
         }
 
         async function approveApp(appId) {

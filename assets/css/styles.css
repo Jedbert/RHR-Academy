@@ -977,9 +977,9 @@ textarea.form-control {
     resize: vertical;
 }
 
-/* Responsive Media Queries */
+/* Responsive Media Queries for Student Mobile & Tablet Devices */
 @media (max-width: 1024px) {
-    .hero-grid, .impact-grid {
+    .hero-grid, .impact-grid, .contact-layout {
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }
@@ -998,8 +998,23 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .modal-card {
+        padding: 1.5rem;
+        max-height: 90vh;
+    }
+
     .top-bar {
         font-size: 0.775rem;
+        flex-direction: column;
+        gap: 0.25rem;
     }
 
     .navbar-container {
@@ -1019,6 +1034,7 @@ textarea.form-control {
         gap: 1.5rem;
         transition: var(--transition-base);
         box-shadow: var(--shadow-lg);
+        overflow-y: auto;
     }
 
     .nav-menu.active {
@@ -1030,10 +1046,10 @@ textarea.form-control {
     }
 
     .hero-headline {
-        font-size: 2.1rem;
+        font-size: 2rem;
     }
 
-    .ticker-grid, .tracks-grid {
+    .ticker-grid, .tracks-grid, .stats-row {
         grid-template-columns: 1fr;
     }
 
@@ -1044,5 +1060,15 @@ textarea.form-control {
     .hero-stats {
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    .fellow-banner, .admin-banner {
+        padding: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn {
+        width: 100%;
     }
 }

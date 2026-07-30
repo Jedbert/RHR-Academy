@@ -71,11 +71,70 @@ class RHRDatabaseService {
                 passwordHash: "student123",
                 fullName: "Ayebakuro Oruwori",
                 role: "student",
-                cohort: "Cohort 6"
+                cohort: "Cohort 6",
+                status: "active"
+            });
+            users.push({
+                id: "usr_student_2",
+                email: "nathan.mac@example.com",
+                passwordHash: "student123",
+                fullName: "Nathan Macaver",
+                role: "student",
+                cohort: "Cohort 5",
+                status: "graduated"
+            });
+            users.push({
+                id: "usr_student_3",
+                email: "tabitha.j@example.com",
+                passwordHash: "student123",
+                fullName: "Tabitha Joledo",
+                role: "student",
+                cohort: "Cohort 4",
+                status: "incomplete_needs_rollover"
+            });
+            users.push({
+                id: "usr_student_4",
+                email: "benedict.c@example.com",
+                passwordHash: "student123",
+                fullName: "Benedict Campus",
+                role: "student",
+                cohort: "Cohort 3",
+                status: "graduated"
             });
         }
 
         localStorage.setItem(this.storagePrefix + "users", JSON.stringify(users));
+    }
+
+    // --- COHORT ROLLOVER & MANAGEMENT ---
+
+    getStudents() {
+        const users = JSON.parse(localStorage.getItem(this.storagePrefix + "users") || "[]");
+        return users.filter(u => u.role === "student");
+    }
+
+    async rolloverStudent(userEmail, newCohort = "Cohort 7") {
+        const users = JSON.parse(localStorage.getItem(this.storagePrefix + "users") || "[]");
+        let rolledOver = null;
+
+        const updatedUsers = users.map(u => {
+            if (u.email.toLowerCase() === userEmail.toLowerCase()) {
+                rolledOver = { ...u, cohort: newCohort, status: "active_rolled_over" };
+                return rolledOver;
+            }
+            return u;
+        });
+
+        localStorage.setItem(this.storagePrefix + "users", JSON.stringify(updatedUsers));
+
+        // Update active session if currently logged in
+        const session = this.getCurrentSession();
+        if (session && session.user.email.toLowerCase() === userEmail.toLowerCase()) {
+            session.user.cohort = newCohort;
+            localStorage.setItem(this.storagePrefix + "session", JSON.stringify(session));
+        }
+
+        return { success: true, user: rolledOver };
     }
 
     // --- APPLICATION TABLE METHODS ---
