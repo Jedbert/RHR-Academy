@@ -348,7 +348,77 @@ class RHRDatabaseService {
     }
 
     getCapstones() {
-        return JSON.parse(localStorage.getItem(this.storagePrefix + "capstones") || "[]");
+        let capstones = JSON.parse(localStorage.getItem(this.storagePrefix + "capstones") || "[]");
+        if (capstones.length === 0) {
+            capstones = [
+                {
+                    id: "cap_demo_1",
+                    title: "EduPay Africa - Automated Tuition Micro-Loans",
+                    tagline: "Fintech SaaS platform enabling African students to finance tech education with split pay.",
+                    track: "Software Engineering",
+                    cohort: "Cohort 6",
+                    demoVideoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    liveAppUrl: "https://github.com",
+                    githubRepoUrl: "https://github.com",
+                    teamMembers: "Ayebakuro Oruwori, Nathan Macaver",
+                    submittedBy: "student@respectech.ng",
+                    status: "approved_showcase",
+                    submittedAt: "2026-07-28"
+                },
+                {
+                    id: "cap_demo_2",
+                    title: "AgriConnect Nigeria - Supply Chain Portal",
+                    tagline: "Direct marketplace connecting rural farmers with Abuja corporate buyers.",
+                    track: "UI/UX Product Design",
+                    cohort: "Cohort 5",
+                    demoVideoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    liveAppUrl: "https://github.com",
+                    githubRepoUrl: "https://github.com",
+                    teamMembers: "Tabitha Joledo, Benedict Campus",
+                    submittedBy: "tabitha@example.com",
+                    status: "approved_showcase",
+                    submittedAt: "2026-05-15"
+                },
+                {
+                    id: "cap_demo_3",
+                    title: "ShieldGuard Threat Intelligence Engine",
+                    tagline: "Cybersecurity SIEM log analyzer & breach prevention dashboard for SMEs.",
+                    track: "Cyber Security",
+                    cohort: "Cohort 6",
+                    demoVideoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    liveAppUrl: "https://github.com",
+                    githubRepoUrl: "https://github.com",
+                    teamMembers: "Nathan Macaver",
+                    submittedBy: "nathan.mac@example.com",
+                    status: "approved_showcase",
+                    submittedAt: "2026-07-29"
+                }
+            ];
+            localStorage.setItem(this.storagePrefix + "capstones", JSON.stringify(capstones));
+        }
+        return capstones;
+    }
+
+    // --- PHASE 5: CERTIFICATE GENERATION & HR LINKAGE ---
+
+    generateCertificate(fullName, track, cohort, certId = null) {
+        const serial = certId || "RHR-C6-2026-" + Math.floor(1000 + Math.random() * 9000);
+        const certRecord = {
+            serial,
+            fullName,
+            track,
+            cohort,
+            issueDate: new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+            verified: true,
+            issuer: "Respectech-HR Academy Board"
+        };
+
+        // Add to cert DB
+        const certs = JSON.parse(localStorage.getItem(this.storagePrefix + "certificates") || "[]");
+        certs.unshift(certRecord);
+        localStorage.setItem(this.storagePrefix + "certificates", JSON.stringify(certs));
+
+        return certRecord;
     }
 }
 
