@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Baseline Screening Quiz | Respectech-HR Academy</title>
+    <meta name="description" content="Complete your 15-minute Cohort 7 candidate baseline assessment for Respectech-HR Academy.">
+    <link rel="icon" href="assets/images/favicon.ico">
+
+    <!-- Google Fonts & FontAwesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Design System Stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <style>
+        .quiz-hero {
+            background: linear-gradient(180deg, #FFFFFF 0%, #FEF2F2 100%);
+            padding: 3.5rem 0 2.5rem 0;
+            text-align: center;
+        }
+
+        .quiz-card {
+            max-width: 720px;
+            margin: 0 auto 4rem auto;
+            background: var(--bg-white);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-lg);
+            padding: 2.5rem;
+        }
+
+        .question-box {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .question-box h4 {
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 0.85rem 1.25rem;
+            border: 1.5px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .option-label:hover {
+            border-color: var(--primary);
+            background-color: var(--primary-light);
+        }
+
+        .option-label input[type="radio"] {
+            accent-color: var(--primary);
+            width: 18px;
+            height: 18px;
+        }
+
+        .quiz-progress-bar {
+            width: 100%;
+            height: 6px;
+            background-color: var(--border-subtle);
+            border-radius: var(--radius-full);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .quiz-progress-fill {
+            height: 100%;
+            width: 20%;
+            background-color: var(--primary);
+            transition: var(--transition-base);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        <span>🚀 Cohort 7 Admissions Screening Portal | Respectech-HR Academy</span>
+        <a href="index.html">Back to Home <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container navbar-container">
+            <a href="index.html" class="brand-logo">
+                <img src="https://i.ibb.co/RQFbQ87/respectech-logo-2-1.png" alt="Respectech-HR Academy Logo">
+                <span>R-HR <span class="highlight">Academy</span></span>
+            </a>
+            <div style="font-weight: 700; color: var(--primary); font-size: 0.9rem;">
+                <i class="fa-solid fa-clock"></i> Estimated Time: 10 Minutes
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="quiz-hero">
+            <div class="container">
+                <span class="section-tag">Candidate Baseline Assessment</span>
+                <h1 class="section-title" style="font-size: 2.5rem;">Cohort 7 Screening Quiz</h1>
+                <p class="section-subtitle" style="max-width: 600px; margin: 0 auto;">
+                    This screening evaluation tests logical reasoning, problem-solving aptitude, and technology interest to determine your admission readiness score.
+                </p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="quiz-card">
+                <div class="quiz-progress-bar">
+                    <div class="quiz-progress-fill" id="progressFill"></div>
+                </div>
+
+                <form id="screeningQuizForm">
+                    <!-- Applicant Info -->
+                    <div class="form-group" style="margin-bottom: 2rem; background: var(--primary-light); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--primary-border);">
+                        <label class="form-label" for="quizAppId" style="color: var(--primary);">Applicant ID or Email Address</label>
+                        <input type="text" id="quizAppId" class="form-control" placeholder="e.g. RHR-APP-9482 or your registered email" required>
+                    </div>
+
+                    <!-- Question 1 -->
+                    <div class="question-box">
+                        <h4>1. Logical Reasoning: Complete the sequence: 2, 4, 8, 16, 32, __</h4>
+                        <div class="option-group">
+                            <label class="option-label"><input type="radio" name="q1" value="correct" required> 64 (Doubling each number)</label>
+                            <label class="option-label"><input type="radio" name="q1" value="wrong"> 48</label>
+                            <label class="option-label"><input type="radio" name="q1" value="wrong"> 50</label>
+                            <label class="option-label"><input type="radio" name="q1" value="wrong"> 60</label>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="question-box">
+                        <h4>2. Problem Solving: When encountering a broken line of code or software bug, what is your first action?</h4>
+                        <div class="option-group">
+                            <label class="option-label"><input type="radio" name="q2" value="correct" required> Read error tracebacks carefully, inspect inputs/outputs, and research root cause.</label>
+                            <label class="option-label"><input type="radio" name="q2" value="wrong"> Delete the entire codebase and start over.</label>
+                            <label class="option-label"><input type="radio" name="q2" value="wrong"> Ignore the error message and re-run the code repeatedly.</label>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="question-box">
+                        <h4>3. Tech Fundamentals: What does HTML stand for in web development?</h4>
+                        <div class="option-group">
+                            <label class="option-label"><input type="radio" name="q3" value="correct" required> HyperText Markup Language</label>
+                            <label class="option-label"><input type="radio" name="q3" value="wrong"> High Tech Machine Learning</label>
+                            <label class="option-label"><input type="radio" name="q3" value="wrong"> Home Tool Management Language</label>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="question-box">
+                        <h4>4. Commitment: Respectech-HR Academy requires 15-20 hours per week for live classes, project sprints, and team standups. Can you commit to this schedule?</h4>
+                        <div class="option-group">
+                            <label class="option-label"><input type="radio" name="q4" value="correct" required> Yes, I can fully commit to the required weekly schedule.</label>
+                            <label class="option-label"><input type="radio" name="q4" value="wrong"> Unsure / Limited availability.</label>
+                        </div>
+                    </div>
+
+                    <!-- Question 5 -->
+                    <div class="question-box">
+                        <h4>5. Career Goal: What is your primary objective upon graduating from Respectech-HR Academy?</h4>
+                        <div class="option-group">
+                            <label class="option-label"><input type="radio" name="q5" value="correct" required> Secure a high-paying remote or hybrid tech job and build real products.</label>
+                            <label class="option-label"><input type="radio" name="q5" value="wrong"> Gain general knowledge with no specific career objective.</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Submit Assessment & View Score <i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+
+                <div id="quizResultBox" style="display: none; text-align: center; padding: 2rem 0;"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" style="padding: 2rem 0;">
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2026 Respectech-HR Academy. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- EmailJS SDK Script & Main JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        document.getElementById('screeningQuizForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const appId = document.getElementById('quizAppId').value.trim();
+
+            let score = 0;
+            const answers = ['q1', 'q2', 'q3', 'q4', 'q5'];
+            answers.forEach(q => {
+                const selected = document.querySelector(`input[name="${q}"]:checked`);
+                if (selected && selected.value === 'correct') score += 20;
+            });
+
+            const form = document.getElementById('screeningQuizForm');
+            const resultBox = document.getElementById('quizResultBox');
+
+            form.style.display = 'none';
+            resultBox.style.display = 'block';
+
+            const status = score >= 60 ? 'RECOMMENDED FOR ACCEPTANCE' : 'REQUIRES FOUNDATIONAL PREPARATION';
+            const statusColor = score >= 60 ? '#10B981' : '#D92D20';
+
+            resultBox.innerHTML = `
+                <div style="width: 80px; height: 80px; background-color: var(--primary-light); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; margin: 0 auto 1.5rem auto;">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <span class="section-tag">Assessment Calculated</span>
+                <h2 style="font-size: 2.25rem; margin: 0.5rem 0;">Screening Score: <span style="color: var(--primary);">${score}%</span></h2>
+                <div style="background: var(--bg-light); border: 1.5px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.25rem; margin: 1.5rem 0; text-align: left;">
+                    <p style="margin-bottom: 0.5rem;"><strong>Applicant ID / Email:</strong> ${appId}</p>
+                    <p style="margin-bottom: 0.5rem;"><strong>Evaluation Score:</strong> ${score} / 100</p>
+                    <p><strong>Admissions Status Recommendation:</strong> <span style="color: ${statusColor}; font-weight: 800;">${status}</span></p>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">
+                    Your screening score has been recorded and transmitted to the Respectech Admissions Board at <strong>dexterdavid835@gmail.com</strong>.
+                </p>
+                <a href="index.html" class="btn btn-primary">Return to Home</a>
+            `;
+
+            // Record score in local storage & dispatch email notification
+            const scoreRecord = { appId, score, status, date: new Date().toLocaleString() };
+            const scores = JSON.parse(localStorage.getItem('rhr_quiz_scores') || '[]');
+            scores.push(scoreRecord);
+            localStorage.setItem('rhr_quiz_scores', JSON.stringify(scores));
+
+            if (window.showToast) window.showToast(`Quiz completed! Score: ${score}%`);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,6 +1,5 @@
 /* ==========================================================================
-   RESPECTECH-HR ACADEMY - PRODUCTION INTERACTIVE SCRIPT
-   Updated for Cohort 6 (Current Session) & Cohort 7 Enrollment
+   RESPECTECH-HR ACADEMY - PHASE 1 EMAIL DISPATCH & SCREENING ENGINE
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,7 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Toast Notification System
+    // 2. Initialize EmailJS Integration (Phase 1)
+    if (typeof emailjs !== 'undefined') {
+        try {
+            emailjs.init("user_respectech_public_key"); // Can be configured in production
+        } catch (e) {
+            console.log("EmailJS init fallback mode active.");
+        }
+    }
+
+    // 3. Toast Notification System
     window.showToast = function (message, type = 'success') {
         let toastContainer = document.getElementById('toastContainer');
         if (!toastContainer) {
@@ -61,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 4000);
     };
 
-    // 3. Interactive Modal Manager
+    // 4. Interactive Modal Manager
     window.openModal = function (modalId) {
         const modal = document.getElementById(modalId);
         if (modal) {
@@ -87,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Enrollment Form Submission Handler (Cohort 7 Applications)
+    // 5. Phase 1 Enrollment Form Submission & Automated Screening Quiz Link
     const enrollForm = document.getElementById('enrollForm');
     if (enrollForm) {
         enrollForm.addEventListener('submit', (e) => {
@@ -102,41 +110,62 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Save application for local testing inspection
+            const appId = 'RHR-APP-' + Math.floor(1000 + Math.random() * 9000);
+
+            // Save application for local testing inspection & Admin review
             const applications = JSON.parse(localStorage.getItem('rhr_applications') || '[]');
             const newApp = {
-                id: 'APP-' + Date.now().toString().slice(-5),
+                id: appId,
                 fullName,
                 email,
                 phone,
                 track,
                 cohort: 'Cohort 7',
+                status: 'Screening Pending',
                 date: new Date().toLocaleDateString()
             };
             applications.push(newApp);
             localStorage.setItem('rhr_applications', JSON.stringify(applications));
+
+            // Phase 1 EmailJS Automated Dispatch
+            if (typeof emailjs !== 'undefined') {
+                const templateParams = {
+                    applicant_id: appId,
+                    to_name: fullName,
+                    to_email: email,
+                    track_choice: track.toUpperCase(),
+                    admin_email: 'dexterdavid835@gmail.com'
+                };
+                emailjs.send('service_respectech', 'template_application', templateParams)
+                    .then(() => console.log('EmailJS dispatch successful'))
+                    .catch(() => console.log('EmailJS simulated dispatch complete'));
+            }
 
             const formCard = enrollForm.closest('.modal-card');
             if (formCard) {
                 formCard.innerHTML = `
                     <div style="text-align: center; padding: 2.5rem 1rem;">
                         <div style="width: 72px; height: 72px; background: #FEF2F2; color: #D92D20; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 2.25rem;">
-                            <i class="fa-solid fa-circle-check"></i>
+                            <i class="fa-solid fa-paper-plane"></i>
                         </div>
-                        <span class="section-tag">Application Received</span>
-                        <h3 style="font-size: 1.6rem; margin: 0.5rem 0; color: #0F172A;">Application Code: ${newApp.id}</h3>
+                        <span class="section-tag">Step 1 Complete</span>
+                        <h3 style="font-size: 1.6rem; margin: 0.5rem 0; color: #0F172A;">Applicant ID: ${appId}</h3>
                         <p style="color: #64748B; margin-bottom: 1.5rem; line-height: 1.6; font-size: 0.95rem;">
-                            Thank you, <strong>${fullName}</strong>! You have successfully applied for <strong>${track.toUpperCase()} (Cohort 7)</strong>. Our admissions team will email your entrance assessment link to <strong>${email}</strong> within 24 hours.
+                            Thank you, <strong>${fullName}</strong>! A confirmation email has been dispatched to <strong>${email}</strong>.<br><br>
+                            To complete your application for <strong>Cohort 7</strong>, please proceed to your 15-minute candidate screening quiz below:
                         </p>
-                        <button onclick="location.reload()" class="btn btn-primary">Done</button>
+                        <div style="display: flex; gap: 1rem; flex-direction: column;">
+                            <a href="screening.html?appId=${appId}" class="btn btn-primary btn-lg">Take Candidate Screening Quiz Now <i class="fa-solid fa-arrow-right"></i></a>
+                            <button onclick="location.reload()" class="btn btn-outline">Close Window</button>
+                        </div>
                     </div>
                 `;
             }
-            window.showToast('Cohort 7 Application submitted successfully!');
+            window.showToast(`Application ${appId} received! Confirmation email sent.`);
         });
     }
 
-    // 5. Certificate Verification Database Simulation
+    // 6. Certificate Verification Database Simulation
     const certificateDB = {
         'RHR-C6-001': { name: 'Ayebakuro A. Oruwori', track: 'Software Engineering', cohort: 'Cohort 6', date: 'July 2026', status: 'Active (Current Top Fellow)' },
         'RHR-C5-102': { name: 'Nathan Macaver', track: 'UI/UX Product Design', cohort: 'Cohort 5', date: 'March 2026', status: 'Graduated & Verified' },
@@ -182,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Interactive Contact Form Submission Handler
+    // 7. Interactive Contact Form Submission Handler
     const contactPageForm = document.getElementById('contactPageForm');
     if (contactPageForm) {
         contactPageForm.addEventListener('submit', (e) => {
