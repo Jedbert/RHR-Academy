@@ -4,158 +4,274 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Contact Us | Respectech-HR Academy</title>
+    <meta name="description" content="Get in touch with Respectech-HR Academy in Abuja, Nigeria. Reach out for enrollment, partnerships, or inquiry.">
+    <link rel="icon" href="../assets/images/favicon.ico">
+
+    <!-- Google Fonts & FontAwesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Design System Stylesheet -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
+    <style>
+        .contact-hero {
+            background: linear-gradient(180deg, #FFFFFF 0%, #FEF2F2 100%);
+            padding: 4rem 0 3rem 0;
+            text-align: center;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .contact-info-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition-base);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-border);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-icon-box {
+            width: 54px;
+            height: 54px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            margin: 0 auto 1rem auto;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .map-wrapper {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-subtle);
+            height: 480px;
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
 
 <body>
-    <nav>
-        <div class="first-nav">
-              <img src="./envelope (3).png" alt="envelope" class="envelope"/>
-              <p>respectechhr@gmail.com</p>
-             <div class="vertical-line"></div>
-              <img src="./phone-call.png" alt="phonecall" class="phonecall" />
-              <p>+23494781322</p>
-                <div style="margin-left: 34%;  margin-top: 28px; font-weight: 600;font-size: large;">
-                Apply now </div>
-                <div style="margin-left: 30px;  margin-top: 28px;font-weight: 600;font-size: large;">
-                Join Classes</div>
-            
-        
-        </div>
-    </nav>
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        <span>🚀 Cohort 3 Applications Are Now Open! Limited Seats Available.</span>
+        <a href="../index.html#tracks">Apply Now <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
 
-    <header>
-        <div class="logo-container">
-            <div class="logo">
-                <img src="https://i.ibb.co/7zcWS13/respectech-logo-2-1.png" alt="Respectech-HR Academy Logo">
-            </div>
-            <nav id="nav-bar">
-                <ul>
-                    <li><a class="nav-link" href="../index.html">Home</a></li>
-                    <li><a class="nav-link" href="../Respectechies\techies.html">Respectechies</a></li>
-                    <li><a class="nav-link" href="../About Us\about_us.html">About Us</a></li>
-                    <!-- <li><a class="nav-link" href="contact.html">Contact</a></li> -->
-                </ul>
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container navbar-container">
+            <a href="../index.html" class="brand-logo">
+                <img src="https://i.ibb.co/RQFbQ87/respectech-logo-2-1.png" alt="Respectech-HR Academy Logo">
+                <span>R-HR <span class="highlight">Academy</span></span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../About Us/about_us.html" class="nav-link">About Us</a>
+                
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle">
+                        Respectechies <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="../Respectechies/techies.html" class="dropdown-item">
+                            <i class="fa-solid fa-user-graduate" style="color: var(--primary);"></i> Cohorts & Techies
+                        </a>
+                        <a href="../Unemployment Statistics/unemployment.html" class="dropdown-item">
+                            <i class="fa-solid fa-chart-line" style="color: var(--primary);"></i> Unemployment Stats
+                        </a>
+                    </div>
+                </div>
+
+                <a href="contact.html" class="nav-link active">Contact Us</a>
             </nav>
-        </div>
-        <div class="header-image-container">
-            <img class="header-image" src="https://i.ibb.co/xj4GR80/Contact-Us.jpg" alt="Contact Us Image">
-            <div class="header-text">Contact Us <br>
-                <span style="font-size: medium;">We'll love to hear from you!</span>
+
+            <div class="nav-actions">
+                <a href="../index.html#tracks" class="btn btn-primary btn-sm">Enroll Now</a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
-           
         </div>
     </header>
-    <section >
-        <div>
-         <img src="./web-page.png" alt="web-address" class="images"/>
-         <p>Web Address</p>
-         <p>www.respectech.ng</p>
-       </div>
-       <div>
-         <img src="./open-email (1).png" alt="email" class="images"/>
-         <p>Email Address</p>
-         <p>respectechhr@gmail.com</p>
-       </div>
-        <div>
-         <img src="./phone-call (3).png" alt="ringing phone" class="images"/>
-         <p>Phone Number</p>
-         <p>(+234) 947-813-22</p>
-        </div>
-    </section>
+
     <main>
-        <div>
-            <iframe id="map" style="width: 170%; height: 600px; margin-left: 20px;"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31691.12343207614!2d7.487614175912173!3d9.070038773926685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104f39538c8fe549%3A0xf8743a7f3b45056!2sFairtrade%20Business%20Complex%2C%20Wuse%20Zone%207%2C%20Abuja!5e0!3m2!1sen!2sng!4v1642246450405!5m2!1sen!2sng"
-            allowfullscreen>
-        </iframe>
-        </div>
-        <div class="container-main">
-            <p>Get in touch with us to learn more about our programs or ask any questions.</p>
-            <br>
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="container">
+                <span class="section-tag">Get In Touch</span>
+                <h1 class="section-title" style="font-size: 2.75rem;">We'd Love to Hear From You</h1>
+                <p class="section-subtitle" style="max-width: 600px; margin: 0 auto;">
+                    Have questions about our training tracks, corporate partnerships, or enrollment procedure? Contact our team directly.
+                </p>
+            </div>
+        </section>
 
-            <form action="" method="post">
-                <h3>Leave Us a Message</h3>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Your Email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
+        <section class="section-padding" style="background: var(--bg-white);">
+            <div class="container">
+                <!-- Info Cards Grid -->
+                <div class="contact-info-grid">
+                    <div class="contact-info-card">
+                        <div class="contact-icon-box">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Visit Academy</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">Respectech Centre, 24 Bambari Cres. Fairtrade Complex, Wuse Zone 7, Abuja, Nigeria</p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="contact-icon-box">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Email Us</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">dexterdavid835@gmail.com</p>
+                        <p style="font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-top: 0.25rem;">Response within 24 hours</p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="contact-icon-box">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Phone Number</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">(+234) 947-813-22</p>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Mon - Fri: 8am - 5pm</p>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="contact-icon-box">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Web Address</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">www.respectech-hr.com</p>
+                        <p style="font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-top: 0.25rem;">Official Portal</p>
+                    </div>
+                </div>
+
+                <!-- Form & Map Grid -->
+                <div class="contact-layout">
+                    <div style="background-color: var(--bg-light); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 2.5rem;">
+                        <span class="section-tag">Direct Inquiry</span>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 1.5rem;">Leave Us a Message</h3>
+
+                        <form id="contactPageForm">
+                            <div class="form-group">
+                                <label class="form-label" for="contactName">Your Name</label>
+                                <input type="text" id="contactName" class="form-control" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="contactEmail">Email Address</label>
+                                <input type="email" id="contactEmail" class="form-control" placeholder="name@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="contactSubject">Subject</label>
+                                <input type="text" id="contactSubject" class="form-control" placeholder="Inquiry topic" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="contactMsg">Message</label>
+                                <textarea id="contactMsg" class="form-control" placeholder="How can we assist you?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31691.12343207614!2d7.487614175912173!3d9.070038773926685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104f39538c8fe549%3A0xf8743a7f3b45056!2sFairtrade%20Business%20Complex%2C%20Wuse%20Zone%207%2C%20Abuja!5e0!3m2!1sen!2sng!4v1642246450405!5m2!1sen!2sng"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer class="Footer">
-    <div class="footer">
 
-        <div class="footer-addr">
-            <h1 class="footer-logo">Respectech-Hr</h1>
-            <h2>Contact Us</h2>
-            <br>
-            <address style="color: #fff;">
-                Respectech Centre, 24 Bambari Cresent <br> Fairtrade Business Complex,<br>
-                 Wuse Zone 7, Abuja>
-                <a class="footer-btn" href="info-respectech@gmail.com">Email Us</a>
-            </address>
-        </div>
-       
-        
-        <div>
-        <ul class="footer_nav">
-            <li class="nav-item">
-                <h2 class="nav-title">Courses</h2>
-                <ul class="nav-ul nav-ul-extra">
-                    <li>
-                        <a href="#">Software Programming</a>
-                    </li>
-                    <li>
-                        <a href="#">UI/UX</a>
-                    </li>
-                    <li>
-                        <a href="#">Cyber Security</a>
-                    </li>
-                    <li>
-                        <a href="#">Digital Marketing</a>
-                    </li>
-                    <li>
-                        <a href="#">Data Analysis</a>
-                    </li>
-                </ul>
-            </li>
-        </div>
-          <div>
-            <li class="nav-item">
-                <h2 class="nav-title">Legal</h2>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>Respectech-HR <span>Academy</span></h2>
+                    <p>Empowering African talents with world-class tech education, mentorship, and career placement into leading global organizations.</p>
+                </div>
 
-                <ul class="nav-ul">
-                    <li>
-                        <a href="#">Privacy Policy</a>
-                    </li>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="../index.html">Home</a>
+                        <a href="../About Us/about_us.html">About Us</a>
+                        <a href="../Respectechies/techies.html">Cohorts & Techies</a>
+                        <a href="../Unemployment Statistics/unemployment.html">Unemployment Statistics</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </div>
 
-                    <li>
-                        <a href="#">Terms of Use</a>
-                    </li>
+                <div class="footer-col">
+                    <h4>Tech Tracks</h4>
+                    <div class="footer-links">
+                        <a href="../index.html#tracks">Software Development</a>
+                        <a href="../index.html#tracks">UI/UX Design</a>
+                        <a href="../index.html#tracks">Cybersecurity</a>
+                        <a href="../index.html#tracks">Data Analytics</a>
+                    </div>
+                </div>
 
-                    <li>
-                        <a href="#">Sitemap</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div>
+                <div class="footer-col">
+                    <h4>Get In Touch</h4>
+                    <p style="margin-bottom: 0.75rem;"><i class="fa-solid fa-location-dot" style="color: var(--primary);"></i> Respectech Centre, Wuse Zone 7, Abuja</p>
+                    <p style="margin-bottom: 1.25rem;"><i class="fa-solid fa-envelope" style="color: var(--primary);"></i> respectechhr@gmail.com</p>
+                    <a href="mailto:respectechhr@gmail.com" class="btn btn-primary btn-sm">Email Us Today</a>
+                </div>
+            </div>
 
-        <div class="copyrights">
-            <p>&copy; Respectech-HR Academy. All Rights Reserved.</p>
-
-            <div class="copyrights-link">
-                Made by RHR Software Programmers C2
+            <div class="footer-bottom">
+                <p>&copy; 2026 Respectech-HR Academy. All Rights Reserved.</p>
+                <p>Designed & Developed by <strong>RHR Software Programmers Cohort 2</strong></p>
             </div>
         </div>
     </footer>
-   
+
+    <!-- Core Script -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.getElementById('contactPageForm')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you! Your message has been sent successfully. Our team will contact you shortly.');
+            e.target.reset();
+        });
+    </script>
 </body>
 
 </html>

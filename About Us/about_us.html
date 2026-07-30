@@ -4,199 +4,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | R-HR</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="/About Us/images/favicon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>About Us | Respectech-HR Academy</title>
+    <meta name="description" content="Learn about Respectech-HR Academy's mission to bridge the tech skills gap and upskill African youth.">
+    <link rel="icon" href="../assets/images/favicon.ico">
+
+    <!-- Google Fonts & FontAwesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Design System Stylesheet -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    
+    <style>
+        .about-hero {
+            background: linear-gradient(180deg, #FFFFFF 0%, #FEF2F2 100%);
+            padding: 4rem 0 3rem 0;
+            text-align: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .team-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition-base);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-border);
+        }
+
+        .team-card img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.25rem auto;
+            border: 3px solid var(--primary-light);
+        }
+
+        .team-card h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-card p {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.5rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .partner-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90px;
+            transition: var(--transition-fast);
+        }
+
+        .partner-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .partner-card img {
+            max-height: 48px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition-fast);
+        }
+
+        .partner-card:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <div class="logo-container">
-            <div class="logo">
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        <span>🚀 Cohort 3 Applications Are Now Open! Limited Seats Available.</span>
+        <a href="../index.html#tracks">Apply Now <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container navbar-container">
+            <a href="../index.html" class="brand-logo">
                 <img src="https://i.ibb.co/RQFbQ87/respectech-logo-2-1.png" alt="Respectech-HR Academy Logo">
-                <!-- <h3>Respectech-HR Academy</h3> -->
-            </div>
-            <div class="navbar">
-                <a class="nav-link" href="../index.html">Home</a>
-                <a class="nav-link" href="../onboarding/onboard.html">Onboard</a>
-                <a class="nav-link" href="../Contact/contact.html">Contact Us</a>
-                <div class="dropdown">
-                    <button class="dropbtn">Respectechies
-                        <i class="fa fa-caret-down"></i>
+                <span>R-HR <span class="highlight">Academy</span></span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="about_us.html" class="nav-link active">About Us</a>
+                
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle">
+                        Respectechies <i class="fa-solid fa-chevron-down"></i>
                     </button>
-                    <div class="dropdown-content">
-                        <a class="nav-link" href="../Respectechies/techies.html">Cohorts</a>
-                        <a class="nav-link" href="../Unemployment Statistics/unemployment.html">Unemployment
-                            Statistics</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="../Respectechies/techies.html" class="dropdown-item">
+                            <i class="fa-solid fa-user-graduate" style="color: var(--primary);"></i> Cohorts & Techies
+                        </a>
+                        <a href="../Unemployment Statistics/unemployment.html" class="dropdown-item">
+                            <i class="fa-solid fa-chart-line" style="color: var(--primary);"></i> Unemployment Stats
+                        </a>
                     </div>
                 </div>
+
+                <a href="../Contact/contact.html" class="nav-link">Contact Us</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="../index.html#tracks" class="btn btn-primary btn-sm">Enroll Now</a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
         </div>
     </header>
 
     <main>
-        <div class="about-us-showcase"></div>
-
-        <div class="main-about-div">
-            <div class="about-text">
-                <h2>ABOUT <span class="span-black">US</span></h2>
-                <p class="welcome">Welcome to Respectech-HR Academy</p>
-                <p style="width: 500px;">
-                    Respectech-HR Academy (R-HR) We are a leading institution dedicated to providing comprehensive and
-                    industry-relevant education and training in the field of technology. We have undergone a rebranding
-                    to reflect our specialized focus on technology education and career development. Our academy offers
-                    a wide range of programs and courses designed to meet the needs of students at various skill levels,
-                    from beginners to professionals seeking to advance their tech careers in Cybersecurity, Cloud
-                    Computing, Data Science, Digital Forensics and more.<br>
-                    Our aim is to upskill Nigerian graduates with relevant marketable skills, including digital
-                    marketing, graphic design, web development, product development, data management, and other
-                    technological skills.<br>
-
-                    Additionally, assistance will be provided to trained youths to access gainful employment through our
-                    HR services in local and international companies.</p>
-            </div>
-
-            <div class="about-image">
-                <img src="./images/respectech-pics.png" class="img img-1" alt="Respectech Campus Days">
-            </div>
-        </div>
-
-        <div class="our-mission-vision">
-            <h2>Our Mission | Vision | Values</h2>
-            <div>
-                <img src="./images/vision-mission.png" alt="Vision and Mission Icon">
-            </div>
-            <div class="mvv-div">
-                <p><span>Our mission</span> is to bridge the skills gap and empower individuals to thrive in the digital
-                    era by providing them with high-quality education, practical training, and industry certifications.
-                    We strive to equip our students with the knowledge, skills, and confidence necessary to succeed in
-                    their chosen tech careers.
-                    <br><br>
-                    <span>Our vision</span> is to be a leading institution in technology education, recognized for our
-                    innovative approach, industry-aligned programs, and the success of our graduates. We aim to
-                    contribute to the growth and development of the tech industry by nurturing talented professionals
-                    who can make a positive impact in their workplaces and society as a whole.
-                    <br><br>
-                    Respectech-HR <span>Core values</span> Innovation, dependable technology, equality and diversity,
-                    corporate social responsibility, philanthropies, quality, transparency, teamwork, continuous
-                    learning. Innovation is key to staying ahead of the competition in this industry and creating new
-                    products or services that set the company apart.
+        <!-- Hero Header -->
+        <section class="about-hero">
+            <div class="container">
+                <span class="section-tag">Who We Are</span>
+                <h1 class="section-title" style="font-size: 2.75rem;">Empowering Youth Through <span style="color: var(--primary);">Technology Education</span></h1>
+                <p class="section-subtitle" style="max-width: 700px; margin: 0 auto;">
+                    Respectech-HR Academy (R-HR) is a leading institution dedicated to providing comprehensive and industry-relevant education and training in technology.
                 </p>
             </div>
-        </div>
+        </section>
 
-        <div class="our-team">
-            <h2>Meet <span class="span-black">Our</span> Team</h2>
-            <div class="images">
-                <div class="team-title">
-                    <img src="./images/founder.JPG" alt="Founder Respectech-HR">
-                    <h5>Oyewale Joledo</h5>
-                    <p>Founder Respectech-HR</p>
-                </div>
-                <div class="team-title">
-                    <img src="./images/Pemalla.JPG" alt="Pemalla">
-                    <h5>Pemalla</h5>
-                    <p>Program Manager</p>
-                </div>
-                <div class="team-title">
-                    <img src="./images/Benedict.jpeg" alt="Campus Days Co-ordinator">
-                    <h5>Benedict</h5>
-                    <p>Campus Co-ordinator</p>
-                </div>
-                <div class="team-title">
-                    <img src="./images/Ayebakuro Oruwori.jpeg" alt="Software developer Mentor">
-                    <h5>Ayebakuro Oruwori</h5>
-                    <p>Software Programming Lead</p>
-                </div>
-                <div class="team-title">
-                    <img src="./images/Nathan Macaver.jpeg" alt="Nathan Macaver">
-                    <h5>Nathan Macaver</h5>
-                    <p>UI/UX Lead</p>
+        <!-- Main About Content -->
+        <section class="section-padding" style="background: var(--bg-white);">
+            <div class="container">
+                <div class="hero-grid">
+                    <div>
+                        <span class="section-tag">Our Background</span>
+                        <h2 class="section-title">Bridging the Gap Between Education & Industry</h2>
+                        <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+                            Respectech-HR Academy offers a wide range of programs designed to meet the needs of students at various skill levels — from beginners to professionals seeking to advance their tech careers in Cybersecurity, Cloud Computing, Data Science, Digital Forensics, and Software Engineering.
+                        </p>
+                        <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+                            Our aim is to upskill African graduates with relevant marketable skills and assist them to access gainful employment through our HR placement services in local and international tech companies.
+                        </p>
+                        <div style="display: flex; gap: 1rem;">
+                            <a href="../Contact/contact.html" class="btn btn-primary">Get In Touch</a>
+                            <a href="../Respectechies/techies.html" class="btn btn-secondary">Meet Graduates</a>
+                        </div>
+                    </div>
+
+                    <div style="position: relative;">
+                        <img src="images/respectech-pics.png" alt="Respectech Campus" style="border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); border: 4px solid var(--bg-white);">
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="our-approach">
-            <h2><span class="span-black">Our</span> Approach</h2>
-            <div>
-                <img src="./images/approach22.png" alt="Our Approach Image">
-                <img src="./images/approach.png" class="approach-img2" alt="Our Approach Image 2">
-            </div>
-            <p><span>Respectech-HR uses</span> Comprehensive technical approaches such as the approach to mobilization,
-                identification of haul routes, plan for material delivery and staging areas, approach to construction
-                phasing, plan for utility disruptions, as well as the schedule and approach to testing/commissioning.
-            </p>
-        </div>
+        <!-- Mission, Vision & Values -->
+        <section class="section-padding" style="background: var(--bg-light);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Foundation</span>
+                    <h2 class="section-title">Our Mission, Vision & Core Values</h2>
+                    <p class="section-subtitle">The guiding principles behind our commitment to digital skills empowerment.</p>
+                </div>
 
-        <div class="our-partnership">
-            <h2><span class="span-black">Our </span>Partners</h2>
-            <div class="partners">
-                <img src="./images/favicon.png" alt="Respectech-HR" title="Respectech-HR">
-                <img src="./images/servelead-global.png" alt="Servelead Global" title="Servelead Global">
-                <img src="./images/tranter.png" alt="Servelead Global" title="Servelead Global">
-                <img src="./images/techbuildafrica.png" alt="Servelead Global" title="Servelead Global">
-                <img src="./images/systemspecs.png" alt="Servelead Global" title="Servelead Global">
-                <img src="./images/cdial.png" alt="Servelead Global" title="Servelead Global">
-                <img src="./images/convexity.png" alt="Servelead Global" title="Servelead Global">
-                <img src="./images/do.png" alt="Servelead Global" title="Servelead Global">
-                <img src="./images/morgeen.png" alt="Servelead Global" title="Servelead Global">
-                <img src="./images/network.png" alt="Servelead Global" title="Servelead Global">
+                <div class="tracks-grid">
+                    <div class="track-card">
+                        <div class="track-icon">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3>Our Mission</h3>
+                        <p>To bridge the skills gap and empower individuals to thrive in the digital era by providing high-quality education, practical training, industry certifications, and direct career placement.</p>
+                    </div>
+
+                    <div class="track-card">
+                        <div class="track-icon">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3>Our Vision</h3>
+                        <p>To be Africa's premier technology institute recognized for innovative, industry-aligned training programs and the outstanding global success of our graduates.</p>
+                    </div>
+
+                    <div class="track-card">
+                        <div class="track-icon">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h3>Core Values</h3>
+                        <p>Innovation, Dependable Technology, Equality & Diversity, Transparency, Continuous Learning, Teamwork, and Corporate Social Responsibility.</p>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Meet Our Leadership Team -->
+        <section class="section-padding" style="background: var(--bg-white);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Mentors & Leaders</span>
+                    <h2 class="section-title">Meet Our Dedicated Leadership</h2>
+                    <p class="section-subtitle">Seasoned tech professionals and educators guiding the next generation.</p>
+                </div>
+
+                <div class="team-grid">
+                    <div class="team-card">
+                        <img src="images/founder.JPG" alt="Oyewale Joledo">
+                        <h4>Oyewale Joledo</h4>
+                        <p>Founder & Managing Director</p>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Visionary Leader & HR Strategist</span>
+                    </div>
+
+                    <div class="team-card">
+                        <img src="images/Pemalla.JPG" alt="Pemalla">
+                        <h4>Pemalla</h4>
+                        <p>Program Manager</p>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Academy Operations Lead</span>
+                    </div>
+
+                    <div class="team-card">
+                        <img src="images/Benedict.jpeg" alt="Benedict">
+                        <h4>Benedict</h4>
+                        <p>Campus Co-ordinator</p>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Student Engagement & Campus Life</span>
+                    </div>
+
+                    <div class="team-card">
+                        <img src="images/Ayebakuro Oruwori.jpeg" alt="Ayebakuro Oruwori">
+                        <h4>Ayebakuro Oruwori</h4>
+                        <p>Software Development Lead</p>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Senior Software Mentor</span>
+                    </div>
+
+                    <div class="team-card">
+                        <img src="images/Nathan Macaver.jpeg" alt="Nathan Macaver">
+                        <h4>Nathan Macaver</h4>
+                        <p>UI/UX Design Lead</p>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">Product Design Mentor</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Corporate Partners -->
+        <section class="section-padding" style="background: var(--bg-light);">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Ecosystem</span>
+                    <h2 class="section-title">Our Placement & Industry Partners</h2>
+                    <p class="section-subtitle">Collaborating with top corporate organizations to create job opportunities for our graduates.</p>
+                </div>
+
+                <div class="partner-grid">
+                    <div class="partner-card"><img src="images/servelead-global.png" alt="Servelead Global"></div>
+                    <div class="partner-card"><img src="images/tranter.png" alt="Tranter IT"></div>
+                    <div class="partner-card"><img src="images/techbuildafrica.png" alt="TechBuild Africa"></div>
+                    <div class="partner-card"><img src="images/systemspecs.png" alt="SystemSpecs"></div>
+                    <div class="partner-card"><img src="images/cdial.png" alt="CDIAL"></div>
+                    <div class="partner-card"><img src="images/convexity.png" alt="Convexity"></div>
+                </div>
+            </div>
+        </section>
     </main>
-        <footer class="footer">
-            <div class="footer-addr">
-                <h1 class="footer-logo">Respectech-Hr</h1>
-                <h2>Contact Us</h2>
-                <address>
-                    Respectech Centre, 24 Bambari Cres. Fairtrade Business Complex, Wuse Zone 7, Abuja<br>
-                    <a class="footer-btn" href="info-respectech@gmail.com">Email Us</a>
-                </address>
-            </div>
-            <ul class="footer_nav">
-                <li class="nav-item">
-                    <h2 class="nav-title">Courses</h2>
-                    <ul class="nav-ul nav-ul-extra">
-                        <li>
-                            <a href="#">Software Programming</a>
-                        </li>
-                        <li>
-                            <a href="#">UI/UX</a>
-                        </li>
-                        <li>
-                            <a href="#">Cyber Security</a>
-                        </li>
-                        <li>
-                            <a href="#">Digital Marketing</a>
-                        </li>
-                        <li>
-                            <a href="#">Data Analysis</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <h2 class="nav-title">Legal</h2>
-                    <ul class="nav-ul">
-                        <li>
-                            <a href="#">Privacy Policy</a>
-                        </li>
-                        <li>
-                            <a href="#">Terms of Use</a>
-                        </li>
-                        <li>
-                            <a href="#">Sitemap</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="copyrights">
-                <p>&copy; Respectech-HR Academy. All Rights Reserved.</p>
-                <div class="copyrights-link">
-                    Made by RHR Software Programmers C2
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>Respectech-HR <span>Academy</span></h2>
+                    <p>Empowering African talents with world-class tech education, mentorship, and career placement into leading global organizations.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="../index.html">Home</a>
+                        <a href="about_us.html">About Us</a>
+                        <a href="../Respectechies/techies.html">Cohorts & Techies</a>
+                        <a href="../Unemployment Statistics/unemployment.html">Unemployment Statistics</a>
+                        <a href="../Contact/contact.html">Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Tech Tracks</h4>
+                    <div class="footer-links">
+                        <a href="../index.html#tracks">Software Development</a>
+                        <a href="../index.html#tracks">UI/UX Design</a>
+                        <a href="../index.html#tracks">Cybersecurity</a>
+                        <a href="../index.html#tracks">Data Analytics</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Get In Touch</h4>
+                    <p style="margin-bottom: 0.75rem;"><i class="fa-solid fa-location-dot" style="color: var(--primary);"></i> Respectech Centre, Wuse Zone 7, Abuja</p>
+                    <p style="margin-bottom: 1.25rem;"><i class="fa-solid fa-envelope" style="color: var(--primary);"></i> dexterdavid835@gmail.com</p>
+                    <a href="mailto:dexterdavid835@gmail.com" class="btn btn-primary btn-sm">Email Us Today</a>
                 </div>
             </div>
-        </footer>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Respectech-HR Academy. All Rights Reserved.</p>
+                <p>Designed & Developed by <strong>RHR Software Programmers Cohort 2</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Script -->
+    <script src="../assets/js/main.js"></script>
 </body>
 
 </html>
