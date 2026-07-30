@@ -75,6 +75,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (modal) {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+
+            // Reset assignForm & Auto-Checker panel if assignModal opened
+            if (modalId === 'assignModal') {
+                const form = document.getElementById('assignForm');
+                const panel = document.getElementById('checkerProgressPanel');
+                const footer = document.getElementById('checkerSuccessFooter');
+                if (form) form.style.display = 'block';
+                if (panel) panel.style.display = 'none';
+                if (footer) footer.style.display = 'none';
+            }
         }
     };
 

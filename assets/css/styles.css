@@ -908,7 +908,7 @@ footer.site-footer {
     width: 100%;
     max-width: 620px;
     max-height: 88vh;
-    padding: 2.5rem;
+    padding: 2.25rem 1.5rem 2.25rem 2.25rem;
     box-shadow: var(--shadow-lg);
     position: relative;
     transform: scale(0.95);
@@ -924,6 +924,8 @@ footer.site-footer {
 
 .modal-card::-webkit-scrollbar-track {
     background: transparent;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
     border-radius: var(--radius-full);
 }
 
