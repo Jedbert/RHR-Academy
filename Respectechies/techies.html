@@ -4,586 +4,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Respectechies</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <title>Respectechies & Graduate Showcase | Respectech-HR Academy</title>
+    <meta name="description" content="Meet the outstanding graduates of Respectech-HR Academy. View talent profiles, testimonials, and cohort success stories.">
+    <link rel="icon" href="../assets/images/favicon.ico">
+
+    <!-- Google Fonts & FontAwesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Design System Stylesheet -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
+    <style>
+        .techies-hero {
+            background: linear-gradient(180deg, #FFFFFF 0%, #FEF2F2 100%);
+            padding: 4rem 0 3rem 0;
+            text-align: center;
+        }
+
+        .filter-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            background: var(--bg-white);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            color: var(--text-inverse);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-brand);
+        }
+
+        .techies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .techie-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition-base);
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .techie-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-border);
+            box-shadow: var(--shadow-md);
+        }
+
+        .techie-avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.25rem auto;
+            border: 4px solid var(--primary-light);
+        }
+
+        .techie-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .techie-role {
+            font-size: 0.875rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .techie-quote {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.5;
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+        }
+
+        .techie-socials {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .techie-socials a {
+            width: 34px;
+            height: 34px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            transition: var(--transition-fast);
+        }
+
+        .techie-socials a:hover {
+            background-color: var(--primary);
+            color: var(--text-inverse);
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="https://i.ibb.co/7zcWS13/respectech-logo-2-1.png" alt="Respectech-HR Academy Logo">
-        </div>
-        <div class="container">
-            <h1 class="header">Respectech-HR Academy</h1>
-            <nav id="nav-bar">
-                <ul>
-                    <li><a class="nav-link" href="../index.html">Home</a></li>
-                    <li><a class="nav-link" href="techies.html">Respectechies</a></li>
-                    <li><a class="nav-link" href="../About Us/about_us.html">About Us</a></li>
-                    <li><a class="nav-link" href="../Contact/contact.html">Contact</a></li>
-                </ul>
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        <span>🚀 Cohort 3 Applications Are Now Open! Limited Seats Available.</span>
+        <a href="../index.html#tracks">Apply Now <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container navbar-container">
+            <a href="../index.html" class="brand-logo">
+                <img src="https://i.ibb.co/RQFbQ87/respectech-logo-2-1.png" alt="Respectech-HR Academy Logo">
+                <span>R-HR <span class="highlight">Academy</span></span>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../About Us/about_us.html" class="nav-link">About Us</a>
+                
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-toggle">
+                        Respectechies <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="nav-dropdown-menu">
+                        <a href="techies.html" class="dropdown-item">
+                            <i class="fa-solid fa-user-graduate" style="color: var(--primary);"></i> Cohorts & Techies
+                        </a>
+                        <a href="../Unemployment Statistics/unemployment.html" class="dropdown-item">
+                            <i class="fa-solid fa-chart-line" style="color: var(--primary);"></i> Unemployment Stats
+                        </a>
+                    </div>
+                </div>
+
+                <a href="../Contact/contact.html" class="nav-link">Contact Us</a>
             </nav>
+
+            <div class="nav-actions">
+                <a href="../index.html#tracks" class="btn btn-primary btn-sm">Enroll Now</a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
+
     <main>
-        <div class="techies">
-            <h2>Meet Our Tech Stars: Cohort 1 Graduates</h2>
-            <p>Cohort Information: Respectech-HR Academy is currently in its <strong>Second Cohort.</strong> <br>
-                Notably,
-                the second
-                cohort has
-                witnessed a significant increase in the number of techies compared to the first cohort.</p>
-            <div class="Onboarding1">
-                <a class="Onboarding-image1" href="https://ibb.co/hZtN624"><img
-                        src="https://i.ibb.co/2sfr9cC/Onboarding-screen2.png" alt="Onboarding-screen2" border="0"></a>
+        <!-- Hero Section -->
+        <section class="techies-hero">
+            <div class="container">
+                <span class="section-tag">Talent Showcase</span>
+                <h1 class="section-title" style="font-size: 2.75rem;">Meet Our Star Graduates: <span style="color: var(--primary);">Respectechies</span></h1>
+                <p class="section-subtitle" style="max-width: 680px; margin: 0 auto;">
+                    Discover inspiring career transformations from Cohort 1 and Cohort 2 graduates who mastered full-stack development, UI/UX, and data science.
+                </p>
             </div>
-            <!-- <div id="profile">
-                <div class="image-text-wrapper">
-                    <img class="tech1"
-                        src="https://media.licdn.com/dms/image/D4D12AQEAd9szWOzNKg/article-cover_image-shrink_720_1280/0/1690842156682?e=1719446400&v=beta&t=EhWlQa9m8MnBq6yG1oAWrk-usTGb70KrbeJd8A3Il0w"
-                        alt="Graduate 1 Photo">
-                    <img class="tech1"
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjQkNBwsWLf_BSmhAH_BEm_vkGL_i_9hoq7t1vtJ8eaIUkUzcPVxXtQysioDDF3UHlgeg&usqp=CAU"
-                        alt="Graduate 1 Photo">
-                    <div class="good">
-                        <h3>Ayebakuro A. Oruwori</h3>
-                        <p>Software Engineer at [Company Name]</p>
-                        <q>"The Academy equipped me with the skills and network to land my dream job!"</q>
-                    </div>
-                    <div class="good">
-                        <h3>John Doe</h3>
-                        <p>Software Engineer at [Company Name]</p>
-                        <q>"The Academy equipped me with the skills and network to land my dream job!"</q>
-                    </div>
+        </section>
+
+        <!-- Main Showcase Grid -->
+        <section class="section-padding" style="background: var(--bg-white);">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Techies</button>
+                    <button class="filter-btn" data-filter="cohort1">Cohort 1</button>
+                    <button class="filter-btn" data-filter="cohort2">Cohort 2</button>
+                    <button class="filter-btn" data-filter="engineering">Software Engineering</button>
+                    <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
                 </div>
-            </div>
-            <div class="profile1">
-                <img class="tech3"
-                    src="https://scontent.flos5-3.fna.fbcdn.net/v/t39.30808-6/289455292_2586407738161367_1008427707239989506_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEBMEglswRNqMHhHLHJfce1IOPni25tYZMg4-eLbm1hk0s9BQkp35_Rw88FuHS-y2nrEbuxfGEolE-5h7HOqUUK&_nc_ohc=jijmeFxpDloQ7kNvgFdmkob&_nc_zt=23&_nc_ht=scontent.flos5-3.fna&oh=00_AfCkjvvsw5xLh4m67WJPf6d1N8VzVuvBOi6DdbdeWODZBA&oe=66306423"
-                    alt="Graduate 1 Photo">
-                <h3>Ayebakuro A. Oruwori</h3>
-                <p>Software Engineer at [Company Name]</p>
-                <q>"The Academy equipped me with the skills and network to land my dream job!"</q>
-            </div>
-            <div class="profile1">
-                <img class="tech3"
-                    src="https://cdns-images.dzcdn.net/images/artist/f99f8f4d32fb5c72add009ae44729981/264x264.jpg"
-                    alt="Graduate 1 Photo">
-                <h3>John Doe</h3>
-                <p>Software Engineer at [Company Name]</p>
-                <q>"The Academy equipped me with the skills and network to land my dream job!"</q>
-            </div>
-            <div class="profile2">
-                <img class="tech3"
-                    src="https://scontent.flos5-2.fna.fbcdn.net/v/t39.30808-6/428514816_834439878698127_4482134699338552033_n.jpg?stp=dst-jpg_p526x296&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGu8_VZW1XwyyiRan3Vc4wIM80-EwzMwzozzT4TDMzDOmk0quSM6lSfI-kmF5NEfg3cF6rkjqgFMNhYeCVs1x-U&_nc_ohc=Rni4eXksSrcAb4VA8MJ&_nc_zt=23&_nc_ht=scontent.flos5-2.fna&oh=00_AfD1QWD_Rp_G4SpSSHzrkrzINM_kJjM9beV3TiEwqSL1sg&oe=6630669E"
-                    alt="Graduate 1 Photo">
-                <h3>Tabitha</h3>
-                <p>Software Engineer at [Company Name]</p>
-                <q>"The Academy equipped me with the skills and network to land my dream job!"</q>
-            </div> -->
 
-            <div class="p-5  container-desktop" >
-                <div class="container-fluid text-center  d-flex flex-column p-5">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-interval="false">
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <h1 class="fw-bold">Cohort 1</h1>
-                    <h2 class="mb-5">See what the outgoing Students have to say about us</h2>
-                            <div class="row text-center  justify-content-center align-items-center">
-                                <div class="col-md-2 rounded">
-                                  <div class="card bg-danger text-white p-3 mx-auto">
-                                      <div class="card-body text-center">
-                                              <img class="tech1 image-1 rounded-circle mb-3"
-                                      src="https://media.licdn.com/dms/image/D4D12AQEAd9szWOzNKg/article-cover_image-shrink_720_1280/0/1690842156682?e=1719446400&v=beta&t=EhWlQa9m8MnBq6yG1oAWrk-usTGb70KrbeJd8A3Il0w"
-                                      alt="Graduate 1 Photo" >
-
-                                          <h3 class=".card-title .mb-3  fw-bold ">Ayebakuro A. Oruwori</h3>
-
-                                          <p class="card-text text-dark">Software Engineer at RespectTech</p>
-
-                                          <q class="card-text ">
-                                              "The Academy equipped me with the skills and network to land my dream job!"
-                                          </q>
-                                      </div>
-                                      </div>
-                                  </div>
-
-                                <div class="col-md-2 rounded">
-                                  <div class="card bg-white p-3 ">
-                                      <div class="card-body text-center">
-                                              <img class="tech1 rounded-circle mb-3"
-                                      src="https://cdns-images.dzcdn.net/images/artist/f99f8f4d32fb5c72add009ae44729981/264x264.jpg"
-                                      alt="Graduate 1 Photo" >
-
-                                          <h3 class=".card-title .mb-3 fw-bold">John Doe</h3>
-                                          <p class="card-text text-secondary">Product Designer at RespectTech</p>
-                                          <q class="card-text">
-                                              "The Academy equipped me with the skills and network to land my dream job!"
-                                          </q>
-                                      </div>
-                                      </div>
-                                  </div>
-
-                                  <div class="col-md-2 rounded">
-                                      <div class="card bg-danger text-white p-3">
-                                          <div class="card-body text-center ">
-                                                  <img class="tech1 rounded-circle mb-3"
-                                          src="https://i.pinimg.com/564x/a8/c9/8b/a8c98bb661cbd2147847999cebd42f45.jpg"
-                                          alt="Graduate 1 Photo" >
-
-                                              <h3 class=".card-title .mb-3 fw-bold">Tabitha</h3>
-
-                                              <p class="card-text text-dark">Data Analyst at RespectTech</p>
-
-                                              <q class="card-text">
-                                                  "The Academy equipped me with the skills and network to land my dream job!"
-                                              </q>
-                                          </div>
-                                          </div>
-                                  </div>
-                                  <div class="col-md-2 rounded">
-                                      <div class="card bg-white p-3">
-                                          <div class="card-body text-center ">
-                                                  <img class="tech1 rounded-circle mb-3"
-                                          src="https://i.pinimg.com/564x/36/f0/c6/36f0c69fccfd2113b617c371f0969dfe.jpg"
-                                          alt="Graduate 1 Photo" >
-
-                                              <h3 class=".card-title .mb-3 fw-bold">Favour</h3>
-
-                                              <p class="card-text text-secondary">Data Analyst at RespectTech</p>
-
-                                              <q class="card-text">
-                                                  "The Academy equipped me with the skills and network to land my dream job!"
-                                              </q>
-                                          </div>
-                                          </div>
-                                  </div>
-                          </div>
-                          </div>
+                <div class="techies-grid">
+                    <!-- Techie 1 -->
+                    <div class="techie-card" data-category="cohort2 engineering">
+                        <img src="https://media.licdn.com/dms/image/D4D12AQEAd9szWOzNKg/article-cover_image-shrink_720_1280/0/1690842156682?e=1719446400&v=beta&t=EhWlQa9m8MnBq6yG1oAWrk-usTGb70KrbeJd8A3Il0w" alt="Ayebakuro A. Oruwori" class="techie-avatar">
+                        <h4>Ayebakuro A. Oruwori</h4>
+                        <div class="techie-role">Software Engineering Lead</div>
+                        <p class="techie-quote">"The hands-on project experience at Respectech Academy gave me the confidence and portfolio to step directly into technical leadership."</p>
+                        <div class="techie-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
                         </div>
-                      </div>
-              </div>
-
-              <div class="container-fluid text-center  d-flex flex-column p-5">
-                <div id="carouselExampleCaptions" class="carousel slide" data-bs-interval="false">
-                    <div class="carousel-indicators">
-                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active bg-danger" aria-current="true" aria-label="Slide 1"></button>
-                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" class="bg-danger"></button>
                     </div>
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <h1 class="fw-bold">Cohort 2</h1>
-                    <h2 class="mb-5">Current students' experiences</h2>
-                            <div class="row text-center  justify-content-center align-items-center">
-                                <div class="col-md-2 rounded">
-                                    <div class="card bg-white p-3">
-                                        <div class="card-body text-center">
-                                                <img class="tech1 image-1 rounded-circle mb-3"
-                                        src="https://i.pinimg.com/564x/41/e0/39/41e0398984b0f1a0c79acfb0694bfcce.jpg"
-                                        alt="Graduate 1 Photo" >
 
-                                            <h3 class=".card-title .mb-3  fw-bold ">Jedidah</h3>
-
-                                            <p class="card-text text-secondary">Student</p>
-
-                                            <q class="card-text ">
-                                                "Approachable course, clear explanations, thrilled with progress."
-                                            </q>
-                                        </div>
-                                        </div>
-                                    </div>
-
-                                  <div class="col-md-2 rounded">
-                                    <div class="card bg-danger text-white p-3">
-                                        <div class="card-body text-center">
-                                                <img class="tech1 rounded-circle mb-3"
-                                        src="https://i.pinimg.com/564x/36/f0/c6/36f0c69fccfd2113b617c371f0969dfe.jpg"
-                                        alt="Graduate 1 Photo" >
-
-                                            <h3 class=".card-title .mb-3 fw-bold">Uzoamaka</h3>
-                                            <p class="card-text text-dark">Student</p>
-                                            <q class="card-text">
-                                                "Up-to-date materials, equipped with latest tools and techniques."
-                                            </q>
-                                        </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-2 rounded">
-                                        <div class="card bg-white p-3">
-                                            <div class="card-body text-center ">
-                                                    <img class="tech1 rounded-circle mb-3"
-                                            src="https://i.pinimg.com/564x/36/f0/c6/36f0c69fccfd2113b617c371f0969dfe.jpg"
-                                            alt="Graduate 1 Photo" >
-
-                                                <h3 class=".card-title .mb-3 fw-bold">Kachi</h3>
-
-                                                <p class="card-text text-secondary">Student</p>
-
-                                                <q class="card-text">
-                                                    "Great course, practical skills learned, ready for projects."
-                                                </q>
-                                            </div>
-                                            </div>
-                                    </div>
-                                    <div class="col-md-2 rounded">
-                                        <div class="card bg-danger text-white p-3">
-                                            <div class="card-body text-center ">
-                                                    <img class="tech1 rounded-circle mb-3"
-                                            src="https://i.pinimg.com/564x/41/e0/39/41e0398984b0f1a0c79acfb0694bfcce.jpg"
-                                            alt="Graduate 1 Photo" >
-
-                                                <h3 class=".card-title .mb-3 fw-bold">Habib</h3>
-
-                                                <p class="card-text text-dark">Student</p>
-
-                                                <q class="card-text">
-                                                    "Interactive learning, valuable community support."
-                                                </q>
-                                            </div>
-                                            </div>
-                                    </div>
-                          </div>
-                          </div>
-                          <div class="carousel-item">
-                            <h1 class="fw-bold">Cohort 2</h1>
-                            <h2 class="mb-5">Current students' experiences</h2>
-                            <div class="row text-center  justify-content-center align-items-center">
-                                <div class="col-md-2 rounded">
-                                    <div class="card bg-white p-3">
-                                        <div class="card-body text-center">
-                                                <img class="tech1 image-1 rounded-circle mb-3"
-                                        src="https://i.pinimg.com/564x/dc/51/61/dc5161dd5e36744d184e0b98e97d31ba.jpg"
-                                        alt="Graduate 1 Photo" >
-
-                                            <h3 class=".card-title .mb-3  fw-bold ">Ibrahim</h3>
-
-                                            <p class="card-text text-secondary">Student</p>
-
-                                            <q class="card-text ">
-                                                "Perfect pacing, built skills incrementally without overwhelm."
-                                            </q>
-                                        </div>
-                                        </div>
-                                    </div>
-
-                                  <div class="col-md-2 rounded">
-                                    <div class="card bg-danger text-white p-3">
-                                        <div class="card-body text-center">
-                                                <img class="tech1 rounded-circle mb-3"
-                                        src="https://i.pinimg.com/564x/dc/51/61/dc5161dd5e36744d184e0b98e97d31ba.jpg"
-                                        alt="Graduate 1 Photo" >
-
-                                            <h3 class=".card-title .mb-3 fw-bold">Emmanuel</h3>
-                                            <p class="card-text text-dark">Student</p>
-                                            <q class="card-text">
-                                                "Valuable community aspect, made great connections."
-                                            </q>
-                                        </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-2 rounded">
-                                        <div class="card bg-white p-3">
-                                            <div class="card-body text-center ">
-                                                    <img class="tech1 rounded-circle mb-3"
-                                            src="https://i.pinimg.com/564x/41/e0/39/41e0398984b0f1a0c79acfb0694bfcce.jpg"
-                                            alt="Graduate 1 Photo" >
-
-                                                <h3 class=".card-title .mb-3 fw-bold">Gaza</h3>
-
-                                                <p class="card-text text-secondary">Student</p>
-
-                                                <q class="card-text">
-                                                    "Emphasis on best practices, real-world experience evident."
-                                                </q>
-                                            </div>
-                                            </div>
-                                    </div>
-                                    <div class="col-md-2 rounded">
-                                        <div class="card bg-danger text-white p-3">
-                                            <div class="card-body text-center ">
-                                                    <img class="tech1 rounded-circle mb-3"
-                                            src="https://i.pinimg.com/564x/41/e0/39/41e0398984b0f1a0c79acfb0694bfcce.jpg"
-                                            alt="Graduate 1 Photo" >
-
-                                                <h3 class=".card-title .mb-3 fw-bold">JohnPaul</h3>
-
-                                                <p class="card-text text-dark">Student</p>
-
-                                                <q class="card-text">
-                                                    "Hands-on projects made complex concepts easy to grasp."
-                                                </q>
-                                            </div>
-                                            </div>
-                                    </div>
-                          </div>
-                          </div>
+                    <!-- Techie 2 -->
+                    <div class="techie-card" data-category="cohort2 uiux">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjQkNBwsWLf_BSmhAH_BEm_vkGL_i_9hoq7t1vtJ8eaIUkUzcPVxXtQysioDDF3UHlgeg&usqp=CAU" alt="Nathan Macaver" class="techie-avatar">
+                        <h4>Nathan Macaver</h4>
+                        <div class="techie-role">UI/UX Product Designer</div>
+                        <p class="techie-quote">"Learning user research and Figma prototyping transformed my career path completely. I am now designing intuitive digital products."</p>
+                        <div class="techie-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Dribbble"><i class="fa-brands fa-dribbble"></i></a>
                         </div>
-                      </div>
-              </div>
-        </div>
-
-        <div class="container-mobile p-5 ">
-            <div class="container-fluid text-center  d-flex flex-column p-5">
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                    <h1 class="fw-bold">Cohort 1</h1>
-                <h2 class="mb-5">See what the outgoing Students have to say about us</h2>
-                    <div class="carousel-inner">
-                        <!-- <div class="row text-center  justify-content-center align-items-center"> -->
-                      <div class="carousel-item active">
-
-                            <div class="col-md-2 rounded">
-                              <div class="card bg-danger text-white p-3 mx-auto">
-                                  <div class="card-body text-center">
-                                          <img class="tech1 image-1 rounded-circle mb-3"
-                                  src="https://media.licdn.com/dms/image/D4D12AQEAd9szWOzNKg/article-cover_image-shrink_720_1280/0/1690842156682?e=1719446400&v=beta&t=EhWlQa9m8MnBq6yG1oAWrk-usTGb70KrbeJd8A3Il0w"
-                                  alt="Graduate 1 Photo" >
-
-                                      <h3 class=".card-title .mb-3  fw-bold ">Ayebakuro A. Oruwori</h3>
-
-                                      <p class="card-text text-dark">Software Engineer at RespectTech</p>
-
-                                      <q class="card-text ">
-                                          "The Academy equipped me with the skills and network to land my dream job!"
-                                      </q>
-                                  </div>
-                                  </div>
-                              </div>
-                              </div>
-                            <div class="carousel-item ">
-                            <div class="col-md-2 rounded">
-                              <div class="card bg-white p-3 ">
-                                  <div class="card-body text-center">
-                                          <img class="tech1 rounded-circle mb-3"
-                                  src="https://cdns-images.dzcdn.net/images/artist/f99f8f4d32fb5c72add009ae44729981/264x264.jpg"
-                                  alt="Graduate 1 Photo" >
-
-                                      <h3 class=".card-title .mb-3 fw-bold">John Doe</h3>
-                                      <p class="card-text text-secondary">Product Designer at RespectTech</p>
-                                      <q class="card-text">
-                                          "The Academy equipped me with the skills and network to land my dream job!"
-                                      </q>
-                                  </div>
-                                  </div>
-                              </div>
-                              </div>
-                              <div class="carousel-item ">
-                              <div class="col-md-2 rounded">
-                                  <div class="card bg-danger text-white p-3">
-                                      <div class="card-body text-center ">
-                                              <img class="tech1 rounded-circle mb-3"
-                                      src="https://i.pinimg.com/564x/a8/c9/8b/a8c98bb661cbd2147847999cebd42f45.jpg"
-                                      alt="Graduate 1 Photo" >
-
-                                          <h3 class=".card-title .mb-3 fw-bold">Tabitha</h3>
-
-                                          <p class="card-text text-dark">Data Analyst at RespectTech</p>
-
-                                          <q class="card-text">
-                                              "The Academy equipped me with the skills and network to land my dream job!"
-                                          </q>
-                                      </div>
-                                      </div>
-                              </div>
-                              </div>
-                              <div class="carousel-item ">
-                              <div class="col-md-2 rounded">
-                                  <div class="card bg-white p-3">
-                                      <div class="card-body text-center ">
-                                              <img class="tech1 rounded-circle mb-3"
-                                      src="https://i.pinimg.com/564x/36/f0/c6/36f0c69fccfd2113b617c371f0969dfe.jpg"
-                                      alt="Graduate 1 Photo" >
-
-                                          <h3 class=".card-title .mb-3 fw-bold">Favour</h3>
-
-                                          <p class="card-text text-secondary">Data Analyst at RespectTech</p>
-
-                                          <q class="card-text">
-                                              "The Academy equipped me with the skills and network to land my dream job!"
-                                          </q>
-                                      </div>
-                                      </div>
-                              </div>
-                              </div>
-                      </div>
-                      </div>
                     </div>
 
-          </div>
+                    <!-- Techie 3 -->
+                    <div class="techie-card" data-category="cohort1 engineering">
+                        <img src="https://cdns-images.dzcdn.net/images/artist/f99f8f4d32fb5c72add009ae44729981/264x264.jpg" alt="Tabitha Joledo" class="techie-avatar">
+                        <h4>Tabitha Joledo</h4>
+                        <div class="techie-role">Full Stack Engineer</div>
+                        <p class="techie-quote">"Respectech provided 1-on-1 mentorship and HR resume placement services that landed my remote software development role."</p>
+                        <div class="techie-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
 
-          <div class="container-fluid text-center  d-flex flex-column p-5">
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                <h1 class="fw-bold">Cohort 2</h1>
-                <h2 class="mb-5">Current students' experiences</h2>
-                <div class="carousel-inner">
-                    <!-- <div class="row text-center  justify-content-center align-items-center"> -->
-                  <div class="carousel-item active">
-                            <div class="col-md-2 rounded">
-                                <div class="card bg-white p-3">
-                                    <div class="card-body text-center">
-                                            <img class="tech1 image-1 rounded-circle mb-3"
-                                    src="https://i.pinimg.com/564x/41/e0/39/41e0398984b0f1a0c79acfb0694bfcce.jpg"
-                                    alt="Graduate 1 Photo" >
-
-                                        <h3 class=".card-title .mb-3  fw-bold ">Jedidah</h3>
-
-                                        <p class="card-text text-secondary">Student</p>
-
-                                        <q class="card-text ">
-                                            "Approachable course, clear explanations, thrilled with progress."
-                                        </q>
-                                    </div>
-                                    </div>
-                                </div>
+                    <!-- Techie 4 -->
+                    <div class="techie-card" data-category="cohort1 uiux">
+                        <img src="https://i.ibb.co/2sfr9cC/Onboarding-screen2.png" alt="Benedict" class="techie-avatar">
+                        <h4>Benedict Campus</h4>
+                        <div class="techie-role">Product Operations</div>
+                        <p class="techie-quote">"A truly supportive community where instructors care about student career growth from day one to graduation day."</p>
+                        <div class="techie-socials">
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="carousel-item ">
-                              <div class="col-md-2 rounded">
-                                <div class="card bg-danger text-white p-3">
-                                    <div class="card-body text-center">
-                                            <img class="tech1 rounded-circle mb-3"
-                                    src="https://i.pinimg.com/564x/36/f0/c6/36f0c69fccfd2113b617c371f0969dfe.jpg"
-                                    alt="Graduate 1 Photo" >
-
-                                        <h3 class=".card-title .mb-3 fw-bold">Uzoamaka</h3>
-                                        <p class="card-text text-dark">Student</p>
-                                        <q class="card-text">
-                                            "Up-to-date materials, equipped with latest tools and techniques."
-                                        </q>
-                                    </div>
-                                    </div>
-                                </div>
-                </div>
-                <div class="carousel-item ">
-                                <div class="col-md-2 rounded">
-                                    <div class="card bg-white p-3">
-                                        <div class="card-body text-center ">
-                                                <img class="tech1 rounded-circle mb-3"
-                                        src="https://i.pinimg.com/564x/36/f0/c6/36f0c69fccfd2113b617c371f0969dfe.jpg"
-                                        alt="Graduate 1 Photo" >
-
-                                            <h3 class=".card-title .mb-3 fw-bold">Kachi</h3>
-
-                                            <p class="card-text text-secondary">Student</p>
-
-                                            <q class="card-text">
-                                                "Great course, practical skills learned, ready for projects."
-                                            </q>
-                                        </div>
-                                        </div>
-                                </div>
-                </div>
-                <div class="carousel-item ">
-                                <div class="col-md-2 rounded">
-                                    <div class="card bg-danger text-white p-3">
-                                        <div class="card-body text-center ">
-                                                <img class="tech1 rounded-circle mb-3"
-                                        src="https://i.pinimg.com/564x/41/e0/39/41e0398984b0f1a0c79acfb0694bfcce.jpg"
-                                        alt="Graduate 1 Photo" >
-
-                                            <h3 class=".card-title .mb-3 fw-bold">Habib</h3>
-
-                                            <p class="card-text text-dark">Student</p>
-
-                                            <q class="card-text">
-                                                "Interactive learning, valuable community support."
-                                            </q>
-                                        </div>
-                                        </div>
-                                </div>
-                </div>
-                      </div>
-                      </div>
-                      <div class="row text-center  justify-content-center align-items-center">
-                      <div class="carousel-item">
-                            <div class="col-md-2 rounded">
-                                <div class="card bg-white p-3">
-                                    <div class="card-body text-center">
-                                            <img class="tech1 image-1 rounded-circle mb-3"
-                                    src="https://i.pinimg.com/564x/dc/51/61/dc5161dd5e36744d184e0b98e97d31ba.jpg"
-                                    alt="Graduate 1 Photo" >
-
-                                        <h3 class=".card-title .mb-3  fw-bold ">Ibrahim</h3>
-
-                                        <p class="card-text text-secondary">Student</p>
-
-                                        <q class="card-text ">
-                                            "Perfect pacing, built skills incrementally without overwhelm."
-                                        </q>
-                                    </div>
-                                    </div>
-                                </div>
-                    </div>
-                    <div class="carousel-item ">
-                              <div class="col-md-2 rounded">
-                                <div class="card bg-danger text-white p-3">
-                                    <div class="card-body text-center">
-                                            <img class="tech1 rounded-circle mb-3"
-                                    src="https://i.pinimg.com/564x/dc/51/61/dc5161dd5e36744d184e0b98e97d31ba.jpg"
-                                    alt="Graduate 1 Photo" >
-
-                                        <h3 class=".card-title .mb-3 fw-bold">Emmanuel</h3>
-                                        <p class="card-text text-dark">Student</p>
-                                        <q class="card-text">
-                                            "Valuable community aspect, made great connections."
-                                        </q>
-                                    </div>
-                                    </div>
-                                </div>
-                    </div>
-                    <div class="carousel-item ">
-                                <div class="col-md-2 rounded">
-                                    <div class="card bg-white p-3">
-                                        <div class="card-body text-center ">
-                                                <img class="tech1 rounded-circle mb-3"
-                                        src="https://i.pinimg.com/564x/41/e0/39/41e0398984b0f1a0c79acfb0694bfcce.jpg"
-                                        alt="Graduate 1 Photo" >
-
-                                            <h3 class=".card-title .mb-3 fw-bold">Gaza</h3>
-
-                                            <p class="card-text text-secondary">Student</p>
-
-                                            <q class="card-text">
-                                                "Emphasis on best practices, real-world experience evident."
-                                            </q>
-                                        </div>
-                                        </div>
-                                </div>
-                    </div>
-                    <div class="carousel-item ">
-                                <div class="col-md-2 rounded">
-                                    <div class="card bg-danger text-white p-3">
-                                        <div class="card-body text-center ">
-                                                <img class="tech1 rounded-circle mb-3"
-                                        src="https://i.pinimg.com/564x/41/e0/39/41e0398984b0f1a0c79acfb0694bfcce.jpg"
-                                        alt="Graduate 1 Photo" >
-
-                                            <h3 class=".card-title .mb-3 fw-bold">JohnPaul</h3>
-
-                                            <p class="card-text text-dark">Student</p>
-
-                                            <q class="card-text">
-                                                "Hands-on projects made complex concepts easy to grasp."
-                                            </q>
-                                        </div>
-                                        </div>
-                                </div>
-                    </div>
-                      </div>
-                      </div>
-                    </div>
-
-          </div>
-
             </div>
+        </section>
     </main>
-    <footer>
-        <div class="footer-note">
-            <p class="rhr-academy">&copy; Respectech-HR Academy. <br>All Rights Reserved.</p>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>Respectech-HR <span>Academy</span></h2>
+                    <p>Empowering African talents with world-class tech education, mentorship, and career placement into leading global organizations.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="../index.html">Home</a>
+                        <a href="../About Us/about_us.html">About Us</a>
+                        <a href="techies.html">Cohorts & Techies</a>
+                        <a href="../Unemployment Statistics/unemployment.html">Unemployment Statistics</a>
+                        <a href="../Contact/contact.html">Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Tech Tracks</h4>
+                    <div class="footer-links">
+                        <a href="../index.html#tracks">Software Development</a>
+                        <a href="../index.html#tracks">UI/UX Design</a>
+                        <a href="../index.html#tracks">Cybersecurity</a>
+                        <a href="../index.html#tracks">Data Analytics</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Get In Touch</h4>
+                    <p style="margin-bottom: 0.75rem;"><i class="fa-solid fa-location-dot" style="color: var(--primary);"></i> Respectech Centre, Wuse Zone 7, Abuja</p>
+                    <p style="margin-bottom: 1.25rem;"><i class="fa-solid fa-envelope" style="color: var(--primary);"></i> respectechhr@gmail.com</p>
+                    <a href="mailto:respectechhr@gmail.com" class="btn btn-primary btn-sm">Email Us Today</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Respectech-HR Academy. All Rights Reserved.</p>
+                <p>Designed & Developed by <strong>RHR Software Programmers Cohort 2</strong></p>
+            </div>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <!-- Core Script -->
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Interactive Filter Buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+                document.querySelectorAll('.techie-card').forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category.includes(filter)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
