@@ -170,12 +170,11 @@
 
                 setTimeout(() => {
                     if (session.user.role === 'admin') {
-                        alert(`Welcome, Admin! Auth session verified for ${session.user.email}.\n(Phase 4 Admin Approval Dashboard link activated)`);
+                        window.location.href = 'admin.html';
                     } else {
-                        alert(`Welcome, ${session.user.fullName}! Auth session verified.\n(Phase 3 Fellow LMS Dashboard link activated)`);
+                        window.location.href = 'dashboard.html';
                     }
-                    window.location.href = 'index.html';
-                }, 1000);
+                }, 800);
             } catch (err) {
                 if (window.showToast) window.showToast(err.message, 'error');
             }

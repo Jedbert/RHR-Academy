@@ -43,27 +43,39 @@ class RHRDatabaseService {
             localStorage.setItem(this.storagePrefix + "applications", JSON.stringify(initialApplications));
         }
 
-        if (!localStorage.getItem(this.storagePrefix + "users")) {
-            const initialUsers = [
-                {
-                    id: "usr_admin_1",
-                    email: "dexterdavid835@gmail.com",
-                    passwordHash: "admin123", // Demo hash
-                    fullName: "Admissions Admin",
-                    role: "admin",
-                    cohort: "All"
-                },
-                {
-                    id: "usr_student_1",
-                    email: "student@respectech.ng",
-                    passwordHash: "student123",
-                    fullName: "Ayebakuro Oruwori",
-                    role: "student",
-                    cohort: "Cohort 6"
-                }
-            ];
-            localStorage.setItem(this.storagePrefix + "users", JSON.stringify(initialUsers));
+        // Always guarantee default demo accounts exist in database
+        let users = [];
+        try {
+            users = JSON.parse(localStorage.getItem(this.storagePrefix + "users") || "[]");
+        } catch (e) {
+            users = [];
         }
+
+        const adminExists = users.some(u => u.email.toLowerCase() === "dexterdavid835@gmail.com");
+        if (!adminExists) {
+            users.push({
+                id: "usr_admin_1",
+                email: "dexterdavid835@gmail.com",
+                passwordHash: "admin123",
+                fullName: "Admissions Admin",
+                role: "admin",
+                cohort: "All"
+            });
+        }
+
+        const studentExists = users.some(u => u.email.toLowerCase() === "student@respectech.ng");
+        if (!studentExists) {
+            users.push({
+                id: "usr_student_1",
+                email: "student@respectech.ng",
+                passwordHash: "student123",
+                fullName: "Ayebakuro Oruwori",
+                role: "student",
+                cohort: "Cohort 6"
+            });
+        }
+
+        localStorage.setItem(this.storagePrefix + "users", JSON.stringify(users));
     }
 
     // --- APPLICATION TABLE METHODS ---

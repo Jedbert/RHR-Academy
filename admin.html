@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions & Tutor Admin Dashboard | Respectech-HR Academy</title>
+    <meta name="description" content="Admin dashboard for Respectech-HR Academy admissions review, candidate screening score approval, capstone evaluation, and HR placement.">
+    <link rel="icon" href="assets/images/favicon.ico">
+
+    <!-- Google Fonts & FontAwesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Design System Stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <style>
+        .admin-header {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1.25rem 0;
+        }
+
+        .admin-banner {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #7A1712 100%);
+            color: var(--text-inverse);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .dash-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .admin-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-subtle);
+            padding-bottom: 0.5rem;
+        }
+
+        .admin-tab-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-muted);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -0.7rem;
+            transition: var(--transition-fast);
+        }
+
+        .admin-tab-btn.active {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .data-table-container {
+            background: var(--bg-white);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            overflow-x: auto;
+            box-shadow: var(--shadow-sm);
+        }
+
+        table.admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        table.admin-table th {
+            background-color: var(--bg-light);
+            padding: 1rem 1.25rem;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        table.admin-table td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+        }
+
+        table.admin-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge-pending {
+            background: #FEF3C7;
+            color: #D97706;
+            padding: 0.25rem 0.65rem;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .badge-approved {
+            background: #ECFDF5;
+            color: #10B981;
+            padding: 0.25rem 0.65rem;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .badge-rejected {
+            background: #FEF2F2;
+            color: #D92D20;
+            padding: 0.25rem 0.65rem;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="container navbar-container">
+            <a href="index.html" class="brand-logo">
+                <img src="https://i.ibb.co/RQFbQ87/respectech-logo-2-1.png" alt="Respectech-HR Academy Logo">
+                <span>R-HR <span class="highlight">Admissions Board</span></span>
+            </a>
+
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <span id="adminEmailTag" style="font-weight: 600; font-size: 0.95rem; color: var(--text-main);">
+                    <i class="fa-solid fa-user-shield" style="color: var(--primary);"></i> dexterdavid835@gmail.com
+                </span>
+                <button onclick="handleLogout()" class="btn btn-outline btn-sm"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-bottom: 4rem;">
+        <!-- Admin Greeting Banner -->
+        <div class="admin-banner">
+            <div>
+                <span class="section-tag" style="color: var(--primary-border);">Admissions Management</span>
+                <h1 style="font-size: 2rem; color: white; margin: 0.25rem 0;">Admissions & Evaluation Board</h1>
+                <p style="color: #94A3B8; font-size: 1rem;">Review screening scores, approve candidates, and export dossiers for hiring partners.</p>
+            </div>
+            <div>
+                <button onclick="loadAdminData()" class="btn btn-secondary"><i class="fa-solid fa-rotate"></i> Refresh Data</button>
+            </div>
+        </div>
+
+        <!-- Metric Overview Row -->
+        <div class="stats-row">
+            <div class="dash-card">
+                <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Total Cohort 7 Applications</span>
+                <h3 style="font-size: 1.85rem; color: var(--primary); margin: 0.25rem 0;" id="statTotalApps">2</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Active Applicants</span>
+            </div>
+
+            <div class="dash-card">
+                <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Pending Score Reviews</span>
+                <h3 style="font-size: 1.85rem; color: #D97706; margin: 0.25rem 0;" id="statPendingApps">1</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Requires Decision</span>
+            </div>
+
+            <div class="dash-card">
+                <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Approved Fellows</span>
+                <h3 style="font-size: 1.85rem; color: #10B981; margin: 0.25rem 0;" id="statApprovedApps">1</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Enrolled for Cohort 7</span>
+            </div>
+
+            <div class="dash-card">
+                <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">Capstones Pending Evaluation</span>
+                <h3 style="font-size: 1.85rem; color: var(--text-main); margin: 0.25rem 0;" id="statCapstones">0</h3>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Demo Day Projects</span>
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="admin-tabs">
+            <button class="admin-tab-btn active" id="tabAppsBtn" onclick="switchTab('apps')"><i class="fa-solid fa-list-check"></i> Candidate Applications & Screening Scores</button>
+            <button class="admin-tab-btn" id="tabCapBtn" onclick="switchTab('capstones')"><i class="fa-solid fa-rocket"></i> Capstone Projects & Demo Day</button>
+        </div>
+
+        <!-- Tab 1: Candidate Applications Table -->
+        <div id="sectionApps">
+            <div class="data-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Applicant ID</th>
+                            <th>Candidate Name</th>
+                            <th>Email Address</th>
+                            <th>Track Choice</th>
+                            <th>Screening Score</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="appsTableBody">
+                        <!-- Loaded dynamically via loadAdminData() -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab 2: Capstones Review Section -->
+        <div id="sectionCapstones" style="display: none;">
+            <div class="data-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Project Title</th>
+                            <th>Submitted By</th>
+                            <th>Cohort</th>
+                            <th>Live App URL</th>
+                            <th>GitHub Repo</th>
+                            <th>Status</th>
+                            <th>Graduation Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="capTableBody">
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" style="padding: 2rem 0;">
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2026 Respectech-HR Academy. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Protected Admin Route Check
+        document.addEventListener('DOMContentLoaded', () => {
+            const session = window.RHRDB.getCurrentSession();
+            if (!session || session.user.role !== 'admin') {
+                alert("Access Denied. Admissions Admin login required.");
+                window.location.href = 'auth.html';
+                return;
+            }
+
+            document.getElementById('adminEmailTag').innerHTML = `<i class="fa-solid fa-user-shield" style="color: var(--primary);"></i> ${session.user.email}`;
+            loadAdminData();
+        });
+
+        function handleLogout() {
+            window.RHRDB.logout();
+            window.location.href = 'index.html';
+        }
+
+        function switchTab(tabName) {
+            document.getElementById('sectionApps').style.display = tabName === 'apps' ? 'block' : 'none';
+            document.getElementById('sectionCapstones').style.display = tabName === 'capstones' ? 'block' : 'none';
+            document.getElementById('tabAppsBtn').className = tabName === 'apps' ? 'admin-tab-btn active' : 'admin-tab-btn';
+            document.getElementById('tabCapBtn').className = tabName === 'capstones' ? 'admin-tab-btn active' : 'admin-tab-btn';
+        }
+
+        async function loadAdminData() {
+            const apps = await window.RHRDB.getApplications();
+            const capstones = window.RHRDB.getCapstones();
+
+            document.getElementById('statTotalApps').innerText = apps.length;
+            document.getElementById('statPendingApps').innerText = apps.filter(a => a.status === 'pending_review' || a.status === 'recommended').length;
+            document.getElementById('statApprovedApps').innerText = apps.filter(a => a.status === 'approved').length;
+            document.getElementById('statCapstones').innerText = capstones.length;
+
+            // Render Applications Table
+            const appsBody = document.getElementById('appsTableBody');
+            if (apps.length === 0) {
+                appsBody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 2rem; color: var(--text-muted);">No candidate applications recorded yet.</td></tr>`;
+            } else {
+                appsBody.innerHTML = apps.map(app => {
+                    let badgeClass = 'badge-pending';
+                    if (app.status === 'approved') badgeClass = 'badge-approved';
+                    if (app.status === 'rejected') badgeClass = 'badge-rejected';
+
+                    const scoreText = app.screeningScore ? `<strong>${app.screeningScore}%</strong>` : '<span style="color: var(--text-muted); font-size: 0.85rem;">Pending Quiz</span>';
+
+                    return `
+                        <tr>
+                            <td><strong>${app.id}</strong></td>
+                            <td>${app.fullName}</td>
+                            <td>${app.email}</td>
+                            <td>${app.track}</td>
+                            <td>${scoreText}</td>
+                            <td><span class="${badgeClass}">${app.status.toUpperCase()}</span></td>
+                            <td>
+                                ${app.status !== 'approved' ? `
+                                    <button onclick="approveApp('${app.id}')" class="btn btn-primary btn-sm" style="padding: 0.3rem 0.75rem;"><i class="fa-solid fa-check"></i> Approve</button>
+                                    <button onclick="rejectApp('${app.id}')" class="btn btn-outline btn-sm" style="padding: 0.3rem 0.75rem; color: #D92D20;"><i class="fa-solid fa-xmark"></i></button>
+                                ` : `
+                                    <button onclick="exportDossier('${app.id}')" class="btn btn-secondary btn-sm" style="padding: 0.3rem 0.75rem;"><i class="fa-solid fa-file-export"></i> HR Dossier</button>
+                                `}
+                            </td>
+                        </tr>
+                    `;
+                }).join('');
+            }
+
+            // Render Capstones Table
+            const capBody = document.getElementById('capTableBody');
+            if (capstones.length === 0) {
+                capBody.innerHTML = `<tr><td colspan="7" style="text-align: center; padding: 2rem; color: var(--text-muted);">No Capstone project submissions recorded yet.</td></tr>`;
+            } else {
+                capBody.innerHTML = capstones.map(cap => `
+                    <tr>
+                        <td><strong>${cap.title}</strong><br><span style="font-size: 0.8rem; color: var(--text-muted);">${cap.tagline}</span></td>
+                        <td>${cap.submittedBy}</td>
+                        <td>${cap.cohort}</td>
+                        <td><a href="${cap.liveAppUrl}" target="_blank" style="color: var(--primary); text-decoration: underline;">Launch App <i class="fa-solid fa-arrow-up-right-from-square"></i></a></td>
+                        <td><a href="${cap.githubRepoUrl}" target="_blank" style="color: var(--text-main); text-decoration: underline;">GitHub Repo</a></td>
+                        <td><span class="badge-approved">${cap.status.toUpperCase()}</span></td>
+                        <td>
+                            <button onclick="approveGraduation('${cap.id}')" class="btn btn-primary btn-sm"><i class="fa-solid fa-award"></i> Approve Graduation</button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        async function approveApp(appId) {
+            await window.RHRDB.approveCandidate(appId);
+            if (window.showToast) window.showToast(`Candidate ${appId} approved! Acceptance email dispatched.`);
+            loadAdminData();
+        }
+
+        async function rejectApp(appId) {
+            await window.RHRDB.rejectCandidate(appId);
+            if (window.showToast) window.showToast(`Application ${appId} marked as rejected.`, 'error');
+            loadAdminData();
+        }
+
+        function exportDossier(appId) {
+            alert(`[HR Linkage Exporter]\nCandidate Dossier for ${appId} generated!\nIncluding candidate resume, verified screening score, and track records for hiring partners (Servelead, SystemSpecs, Tranter IT).`);
+        }
+
+        function approveGraduation(capId) {
+            alert(`[Graduation Approved!]\nSerial Certificate ID generated (e.g. RHR-C6-2026-001).\nFellow notified and credential added to Verification Database.`);
+        }
+    </script>
+</body>
+
+</html>
