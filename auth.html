@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication & Portal Gateway | Respectech-HR Academy</title>
+    <meta name="description" content="Sign in to your Respectech-HR Academy portal. Access student LMS dashboard or admissions administration.">
+    <link rel="icon" href="assets/images/favicon.ico">
+
+    <!-- Google Fonts & FontAwesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Design System Stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <style>
+        body {
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .auth-card {
+            max-width: 480px;
+            margin: 4rem auto;
+            background: var(--bg-white);
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-lg);
+            padding: 2.5rem;
+            width: 100%;
+        }
+
+        .auth-tabs {
+            display: flex;
+            border-bottom: 2px solid var(--border-subtle);
+            margin-bottom: 2rem;
+        }
+
+        .auth-tab-btn {
+            flex: 1;
+            padding: 0.75rem;
+            background: none;
+            border: none;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            transition: var(--transition-fast);
+        }
+
+        .auth-tab-btn.active {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .demo-accounts-box {
+            background: var(--primary-light);
+            border: 1px dashed var(--primary-border);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Simple Header -->
+    <header class="site-header">
+        <div class="container navbar-container">
+            <a href="index.html" class="brand-logo">
+                <img src="https://i.ibb.co/RQFbQ87/respectech-logo-2-1.png" alt="Respectech-HR Academy Logo">
+                <span>R-HR <span class="highlight">Academy</span></span>
+            </a>
+            <a href="index.html" class="btn btn-outline btn-sm"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </header>
+
+    <main style="flex-grow: 1;">
+        <div class="container">
+            <div class="auth-card">
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <span class="section-tag">R-HR Portal Gateway</span>
+                    <h2 style="font-size: 1.75rem; margin-top: 0.25rem;">Sign In to Your Account</h2>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Select your portal role below</p>
+                </div>
+
+                <div class="auth-tabs">
+                    <button class="auth-tab-btn active" id="tabStudentBtn" onclick="switchAuthTab('student')">Student Portal</button>
+                    <button class="auth-tab-btn" id="tabAdminBtn" onclick="switchAuthTab('admin')">Admissions Admin</button>
+                </div>
+
+                <!-- Sign In Form -->
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label class="form-label" for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" class="form-control" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                        Sign In to Portal <i class="fa-solid fa-right-to-bracket"></i>
+                    </button>
+                </form>
+
+                <!-- Demo Login Shortcuts -->
+                <div class="demo-accounts-box">
+                    <strong style="color: var(--primary); display: block; margin-bottom: 0.5rem;"><i class="fa-solid fa-key"></i> Quick Demo Test Credentials:</strong>
+                    <div style="display: flex; gap: 0.5rem; flex-direction: column;">
+                        <button type="button" class="btn btn-outline btn-sm" onclick="fillDemo('dexterdavid835@gmail.com', 'admin123', 'admin')">
+                            Fill Admin Credentials (Admissions Board)
+                        </button>
+                        <button type="button" class="btn btn-outline btn-sm" onclick="fillDemo('student@respectech.ng', 'student123', 'student')">
+                            Fill Fellow Credentials (Cohort 6 Student)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" style="padding: 2rem 0;">
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2026 Respectech-HR Academy. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Database Script & Main JS -->
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        let currentRole = 'student';
+
+        function switchAuthTab(role) {
+            currentRole = role;
+            document.getElementById('tabStudentBtn').className = role === 'student' ? 'auth-tab-btn active' : 'auth-tab-btn';
+            document.getElementById('tabAdminBtn').className = role === 'admin' ? 'auth-tab-btn active' : 'auth-tab-btn';
+        }
+
+        function fillDemo(email, pass, role) {
+            switchAuthTab(role);
+            document.getElementById('loginEmail').value = email;
+            document.getElementById('loginPassword').value = pass;
+            if (window.showToast) window.showToast(`Loaded ${role.toUpperCase()} test credentials`);
+        }
+
+        document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value.trim();
+            const pass = document.getElementById('loginPassword').value;
+
+            try {
+                const session = await window.RHRDB.login(email, pass);
+                if (window.showToast) window.showToast(`Signed in as ${session.user.fullName} (${session.user.role.toUpperCase()})`);
+
+                setTimeout(() => {
+                    if (session.user.role === 'admin') {
+                        alert(`Welcome, Admin! Auth session verified for ${session.user.email}.\n(Phase 4 Admin Approval Dashboard link activated)`);
+                    } else {
+                        alert(`Welcome, ${session.user.fullName}! Auth session verified.\n(Phase 3 Fellow LMS Dashboard link activated)`);
+                    }
+                    window.location.href = 'index.html';
+                }, 1000);
+            } catch (err) {
+                if (window.showToast) window.showToast(err.message, 'error');
+            }
+        });
+    </script>
+</body>
+
+</html>

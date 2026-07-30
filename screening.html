@@ -244,15 +244,16 @@
                 <a href="index.html" class="btn btn-primary">Return to Home</a>
             `;
 
-            // Record score in local storage & dispatch email notification
-            const scoreRecord = { appId, score, status, date: new Date().toLocaleString() };
-            const scores = JSON.parse(localStorage.getItem('rhr_quiz_scores') || '[]');
-            scores.push(scoreRecord);
-            localStorage.setItem('rhr_quiz_scores', JSON.stringify(scores));
+            // Phase 2 Database Service Integration
+            if (window.RHRDB) {
+                window.RHRDB.updateScreeningScore(appId, score, status);
+            }
 
             if (window.showToast) window.showToast(`Quiz completed! Score: ${score}%`);
         });
     </script>
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
