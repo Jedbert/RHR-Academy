@@ -7,13 +7,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileToggle = document.getElementById('mobileToggle');
     const navMenu = document.getElementById('navMenu');
 
+    // Global Close Mobile Menu Helper
+    window.closeMobileMenu = function () {
+        if (navMenu) navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+        if (mobileToggle) {
+            const icon = mobileToggle.querySelector('i');
+            if (icon) icon.className = 'fa-solid fa-bars';
+        }
+    };
+
     if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+            const isActive = navMenu.classList.toggle('active');
+            document.body.style.overflow = isActive ? 'hidden' : '';
             const icon = mobileToggle.querySelector('i');
             if (icon) {
-                icon.className = navMenu.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+                icon.className = isActive ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
             }
+        });
+
+        // Close mobile drawer when a link is clicked
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                window.closeMobileMenu();
+            });
         });
     }
 

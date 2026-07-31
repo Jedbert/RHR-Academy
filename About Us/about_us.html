@@ -124,6 +124,14 @@
             </a>
 
             <nav class="nav-menu" id="navMenu">
+                <div class="mobile-menu-header">
+                    <a href="../index.html" class="brand-logo">
+                        <img src="https://i.ibb.co/RQFbQ87/respectech-logo-2-1.png" alt="Respectech-HR Academy Logo">
+                        <span>R-HR <span class="highlight">Academy</span></span>
+                    </a>
+                    <button id="mobileMenuClose" class="btn btn-outline btn-sm" onclick="closeMobileMenu()"><i class="fa-solid fa-xmark"></i> Close</button>
+                </div>
+
                 <a href="../index.html" class="nav-link">Home</a>
                 <a href="about_us.html" class="nav-link active">About Us</a>
                 
@@ -133,7 +141,10 @@
                     </button>
                     <div class="nav-dropdown-menu">
                         <a href="../Respectechies/techies.html" class="dropdown-item">
-                            <i class="fa-solid fa-user-graduate" style="color: var(--primary);"></i> Cohorts & Techies
+                            <i class="fa-solid fa-user-graduate" style="color: var(--primary);"></i> Cohorts (1 to 6)
+                        </a>
+                        <a href="../showcase.html" class="dropdown-item">
+                            <i class="fa-solid fa-rocket" style="color: var(--primary);"></i> Demo Day Showcase
                         </a>
                         <a href="../Unemployment Statistics/unemployment.html" class="dropdown-item">
                             <i class="fa-solid fa-chart-line" style="color: var(--primary);"></i> Unemployment Stats
@@ -142,12 +153,18 @@
                 </div>
 
                 <a href="../Contact/contact.html" class="nav-link">Contact Us</a>
+
+                <div class="mobile-nav-actions">
+                    <a href="../auth.html" class="btn btn-outline btn-sm"><i class="fa-solid fa-user-lock"></i> Portal Sign In</a>
+                    <a href="../screening.html" class="btn btn-primary btn-sm">Take Screening Quiz</a>
+                </div>
             </nav>
 
             <div class="nav-actions">
-                <a href="../index.html#tracks" class="btn btn-primary btn-sm">Enroll Now</a>
+                <a href="../auth.html" class="btn btn-outline btn-sm"><i class="fa-solid fa-user-lock"></i> Portal Sign In</a>
+                <a href="../screening.html" class="btn btn-primary btn-sm">Take Screening Quiz</a>
                 <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
-                    <i class="fa-solid fa-bars"></i>
+                    <span>Menu</span> <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>

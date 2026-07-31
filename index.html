@@ -43,6 +43,14 @@
             </a>
 
             <nav class="nav-menu" id="navMenu">
+                <div class="mobile-menu-header">
+                    <a href="index.html" class="brand-logo">
+                        <img src="https://i.ibb.co/RQFbQ87/respectech-logo-2-1.png" alt="Respectech-HR Academy Logo">
+                        <span>R-HR <span class="highlight">Academy</span></span>
+                    </a>
+                    <button id="mobileMenuClose" class="btn btn-outline btn-sm" onclick="closeMobileMenu()"><i class="fa-solid fa-xmark"></i> Close</button>
+                </div>
+
                 <a href="index.html" class="nav-link active">Home</a>
                 <a href="About Us/about_us.html" class="nav-link">About Us</a>
                 
@@ -64,16 +72,23 @@
                 </div>
 
                 <a href="Contact/contact.html" class="nav-link">Contact Us</a>
+
+                <div class="mobile-nav-actions">
+                    <a href="auth.html" class="btn btn-outline btn-sm"><i class="fa-solid fa-user-lock"></i> Portal Sign In</a>
+                    <button onclick="closeMobileMenu(); openModal('certModal')" class="btn btn-outline btn-sm"><i class="fa-solid fa-shield-halved"></i> Verify Credential</button>
+                    <button onclick="closeMobileMenu(); openModal('enrollModal')" class="btn btn-primary btn-sm">Enroll (Cohort 7)</button>
+                </div>
             </nav>
 
             <div class="nav-actions">
                 <a href="auth.html" class="btn btn-outline btn-sm"><i class="fa-solid fa-user-lock"></i> Portal Sign In</a>
                 <button onclick="openModal('certModal')" class="btn btn-outline btn-sm"><i class="fa-solid fa-shield-halved"></i> Verify Credential</button>
                 <button onclick="openModal('enrollModal')" class="btn btn-primary btn-sm">Enroll (Cohort 7)</button>
-                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
             </div>
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+                <span>Menu</span> <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
     </header>
 
