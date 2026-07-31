@@ -33,6 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.closeMobileMenu();
             });
         });
+
+        // Toggle mobile dropdown accordion (Respectechies)
+        document.querySelectorAll('.nav-dropdown-toggle').forEach(dropdownBtn => {
+            dropdownBtn.addEventListener('click', (e) => {
+                if (window.innerWidth <= 991) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const dropdown = dropdownBtn.closest('.nav-dropdown');
+                    if (dropdown) dropdown.classList.toggle('open');
+                }
+            });
+        });
     }
 
     // 2. Initialize EmailJS Integration (Phase 1)

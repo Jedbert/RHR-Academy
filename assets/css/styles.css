@@ -387,6 +387,11 @@ header.site-header {
     align-items: center;
 }
 
+.hero-content {
+    text-align: center;
+    margin: 0 auto;
+}
+
 .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -407,6 +412,7 @@ header.site-header {
     line-height: 1.15;
     color: var(--text-main);
     margin-bottom: 1.25rem;
+    text-align: center;
 }
 
 .hero-headline span.text-highlight {
@@ -420,12 +426,16 @@ header.site-header {
     color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 2rem;
-    max-width: 540px;
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .hero-cta-group {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 2.5rem;
@@ -437,6 +447,10 @@ header.site-header {
     gap: 1.5rem;
     padding-top: 2rem;
     border-top: 1px solid var(--border-subtle);
+}
+
+.stat-item {
+    text-align: center;
 }
 
 .stat-item h4 {
